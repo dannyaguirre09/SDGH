@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1483f7b06bdc4c55aea1a51e95ae7889" Name="Diagram1">
+        <EntityTypeShape EntityType="BDClinicaModel.BANCO" Width="1.5" PointX="10.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDClinicaModel.CLIENTEEXTERNO" Width="1.5" PointX="15.75" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDClinicaModel.CONTROL" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDClinicaModel.CUENTA_BANCO" Width="1.5" PointX="13" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDClinicaModel.DESGLOSE_MEDICAMENTOS" Width="1.5" PointX="5.25" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDClinicaModel.DETALLE_DESGLOSE_MEDICAMENTOS" Width="1.5" PointX="7.5" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDClinicaModel.DETALLE_FACTURA" Width="1.5" PointX="17.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDClinicaModel.DETALLE_LIQUIDACION" Width="1.5" PointX="10.5" PointY="36.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDClinicaModel.DETALLE_ORDEN_CIRUGIA" Width="1.5" PointX="11.25" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDClinicaModel.DIAGNOSTICOS" Width="1.5" PointX="8.25" PointY="22.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDClinicaModel.DOCUMENTOS" Width="1.5" PointX="5.25" PointY="23.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDClinicaModel.EMPRESA_CONVENIO" Width="1.5" PointX="0.75" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDClinicaModel.ENFERMEDADES_ACTUALES" Width="1.5" PointX="5.25" PointY="26.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDClinicaModel.ESPECIALISTA" Width="1.5" PointX="6" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDClinicaModel.FORMA_PAGO" Width="1.5" PointX="13" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDClinicaModel.IMPUESTOS" Width="1.5" PointX="17.75" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDClinicaModel.INDICES_CIE_PRINCIPALES" Width="1.5" PointX="3.75" PointY="30.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDClinicaModel.INDICES_CIE_SECUNDARIOS" Width="1.5" PointX="6" PointY="30" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDClinicaModel.INSUMOS_MEDICOS" Width="1.5" PointX="5.25" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDClinicaModel.LENTES" Width="1.5" PointX="15.75" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDClinicaModel.LIQUIDACION_FACTURAS" Width="1.5" PointX="8.25" PointY="36.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDClinicaModel.MENUS" Width="1.5" PointX="5.75" PointY="45" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDClinicaModel.MODULOS" Width="1.5" PointX="13.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDClinicaModel.MODULOS_PERFILES" Width="1.5" PointX="16" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDClinicaModel.NOTAS_POSTQUIRURGICAS" Width="1.5" PointX="5.25" PointY="38.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDClinicaModel.OPERADOR" Width="1.5" PointX="0.75" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDClinicaModel.ORDEN_CIRUGIA" Width="1.5" PointX="3" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDClinicaModel.PACIENTE" Width="1.5" PointX="0.75" PointY="22.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDClinicaModel.PARAMETROS" Width="1.5" PointX="17.75" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDClinicaModel.PERFILES" Width="1.5" PointX="13.75" PointY="18.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDClinicaModel.PIE_DESGLOSE" Width="1.5" PointX="10.5" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDClinicaModel.PIE_FACTURA" Width="1.5" PointX="15.25" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDClinicaModel.PRESCRIPCIONES" Width="1.5" PointX="5.25" PointY="41.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDClinicaModel.PROGRAMA" Width="1.5" PointX="8" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDClinicaModel.PROVEEDORES" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDClinicaModel.SERVICIO_EMPRESA_CONVENIO" Width="1.5" PointX="10.5" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDClinicaModel.SERVICIOS" Width="1.5" PointX="8.25" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDClinicaModel.TARJETA_CREDITO" Width="1.5" PointX="13" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDClinicaModel.TIPO_CIRUGIA" Width="1.5" PointX="9" PointY="30.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDClinicaModel.TIPOESPECIALISTA" Width="1.5" PointX="6" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDClinicaModel.TIPOS" Width="1.5" PointX="1.5" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDClinicaModel.TIPOS_EXAMENES_FISICOS" Width="1.5" PointX="6" PointY="21.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDClinicaModel.UNIDADES" Width="1.5" PointX="3" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDClinicaModel.USUARIOS" Width="1.5" PointX="13.75" PointY="22.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDClinicaModel.USUARIOS_PERFILES" Width="1.5" PointX="16" PointY="19" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDClinicaModel.ORDEN_ESPECIALISTA" Width="1.5" PointX="8.25" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDClinicaModel.SRIRetencionCompraDetalle" Width="1.5" PointX="18.75" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDClinicaModel.SRIRetencionCompraEncab" Width="1.5" PointX="18.75" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDClinicaModel.TEMP_ORDENES" Width="1.5" PointX="19.75" PointY="2.625" IsExpanded="true" />
+        <AssociationConnector Association="BDClinicaModel.FK_CUENTA_BANCO_BANCO" ManuallyRouted="false" />
+        <AssociationConnector Association="BDClinicaModel.FK_TARJETA__BANCO_TAR_BANCO" ManuallyRouted="false" />
+        <AssociationConnector Association="BDClinicaModel.FK_CONTROL_OPERADOR" ManuallyRouted="false" />
+        <AssociationConnector Association="BDClinicaModel.FK_PIE_FACTURA_CUENTA_BANCO" ManuallyRouted="false" />
+        <AssociationConnector Association="BDClinicaModel.FK_DESGLOSE_RELATIONS_ORDEN_CI" ManuallyRouted="false" />
+        <AssociationConnector Association="BDClinicaModel.FK_DETALLE__RELATIONS_DESGLOSE" ManuallyRouted="false" />
+        <AssociationConnector Association="BDClinicaModel.FK_PIE_DESG_RELATIONS_DESGLOSE" ManuallyRouted="false" />
+        <AssociationConnector Association="BDClinicaModel.FK_DETALLE__RELATIONS_INSUMOS_" ManuallyRouted="false" />
+        <AssociationConnector Association="BDClinicaModel.FK_DETALLE_LIQUIDACION_LIQUIDACION_FACTURAS" ManuallyRouted="false" />
+        <AssociationConnector Association="BDClinicaModel.FK_DETALLE_ORDEN_CIRUGIA_ORDEN_CIRUGIA" ManuallyRouted="false" />
+        <AssociationConnector Association="BDClinicaModel.FK_DETALLE_ORDEN_CIRUGIA_SERVICIOS" ManuallyRouted="false" />
+        <AssociationConnector Association="BDClinicaModel.FK_DETALLE_ORDEN_CIRUGIA_TIPO_CIRUGIA" ManuallyRouted="false" />
+        <AssociationConnector Association="BDClinicaModel.FK_DIAGNOST_RELATIONS_INDICES_" ManuallyRouted="false" />
+        <AssociationConnector Association="BDClinicaModel.FK_ORDEN_CIRUGIA_EMPRESA_CONVENIO" ManuallyRouted="false" />
+        <AssociationConnector Association="BDClinicaModel.FK_SERVICIO_EMPRESA_E_EMPRESA_" ManuallyRouted="false" />
+        <AssociationConnector Association="BDClinicaModel.FK_LIQUIDACION_FACTURAS_ESPECIALISTA" ManuallyRouted="false" />
+        <AssociationConnector Association="BDClinicaModel.FK_ORDEN_ESPECIALISTA_ESPECIALISTA" ManuallyRouted="false" />
+        <AssociationConnector Association="BDClinicaModel.FK_PIE_FACT_FORMAPAGO_FORMA_PA" ManuallyRouted="false" />
+        <AssociationConnector Association="BDClinicaModel.FK_INDICES__RELATIONS_INDICES_" ManuallyRouted="false" />
+        <AssociationConnector Association="BDClinicaModel.FK_INSUMOS__RELATIONS_PROVEEDO" ManuallyRouted="false" />
+        <AssociationConnector Association="BDClinicaModel.FK_INSUMOS__RELATIONS_UNIDADES" ManuallyRouted="false" />
+        <AssociationConnector Association="BDClinicaModel.FK_PROGRAMA_MENUS_PRO_MENUS" ManuallyRouted="false" />
+        <AssociationConnector Association="BDClinicaModel.FK_MODULOS_MODULOS" ManuallyRouted="false" />
+        <AssociationConnector Association="BDClinicaModel.FK_MODULOS_PERFILES_MODULOS" ManuallyRouted="false" />
+        <AssociationConnector Association="BDClinicaModel.FK_MODULOS_PERFILES_PERFILES" ManuallyRouted="false" />
+        <AssociationConnector Association="BDClinicaModel.FK_OPERADOR_TIPOS_OPE_TIPOS" ManuallyRouted="false" />
+        <AssociationConnector Association="BDClinicaModel.FK_ORDEN_CIRUGIA_OPERADOR" ManuallyRouted="false" />
+        <AssociationConnector Association="BDClinicaModel.FK_ORDEN_CI_PACIENTE__PACIENTE" ManuallyRouted="false" />
+        <AssociationConnector Association="BDClinicaModel.FK_ORDEN_ESPECIALISTA_ORDEN_CIRUGIA" ManuallyRouted="false" />
+        <AssociationConnector Association="BDClinicaModel.FK_USUARIOS_PERFILES_PERFILES" ManuallyRouted="false" />
+        <AssociationConnector Association="BDClinicaModel.FK_PIE_DESG_RELATIONS_SERVICIO" ManuallyRouted="false" />
+        <AssociationConnector Association="BDClinicaModel.FK_PIE_FACT_TARJETAC__TARJETA_" ManuallyRouted="false" />
+        <AssociationConnector Association="BDClinicaModel.FK_SERVICIO_SERVICIO__SERVICIO" ManuallyRouted="false" />
+        <AssociationConnector Association="BDClinicaModel.FK_ORDEN_ESPECIALISTA_TIPOESPECIALISTA" ManuallyRouted="false" />
+        <AssociationConnector Association="BDClinicaModel.FK_USUARIOS_PERFILES_USUARIOS" ManuallyRouted="false" />
+        <AssociationConnector Association="BDClinicaModel.PROGOPER" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="BDClinicaModel.HISTORIA_CLINICA" Width="1.25" PointX="3" PointY="22.125" />
+        <AssociationConnector Association="BDClinicaModel.FK_DIAGNOST_RELATIONS_HISTORIA" />
+        <AssociationConnector Association="BDClinicaModel.FK_DOCUMENT_RELATIONS_HISTORIA" />
+        <AssociationConnector Association="BDClinicaModel.FK_ENFERMED_RELATIONS_HISTORIA" />
+        <AssociationConnector Association="BDClinicaModel.FK_HISTORIA_RELATIONS_PACIENTE" />
+        <AssociationConnector Association="BDClinicaModel.FK_NOTAS_PO_RELATIONS_HISTORIA" />
+        <AssociationConnector Association="BDClinicaModel.FK_PRESCRIPCIONES_HISTORIA_CLINICA" />
+        <EntityTypeShape EntityType="BDClinicaModel.CONSULTAS" Width="1.5" PointX="5.25" PointY="18.125" />
+        <AssociationConnector Association="BDClinicaModel.FK_CONSULTA_RELATIONS_HISTORIA" />
+        <EntityTypeShape EntityType="BDClinicaModel.LISTA_ANTECEDENTES" Width="1.5" PointX="22.625" PointY="7" />
+        <EntityTypeShape EntityType="BDClinicaModel.TIPOS_ANTECEDENTES" Width="1.5" PointX="20.375" PointY="7.125" />
+        <AssociationConnector Association="BDClinicaModel.FK_LISTA_AN_RELATIONS_TIPOS_AN" />
+        <EntityTypeShape EntityType="BDClinicaModel.HISTORIA_ANTECEDENTES" Width="1.5" PointX="24.875" PointY="15.375" />
+        <AssociationConnector Association="BDClinicaModel.FK_HISTORIA_RELATIONS_HISTORIA" />
+        <AssociationConnector Association="BDClinicaModel.FK_HISTORIA_RELATIONS_LISTA_AN" />
+        <EntityTypeShape EntityType="BDClinicaModel.HISTORIA_CLINICA_SIGNOS_VITALES" Width="1.5" PointX="9" PointY="27" />
+        <EntityTypeShape EntityType="BDClinicaModel.SIGNOS_VITALES" Width="1.5" PointX="6.75" PointY="33.25" />
+        <AssociationConnector Association="BDClinicaModel.FK_HISTORIA_RELATIONS_HISTORIA2" />
+        <AssociationConnector Association="BDClinicaModel.FK_HISTORIA_RELATIONS_SIGNOS_V" />
+        <EntityTypeShape EntityType="BDClinicaModel.FACTURA" Width="1.5" PointX="21" PointY="12.75" />
+        <EntityTypeShape EntityType="BDClinicaModel.FACTURA_RETENCION" Width="1.5" PointX="23.25" PointY="11.25" />
+        <EntityTypeShape EntityType="BDClinicaModel.sysdiagrams" Width="1.5" PointX="10.375" PointY="0.75" />
+        <AssociationConnector Association="BDClinicaModel.FK_FACTURA_CLIENTEEXTERNO" />
+        <AssociationConnector Association="BDClinicaModel.FK_DETALLE__FACTURA_D_FACTURA" />
+        <AssociationConnector Association="BDClinicaModel.FK_FACTURA_OPERADOR" />
+        <AssociationConnector Association="BDClinicaModel.FK_FACTURA_ORDEN_CIRUGIA" />
+        <AssociationConnector Association="BDClinicaModel.FK_FACTURA_ORDENC_FA_ORDEN_CI" />
+        <AssociationConnector Association="BDClinicaModel.FK_FACTURA_RETENCION_FACTURA" />
+        <AssociationConnector Association="BDClinicaModel.FK_PIE_FACTURA_FACTURA" />
+        <AssociationConnector Association="BDClinicaModel.FK_FACTURA_RETENCION_IMPUESTOS" />
+        <EntityTypeShape EntityType="BDClinicaModel.EXAMENES_FISICOS" Width="1.5" PointX="8.25" PointY="19.5" />
+        <AssociationConnector Association="BDClinicaModel.FK_EXAMENES_FISICOS_TIPOS_EXAMENES_FISICOS" />
+        <AssociationConnector Association="BDClinicaModel.FK_EXAMENES_RELATIONS_HISTORIA" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

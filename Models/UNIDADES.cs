@@ -17,16 +17,13 @@ namespace SysFloricola.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public UNIDADES()
         {
-            this.DETALLE_FLOR_CLASIFICADA = new HashSet<DETALLE_FLOR_CLASIFICADA>();
-            this.UNIDADES_TAMANIO_TIPO = new HashSet<UNIDADES_TAMANIO_TIPO>();
+            this.INSUMOS_MEDICOS = new HashSet<INSUMOS_MEDICOS>();
         }
     
         public int UNDCODIGOI { get; set; }
         public string UNDDESCRIPCION { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DETALLE_FLOR_CLASIFICADA> DETALLE_FLOR_CLASIFICADA { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<UNIDADES_TAMANIO_TIPO> UNIDADES_TAMANIO_TIPO { get; set; }
+        public virtual ICollection<INSUMOS_MEDICOS> INSUMOS_MEDICOS { get; set; }
     }
 }

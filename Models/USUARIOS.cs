@@ -21,14 +21,15 @@ namespace SysFloricola.Models
         }
     
         public int USRCODIGOI { get; set; }
-        public int EPLCODIGOI { get; set; }
+        public string USRCEDULAC { get; set; }
+        public string USRAPELLIDOP { get; set; }
+        public string USRAPELLIDOM { get; set; }
+        public string USRNOMBREC { get; set; }
         public string USRLOGIN { get; set; }
         public string USRPASSWORD { get; set; }
         public bool USRESTADO { get; set; }
         public Nullable<bool> USRESTADOCAMBIO { get; set; }
-        public byte[] USRFOTO { get; set; }
     
-        public virtual EMPLEADOS EMPLEADOS { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<USUARIOS_PERFILES> USUARIOS_PERFILES { get; set; }
     }

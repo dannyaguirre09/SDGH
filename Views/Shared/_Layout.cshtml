@@ -10,7 +10,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	@*<link rel="icon" href="images/favicon.ico" type="image/ico" />*@
 
-	<title>@ViewBag.Title  |Flores Ecuador! </title>
+	<title>@ViewBag.Title  | SGHC! </title>
 	<!-- Bootstrap -->
 	<link href="~/Vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
 	<!-- Font Awesome -->
@@ -36,7 +36,7 @@
             <div class="col-md-3 left_col">
                 <div class="left_col scroll-view">
                     <div class="navbar nav_title" style="border: 0;">
-                        <a href="index.html" class="site_title"><i class="fa fa-database"></i> <span>Alela!</span></a>
+                        <a href="index.html" class="site_title"><i class="fa fa-database"></i> <span>SDHC</span></a>
                     </div>
 
                     <div class="clearfix"></div>
@@ -61,29 +61,7 @@
                             <h3>General</h3>
 							<ul class="nav side-menu">
 								
-								@{
-									List<SysFloricola.Models.spSelect_Menu_Acceso_Result> listaMenu = new List<SysFloricola.Models.spSelect_Menu_Acceso_Result>();	
-									List<SysFloricola.Models.spSelect_SubMenu_Result> listaSubMenu = new List<SysFloricola.Models.spSelect_SubMenu_Result>();	
-									MenuController obj = new MenuController();
-									listaMenu = obj.ObtenerListaMenu(Convert.ToInt32(Session["CodigoUsuario"]));
-									foreach (var item in listaMenu)
-									{
-										<li>
-											<a><i class="@item.MODURL"></i>@item.MODDESCRIPCION <span class="fa fa-chevron-down"></span></a>
-											<ul class="nav child_menu">
-												@{
-													listaSubMenu = obj.ObtenerSubMenu(item.MODCODIGOI);
-													foreach (var subMenu in listaSubMenu)
-													{
-														string url = subMenu.MODURL;
-														<li><a href="~/@url"> @subMenu.MODDESCRIPCION</a></li>
-													}
-												}
-
-											</ul>
-										</li>
-									}
-								}
+								
 								
 							</ul>
                         </div>
@@ -126,12 +104,12 @@
             </div>
             <!-- /page content -->
             <!-- footer content -->
-            <footer>
-                <div class="pull-right">
-                    Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
-                </div>
-                <div class="clearfix"></div>
-            </footer>
+			<footer>
+				<div class="pull-right">
+					SDHC
+				</div>
+				<div class="clearfix"></div>
+			</footer>
             <!-- /footer content -->
         </div>
     </div>

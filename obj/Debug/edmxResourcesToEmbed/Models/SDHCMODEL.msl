@@ -1,0 +1,802 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BDClinicaModelStoreContainer" CdmEntityContainer="SDHCEntities">
+    <EntitySetMapping Name="BANCO">
+      <EntityTypeMapping TypeName="BDClinicaModel.BANCO">
+        <MappingFragment StoreEntitySet="BANCO">
+          <ScalarProperty Name="BNCCODIGOI" ColumnName="BNCCODIGOI" />
+          <ScalarProperty Name="BNCNOMBREC" ColumnName="BNCNOMBREC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CLIENTEEXTERNO">
+      <EntityTypeMapping TypeName="BDClinicaModel.CLIENTEEXTERNO">
+        <MappingFragment StoreEntitySet="CLIENTEEXTERNO">
+          <ScalarProperty Name="CLECODIGOI" ColumnName="CLECODIGOI" />
+          <ScalarProperty Name="CLERUCCED" ColumnName="CLERUCCED" />
+          <ScalarProperty Name="CLENOMBRES" ColumnName="CLENOMBRES" />
+          <ScalarProperty Name="CLEDIRECCION" ColumnName="CLEDIRECCION" />
+          <ScalarProperty Name="CLETELEFONO" ColumnName="CLETELEFONO" />
+          <ScalarProperty Name="CLEMAILC" ColumnName="CLEMAILC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CONTROL">
+      <EntityTypeMapping TypeName="BDClinicaModel.CONTROL">
+        <MappingFragment StoreEntitySet="CONTROL">
+          <ScalarProperty Name="CODCONTROL" ColumnName="CODCONTROL" />
+          <ScalarProperty Name="CODOPER" ColumnName="CODOPER" />
+          <ScalarProperty Name="NOMPRO" ColumnName="NOMPRO" />
+          <ScalarProperty Name="FECHCONTROL" ColumnName="FECHCONTROL" />
+          <ScalarProperty Name="CONTROLTEXTO" ColumnName="CONTROLTEXTO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CUENTA_BANCO">
+      <EntityTypeMapping TypeName="BDClinicaModel.CUENTA_BANCO">
+        <MappingFragment StoreEntitySet="CUENTA_BANCO">
+          <ScalarProperty Name="CNBCODIGOI" ColumnName="CNBCODIGOI" />
+          <ScalarProperty Name="BNCCODIGOI" ColumnName="BNCCODIGOI" />
+          <ScalarProperty Name="CNBNUMERO" ColumnName="CNBNUMERO" />
+          <ScalarProperty Name="CNBTIPO" ColumnName="CNBTIPO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DESGLOSE_MEDICAMENTOS">
+      <EntityTypeMapping TypeName="BDClinicaModel.DESGLOSE_MEDICAMENTOS">
+        <MappingFragment StoreEntitySet="DESGLOSE_MEDICAMENTOS">
+          <ScalarProperty Name="DSMCODIGOI" ColumnName="DSMCODIGOI" />
+          <ScalarProperty Name="ORCCODIGOI" ColumnName="ORCCODIGOI" />
+          <ScalarProperty Name="DSMFECHA" ColumnName="DSMFECHA" />
+          <ScalarProperty Name="DSMEDADPACIENTE" ColumnName="DSMEDADPACIENTE" />
+          <ScalarProperty Name="DSMHABITACION" ColumnName="DSMHABITACION" />
+          <ScalarProperty Name="DSMTIPOANESTESIA" ColumnName="DSMTIPOANESTESIA" />
+          <ScalarProperty Name="DSMESTADO" ColumnName="DSMESTADO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DETALLE_DESGLOSE_MEDICAMENTOS">
+      <EntityTypeMapping TypeName="BDClinicaModel.DETALLE_DESGLOSE_MEDICAMENTOS">
+        <MappingFragment StoreEntitySet="DETALLE_DESGLOSE_MEDICAMENTOS">
+          <ScalarProperty Name="DTDCODIGOI" ColumnName="DTDCODIGOI" />
+          <ScalarProperty Name="INMCODIGOI" ColumnName="INMCODIGOI" />
+          <ScalarProperty Name="DSMCODIGOI" ColumnName="DSMCODIGOI" />
+          <ScalarProperty Name="DTDCANTIDAD" ColumnName="DTDCANTIDAD" />
+          <ScalarProperty Name="DTDVALOR" ColumnName="DTDVALOR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DETALLE_FACTURA">
+      <EntityTypeMapping TypeName="BDClinicaModel.DETALLE_FACTURA">
+        <MappingFragment StoreEntitySet="DETALLE_FACTURA">
+          <ScalarProperty Name="DTFCODIGOI" ColumnName="DTFCODIGOI" />
+          <ScalarProperty Name="FCTCODIGOI" ColumnName="FCTCODIGOI" />
+          <ScalarProperty Name="DTFDETALLE" ColumnName="DTFDETALLE" />
+          <ScalarProperty Name="DTFCANTIDAD" ColumnName="DTFCANTIDAD" />
+          <ScalarProperty Name="DTFVALOR" ColumnName="DTFVALOR" />
+          <ScalarProperty Name="DTFNOMBRE" ColumnName="DTFNOMBRE" />
+          <ScalarProperty Name="DTFGRABAIVA" ColumnName="DTFGRABAIVA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DETALLE_LIQUIDACION">
+      <EntityTypeMapping TypeName="BDClinicaModel.DETALLE_LIQUIDACION">
+        <MappingFragment StoreEntitySet="DETALLE_LIQUIDACION">
+          <ScalarProperty Name="DLQCODIGOI" ColumnName="DLQCODIGOI" />
+          <ScalarProperty Name="LQFCODIGOI" ColumnName="LQFCODIGOI" />
+          <ScalarProperty Name="DLQNOMBREP" ColumnName="DLQNOMBREP" />
+          <ScalarProperty Name="DLQFECHAF" ColumnName="DLQFECHAF" />
+          <ScalarProperty Name="DLQCIRUGIA" ColumnName="DLQCIRUGIA" />
+          <ScalarProperty Name="DLQDETALLE" ColumnName="DLQDETALLE" />
+          <ScalarProperty Name="DLQNUMFACTURA" ColumnName="DLQNUMFACTURA" />
+          <ScalarProperty Name="DLQVALOR" ColumnName="DLQVALOR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DETALLE_ORDEN_CIRUGIA">
+      <EntityTypeMapping TypeName="BDClinicaModel.DETALLE_ORDEN_CIRUGIA">
+        <MappingFragment StoreEntitySet="DETALLE_ORDEN_CIRUGIA">
+          <ScalarProperty Name="DTOCODIGOI" ColumnName="DTOCODIGOI" />
+          <ScalarProperty Name="ORCCODIGOI" ColumnName="ORCCODIGOI" />
+          <ScalarProperty Name="SRVCODIGOI" ColumnName="SRVCODIGOI" />
+          <ScalarProperty Name="TPCCODIGOI" ColumnName="TPCCODIGOI" />
+          <ScalarProperty Name="DTODETALLE" ColumnName="DTODETALLE" />
+          <ScalarProperty Name="DTOCANTID" ColumnName="DTOCANTID" />
+          <ScalarProperty Name="DTOVALOR" ColumnName="DTOVALOR" />
+          <ScalarProperty Name="DTOIDOJO" ColumnName="DTOIDOJO" />
+          <ScalarProperty Name="DTONOMESP" ColumnName="DTONOMESP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DIAGNOSTICOS">
+      <EntityTypeMapping TypeName="BDClinicaModel.DIAGNOSTICOS">
+        <MappingFragment StoreEntitySet="DIAGNOSTICOS">
+          <ScalarProperty Name="DGNCODIGOI" ColumnName="DGNCODIGOI" />
+          <ScalarProperty Name="HSCCODIGOI" ColumnName="HSCCODIGOI" />
+          <ScalarProperty Name="INSCODIGOI" ColumnName="INSCODIGOI" />
+          <ScalarProperty Name="DGNFECHA" ColumnName="DGNFECHA" />
+          <ScalarProperty Name="DGNOBSERVACION" ColumnName="DGNOBSERVACION" />
+          <ScalarProperty Name="DGNTIPO" ColumnName="DGNTIPO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DOCUMENTOS">
+      <EntityTypeMapping TypeName="BDClinicaModel.DOCUMENTOS">
+        <MappingFragment StoreEntitySet="DOCUMENTOS">
+          <ScalarProperty Name="DCMCODIGOI" ColumnName="DCMCODIGOI" />
+          <ScalarProperty Name="HSCCODIGOI" ColumnName="HSCCODIGOI" />
+          <ScalarProperty Name="DCMDESCRIPCION" ColumnName="DCMDESCRIPCION" />
+          <ScalarProperty Name="DCMUBICACION" ColumnName="DCMUBICACION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EMPRESA_CONVENIO">
+      <EntityTypeMapping TypeName="BDClinicaModel.EMPRESA_CONVENIO">
+        <MappingFragment StoreEntitySet="EMPRESA_CONVENIO">
+          <ScalarProperty Name="EMCCODIGOI" ColumnName="EMCCODIGOI" />
+          <ScalarProperty Name="EMCNOMBREC" ColumnName="EMCNOMBREC" />
+          <ScalarProperty Name="EMCNOMCOMERCIAL" ColumnName="EMCNOMCOMERCIAL" />
+          <ScalarProperty Name="EMCRUC" ColumnName="EMCRUC" />
+          <ScalarProperty Name="EMCDIRECC" ColumnName="EMCDIRECC" />
+          <ScalarProperty Name="EMCTELEFOC" ColumnName="EMCTELEFOC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ENFERMEDADES_ACTUALES">
+      <EntityTypeMapping TypeName="BDClinicaModel.ENFERMEDADES_ACTUALES">
+        <MappingFragment StoreEntitySet="ENFERMEDADES_ACTUALES">
+          <ScalarProperty Name="ENACODIGOI" ColumnName="ENACODIGOI" />
+          <ScalarProperty Name="HSCCODIGOI" ColumnName="HSCCODIGOI" />
+          <ScalarProperty Name="ENAFECHA" ColumnName="ENAFECHA" />
+          <ScalarProperty Name="ENADESCRIPCION" ColumnName="ENADESCRIPCION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ESPECIALISTA">
+      <EntityTypeMapping TypeName="BDClinicaModel.ESPECIALISTA">
+        <MappingFragment StoreEntitySet="ESPECIALISTA">
+          <ScalarProperty Name="ESPCODIGOI" ColumnName="ESPCODIGOI" />
+          <ScalarProperty Name="ESPCEDULAC" ColumnName="ESPCEDULAC" />
+          <ScalarProperty Name="ESPAPELLIDOP" ColumnName="ESPAPELLIDOP" />
+          <ScalarProperty Name="ESPAPELLIDOM" ColumnName="ESPAPELLIDOM" />
+          <ScalarProperty Name="ESPNOMBREC" ColumnName="ESPNOMBREC" />
+          <ScalarProperty Name="ESPFECHAN" ColumnName="ESPFECHAN" />
+          <ScalarProperty Name="ESPGENERO" ColumnName="ESPGENERO" />
+          <ScalarProperty Name="ESPDIRECCC" ColumnName="ESPDIRECCC" />
+          <ScalarProperty Name="ESPTELEFONOC" ColumnName="ESPTELEFONOC" />
+          <ScalarProperty Name="ESPTELEFONCEL" ColumnName="ESPTELEFONCEL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FORMA_PAGO">
+      <EntityTypeMapping TypeName="BDClinicaModel.FORMA_PAGO">
+        <MappingFragment StoreEntitySet="FORMA_PAGO">
+          <ScalarProperty Name="FMPCODIGOI" ColumnName="FMPCODIGOI" />
+          <ScalarProperty Name="FMPDESCRIPC" ColumnName="FMPDESCRIPC" />
+          <ScalarProperty Name="FMPRECARGO" ColumnName="FMPRECARGO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IMPUESTOS">
+      <EntityTypeMapping TypeName="BDClinicaModel.IMPUESTOS">
+        <MappingFragment StoreEntitySet="IMPUESTOS">
+          <ScalarProperty Name="IMPCODIGOI" ColumnName="IMPCODIGOI" />
+          <ScalarProperty Name="IMPDESCRIPCION" ColumnName="IMPDESCRIPCION" />
+          <ScalarProperty Name="IMPIDENTIFICACION" ColumnName="IMPIDENTIFICACION" />
+          <ScalarProperty Name="IMPPORCENTAJE" ColumnName="IMPPORCENTAJE" />
+          <ScalarProperty Name="IMPESTADO" ColumnName="IMPESTADO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="INDICES_CIE_PRINCIPALES">
+      <EntityTypeMapping TypeName="BDClinicaModel.INDICES_CIE_PRINCIPALES">
+        <MappingFragment StoreEntitySet="INDICES_CIE_PRINCIPALES">
+          <ScalarProperty Name="ICPCODIGOI" ColumnName="ICPCODIGOI" />
+          <ScalarProperty Name="ICPDESCRIPCION" ColumnName="ICPDESCRIPCION" />
+          <ScalarProperty Name="ICPIDCIE" ColumnName="ICPIDCIE" />
+          <ScalarProperty Name="ICPESTADO" ColumnName="ICPESTADO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="INDICES_CIE_SECUNDARIOS">
+      <EntityTypeMapping TypeName="BDClinicaModel.INDICES_CIE_SECUNDARIOS">
+        <MappingFragment StoreEntitySet="INDICES_CIE_SECUNDARIOS">
+          <ScalarProperty Name="INSCODIGOI" ColumnName="INSCODIGOI" />
+          <ScalarProperty Name="ICPCODIGOI" ColumnName="ICPCODIGOI" />
+          <ScalarProperty Name="INSDESCRIPCION" ColumnName="INSDESCRIPCION" />
+          <ScalarProperty Name="INSIDCIE" ColumnName="INSIDCIE" />
+          <ScalarProperty Name="INSESTADO" ColumnName="INSESTADO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="INSUMOS_MEDICOS">
+      <EntityTypeMapping TypeName="BDClinicaModel.INSUMOS_MEDICOS">
+        <MappingFragment StoreEntitySet="INSUMOS_MEDICOS">
+          <ScalarProperty Name="INMCODIGOI" ColumnName="INMCODIGOI" />
+          <ScalarProperty Name="UNDCODIGOI" ColumnName="UNDCODIGOI" />
+          <ScalarProperty Name="PRVCODIGOI" ColumnName="PRVCODIGOI" />
+          <ScalarProperty Name="INMNOMBRE" ColumnName="INMNOMBRE" />
+          <ScalarProperty Name="INMCANTIDAD" ColumnName="INMCANTIDAD" />
+          <ScalarProperty Name="INMVALORCOMPRA" ColumnName="INMVALORCOMPRA" />
+          <ScalarProperty Name="INMVALORVEMTA" ColumnName="INMVALORVEMTA" />
+          <ScalarProperty Name="INMMINSTOCK" ColumnName="INMMINSTOCK" />
+          <ScalarProperty Name="INMESTADO" ColumnName="INMESTADO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LENTES">
+      <EntityTypeMapping TypeName="BDClinicaModel.LENTES">
+        <MappingFragment StoreEntitySet="LENTES">
+          <ScalarProperty Name="LNTCODIGOI" ColumnName="LNTCODIGOI" />
+          <ScalarProperty Name="LNTDESCRIPC" ColumnName="LNTDESCRIPC" />
+          <ScalarProperty Name="LNTVALOR" ColumnName="LNTVALOR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LIQUIDACION_FACTURAS">
+      <EntityTypeMapping TypeName="BDClinicaModel.LIQUIDACION_FACTURAS">
+        <MappingFragment StoreEntitySet="LIQUIDACION_FACTURAS">
+          <ScalarProperty Name="LQFCODIGOI" ColumnName="LQFCODIGOI" />
+          <ScalarProperty Name="ESPCODIGOI" ColumnName="ESPCODIGOI" />
+          <ScalarProperty Name="LQFFECHA" ColumnName="LQFFECHA" />
+          <ScalarProperty Name="LQFESTADO" ColumnName="LQFESTADO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MENUS">
+      <EntityTypeMapping TypeName="BDClinicaModel.MENUS">
+        <MappingFragment StoreEntitySet="MENUS">
+          <ScalarProperty Name="CODMENUS" ColumnName="CODMENUS" />
+          <ScalarProperty Name="NOMMENUS" ColumnName="NOMMENUS" />
+          <ScalarProperty Name="DESMENUS" ColumnName="DESMENUS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MODULOS">
+      <EntityTypeMapping TypeName="BDClinicaModel.MODULOS">
+        <MappingFragment StoreEntitySet="MODULOS">
+          <ScalarProperty Name="MODCODIGOI" ColumnName="MODCODIGOI" />
+          <ScalarProperty Name="MODDESCRIPCION" ColumnName="MODDESCRIPCION" />
+          <ScalarProperty Name="MODURL" ColumnName="MODURL" />
+          <ScalarProperty Name="MODNIVEL" ColumnName="MODNIVEL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MODULOS_PERFILES">
+      <EntityTypeMapping TypeName="BDClinicaModel.MODULOS_PERFILES">
+        <MappingFragment StoreEntitySet="MODULOS_PERFILES">
+          <ScalarProperty Name="MOPCODIGOI" ColumnName="MOPCODIGOI" />
+          <ScalarProperty Name="MODCODIGOI" ColumnName="MODCODIGOI" />
+          <ScalarProperty Name="PERCODIGOI" ColumnName="PERCODIGOI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NOTAS_POSTQUIRURGICAS">
+      <EntityTypeMapping TypeName="BDClinicaModel.NOTAS_POSTQUIRURGICAS">
+        <MappingFragment StoreEntitySet="NOTAS_POSTQUIRURGICAS">
+          <ScalarProperty Name="NPQCODIGOI" ColumnName="NPQCODIGOI" />
+          <ScalarProperty Name="HSCCODIGOI" ColumnName="HSCCODIGOI" />
+          <ScalarProperty Name="NPQFECHA" ColumnName="NPQFECHA" />
+          <ScalarProperty Name="NPQDESCRIPCION" ColumnName="NPQDESCRIPCION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OPERADOR">
+      <EntityTypeMapping TypeName="BDClinicaModel.OPERADOR">
+        <MappingFragment StoreEntitySet="OPERADOR">
+          <ScalarProperty Name="CODOPER" ColumnName="CODOPER" />
+          <ScalarProperty Name="CODTIPO" ColumnName="CODTIPO" />
+          <ScalarProperty Name="CEDULAC" ColumnName="CEDULAC" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="APELLIC1" ColumnName="APELLIC1" />
+          <ScalarProperty Name="APELLIC2" ColumnName="APELLIC2" />
+          <ScalarProperty Name="FECCREACION" ColumnName="FECCREACION" />
+          <ScalarProperty Name="FECCADUCID" ColumnName="FECCADUCID" />
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="CLAVE" ColumnName="CLAVE" />
+          <ScalarProperty Name="NUMOPERA" ColumnName="NUMOPERA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ORDEN_CIRUGIA">
+      <EntityTypeMapping TypeName="BDClinicaModel.ORDEN_CIRUGIA">
+        <MappingFragment StoreEntitySet="ORDEN_CIRUGIA">
+          <ScalarProperty Name="ORCCODIGOI" ColumnName="ORCCODIGOI" />
+          <ScalarProperty Name="PCTCODIGOI" ColumnName="PCTCODIGOI" />
+          <ScalarProperty Name="EMCCODIGOI" ColumnName="EMCCODIGOI" />
+          <ScalarProperty Name="CODOPER" ColumnName="CODOPER" />
+          <ScalarProperty Name="ORCFECHA" ColumnName="ORCFECHA" />
+          <ScalarProperty Name="ORCOBSERVC" ColumnName="ORCOBSERVC" />
+          <ScalarProperty Name="ORCESTADOPAGO" ColumnName="ORCESTADOPAGO" />
+          <ScalarProperty Name="ORCESTADOCIR" ColumnName="ORCESTADOCIR" />
+          <ScalarProperty Name="ORCFECHAALTA" ColumnName="ORCFECHAALTA" />
+          <ScalarProperty Name="ORCOBSERVGEN" ColumnName="ORCOBSERVGEN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PACIENTE">
+      <EntityTypeMapping TypeName="BDClinicaModel.PACIENTE">
+        <MappingFragment StoreEntitySet="PACIENTE">
+          <ScalarProperty Name="PCTCODIGOI" ColumnName="PCTCODIGOI" />
+          <ScalarProperty Name="PCTCEDULAC" ColumnName="PCTCEDULAC" />
+          <ScalarProperty Name="PCTAPELLIDOP" ColumnName="PCTAPELLIDOP" />
+          <ScalarProperty Name="PCTAPELLIDOM" ColumnName="PCTAPELLIDOM" />
+          <ScalarProperty Name="PCTNOMBREC" ColumnName="PCTNOMBREC" />
+          <ScalarProperty Name="PCTFECHAN" ColumnName="PCTFECHAN" />
+          <ScalarProperty Name="PCTGENERO" ColumnName="PCTGENERO" />
+          <ScalarProperty Name="PCTTIPOS" ColumnName="PCTTIPOS" />
+          <ScalarProperty Name="PCTDIRECCC" ColumnName="PCTDIRECCC" />
+          <ScalarProperty Name="PCTTELEFONOC" ColumnName="PCTTELEFONOC" />
+          <ScalarProperty Name="PCTTELEFONCEL" ColumnName="PCTTELEFONCEL" />
+          <ScalarProperty Name="PCTCONTACTO" ColumnName="PCTCONTACTO" />
+          <ScalarProperty Name="PCTTELCONTACTO" ColumnName="PCTTELCONTACTO" />
+          <ScalarProperty Name="PCTMAILC" ColumnName="PCTMAILC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PARAMETROS">
+      <EntityTypeMapping TypeName="BDClinicaModel.PARAMETROS">
+        <MappingFragment StoreEntitySet="PARAMETROS">
+          <ScalarProperty Name="PRMCODIGOI" ColumnName="PRMCODIGOI" />
+          <ScalarProperty Name="PRMNOMEMP" ColumnName="PRMNOMEMP" />
+          <ScalarProperty Name="PRMIVA" ColumnName="PRMIVA" />
+          <ScalarProperty Name="PRMIDLOCAL" ColumnName="PRMIDLOCAL" />
+          <ScalarProperty Name="PRMNUMFACT" ColumnName="PRMNUMFACT" />
+          <ScalarProperty Name="PRMNUMCOMEG" ColumnName="PRMNUMCOMEG" />
+          <ScalarProperty Name="PRMNUMCOMRET" ColumnName="PRMNUMCOMRET" />
+          <ScalarProperty Name="PRMESTADO" ColumnName="PRMESTADO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PERFILES">
+      <EntityTypeMapping TypeName="BDClinicaModel.PERFILES">
+        <MappingFragment StoreEntitySet="PERFILES">
+          <ScalarProperty Name="PERCODIGOI" ColumnName="PERCODIGOI" />
+          <ScalarProperty Name="PERDESCRIPCION" ColumnName="PERDESCRIPCION" />
+          <ScalarProperty Name="PERESTADO" ColumnName="PERESTADO" />
+          <ScalarProperty Name="PEROBSERVACION" ColumnName="PEROBSERVACION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PIE_DESGLOSE">
+      <EntityTypeMapping TypeName="BDClinicaModel.PIE_DESGLOSE">
+        <MappingFragment StoreEntitySet="PIE_DESGLOSE">
+          <ScalarProperty Name="PDSCODIGOI" ColumnName="PDSCODIGOI" />
+          <ScalarProperty Name="SRVCODIGOI" ColumnName="SRVCODIGOI" />
+          <ScalarProperty Name="DSMCODIGOI" ColumnName="DSMCODIGOI" />
+          <ScalarProperty Name="PDSSUBTOTAL" ColumnName="PDSSUBTOTAL" />
+          <ScalarProperty Name="PDSVALORSERVICIO" ColumnName="PDSVALORSERVICIO" />
+          <ScalarProperty Name="PDSTOTAL" ColumnName="PDSTOTAL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PIE_FACTURA">
+      <EntityTypeMapping TypeName="BDClinicaModel.PIE_FACTURA">
+        <MappingFragment StoreEntitySet="PIE_FACTURA">
+          <ScalarProperty Name="PFCCODIGOI" ColumnName="PFCCODIGOI" />
+          <ScalarProperty Name="FCTCODIGOI" ColumnName="FCTCODIGOI" />
+          <ScalarProperty Name="FMPCODIGOI" ColumnName="FMPCODIGOI" />
+          <ScalarProperty Name="TRJCODIGOI" ColumnName="TRJCODIGOI" />
+          <ScalarProperty Name="PFCSUBTOTAL" ColumnName="PFCSUBTOTAL" />
+          <ScalarProperty Name="PFCIVA" ColumnName="PFCIVA" />
+          <ScalarProperty Name="PFCTOTAL" ColumnName="PFCTOTAL" />
+          <ScalarProperty Name="PCFRECARGO" ColumnName="PCFRECARGO" />
+          <ScalarProperty Name="PCFNOMTARJETA" ColumnName="PCFNOMTARJETA" />
+          <ScalarProperty Name="PCFNUMTARJETA" ColumnName="PCFNUMTARJETA" />
+          <ScalarProperty Name="PCFNUMLOTE" ColumnName="PCFNUMLOTE" />
+          <ScalarProperty Name="PCFNUMTRANS" ColumnName="PCFNUMTRANS" />
+          <ScalarProperty Name="CNBCODIGOI" ColumnName="CNBCODIGOI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PRESCRIPCIONES">
+      <EntityTypeMapping TypeName="BDClinicaModel.PRESCRIPCIONES">
+        <MappingFragment StoreEntitySet="PRESCRIPCIONES">
+          <ScalarProperty Name="PRSCODIGOI" ColumnName="PRSCODIGOI" />
+          <ScalarProperty Name="HSCCODIGOI" ColumnName="HSCCODIGOI" />
+          <ScalarProperty Name="PRSFECHA" ColumnName="PRSFECHA" />
+          <ScalarProperty Name="PRSDESCRIPCION" ColumnName="PRSDESCRIPCION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PROGRAMA">
+      <EntityTypeMapping TypeName="BDClinicaModel.PROGRAMA">
+        <MappingFragment StoreEntitySet="PROGRAMA">
+          <ScalarProperty Name="CODPROG" ColumnName="CODPROG" />
+          <ScalarProperty Name="CODMENUS" ColumnName="CODMENUS" />
+          <ScalarProperty Name="NOMPROG" ColumnName="NOMPROG" />
+          <ScalarProperty Name="DESCPROG" ColumnName="DESCPROG" />
+          <ScalarProperty Name="PTIPO" ColumnName="PTIPO" />
+          <ScalarProperty Name="NIVEL" ColumnName="NIVEL" />
+          <ScalarProperty Name="VARPROG" ColumnName="VARPROG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PROVEEDORES">
+      <EntityTypeMapping TypeName="BDClinicaModel.PROVEEDORES">
+        <MappingFragment StoreEntitySet="PROVEEDORES">
+          <ScalarProperty Name="PRVCODIGOI" ColumnName="PRVCODIGOI" />
+          <ScalarProperty Name="PRVIDENTIFIC" ColumnName="PRVIDENTIFIC" />
+          <ScalarProperty Name="PRVNOMBREC" ColumnName="PRVNOMBREC" />
+          <ScalarProperty Name="PRVDIRECCION" ColumnName="PRVDIRECCION" />
+          <ScalarProperty Name="PRVTELEFONO" ColumnName="PRVTELEFONO" />
+          <ScalarProperty Name="PRVCONTACTO" ColumnName="PRVCONTACTO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SERVICIO_EMPRESA_CONVENIO">
+      <EntityTypeMapping TypeName="BDClinicaModel.SERVICIO_EMPRESA_CONVENIO">
+        <MappingFragment StoreEntitySet="SERVICIO_EMPRESA_CONVENIO">
+          <ScalarProperty Name="SECCODIGOI" ColumnName="SECCODIGOI" />
+          <ScalarProperty Name="EMCCODIGOI" ColumnName="EMCCODIGOI" />
+          <ScalarProperty Name="TPCCODIGOI" ColumnName="TPCCODIGOI" />
+          <ScalarProperty Name="SRVCODIGOI" ColumnName="SRVCODIGOI" />
+          <ScalarProperty Name="SECIDCOD" ColumnName="SECIDCOD" />
+          <ScalarProperty Name="SECVALOR" ColumnName="SECVALOR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SERVICIOS">
+      <EntityTypeMapping TypeName="BDClinicaModel.SERVICIOS">
+        <MappingFragment StoreEntitySet="SERVICIOS">
+          <ScalarProperty Name="SRVCODIGOI" ColumnName="SRVCODIGOI" />
+          <ScalarProperty Name="SRVDESCRIPC" ColumnName="SRVDESCRIPC" />
+          <ScalarProperty Name="SRVVALOR" ColumnName="SRVVALOR" />
+          <ScalarProperty Name="SRVIDINGRESO" ColumnName="SRVIDINGRESO" />
+          <ScalarProperty Name="SRVREQUIERENOM" ColumnName="SRVREQUIERENOM" />
+          <ScalarProperty Name="SRVCODIGOESP" ColumnName="SRVCODIGOESP" />
+          <ScalarProperty Name="SRVIDENTIFIC" ColumnName="SRVIDENTIFIC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TARJETA_CREDITO">
+      <EntityTypeMapping TypeName="BDClinicaModel.TARJETA_CREDITO">
+        <MappingFragment StoreEntitySet="TARJETA_CREDITO">
+          <ScalarProperty Name="TRJCODIGOI" ColumnName="TRJCODIGOI" />
+          <ScalarProperty Name="BNCCODIGOI" ColumnName="BNCCODIGOI" />
+          <ScalarProperty Name="TRJNOMBRE" ColumnName="TRJNOMBRE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TIPO_CIRUGIA">
+      <EntityTypeMapping TypeName="BDClinicaModel.TIPO_CIRUGIA">
+        <MappingFragment StoreEntitySet="TIPO_CIRUGIA">
+          <ScalarProperty Name="TPCCODIGOI" ColumnName="TPCCODIGOI" />
+          <ScalarProperty Name="TPCVALOR" ColumnName="TPCVALOR" />
+          <ScalarProperty Name="TPCDESCRIPC" ColumnName="TPCDESCRIPC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TIPOESPECIALISTA">
+      <EntityTypeMapping TypeName="BDClinicaModel.TIPOESPECIALISTA">
+        <MappingFragment StoreEntitySet="TIPOESPECIALISTA">
+          <ScalarProperty Name="TPECODIGOI" ColumnName="TPECODIGOI" />
+          <ScalarProperty Name="TPEDESCRIPC" ColumnName="TPEDESCRIPC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TIPOS">
+      <EntityTypeMapping TypeName="BDClinicaModel.TIPOS">
+        <MappingFragment StoreEntitySet="TIPOS">
+          <ScalarProperty Name="CODTIPO" ColumnName="CODTIPO" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="INICIO" ColumnName="INICIO" />
+          <ScalarProperty Name="FINAL" ColumnName="FINAL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TIPOS_EXAMENES_FISICOS">
+      <EntityTypeMapping TypeName="BDClinicaModel.TIPOS_EXAMENES_FISICOS">
+        <MappingFragment StoreEntitySet="TIPOS_EXAMENES_FISICOS">
+          <ScalarProperty Name="TPFCODIGOI" ColumnName="TPFCODIGOI" />
+          <ScalarProperty Name="TPFDESCRIPCION" ColumnName="TPFDESCRIPCION" />
+          <ScalarProperty Name="TPFESTADO" ColumnName="TPFESTADO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UNIDADES">
+      <EntityTypeMapping TypeName="BDClinicaModel.UNIDADES">
+        <MappingFragment StoreEntitySet="UNIDADES">
+          <ScalarProperty Name="UNDCODIGOI" ColumnName="UNDCODIGOI" />
+          <ScalarProperty Name="UNDDESCRIPCION" ColumnName="UNDDESCRIPCION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USUARIOS">
+      <EntityTypeMapping TypeName="BDClinicaModel.USUARIOS">
+        <MappingFragment StoreEntitySet="USUARIOS">
+          <ScalarProperty Name="USRCODIGOI" ColumnName="USRCODIGOI" />
+          <ScalarProperty Name="USRCEDULAC" ColumnName="USRCEDULAC" />
+          <ScalarProperty Name="USRAPELLIDOP" ColumnName="USRAPELLIDOP" />
+          <ScalarProperty Name="USRAPELLIDOM" ColumnName="USRAPELLIDOM" />
+          <ScalarProperty Name="USRNOMBREC" ColumnName="USRNOMBREC" />
+          <ScalarProperty Name="USRLOGIN" ColumnName="USRLOGIN" />
+          <ScalarProperty Name="USRPASSWORD" ColumnName="USRPASSWORD" />
+          <ScalarProperty Name="USRESTADO" ColumnName="USRESTADO" />
+          <ScalarProperty Name="USRESTADOCAMBIO" ColumnName="USRESTADOCAMBIO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USUARIOS_PERFILES">
+      <EntityTypeMapping TypeName="BDClinicaModel.USUARIOS_PERFILES">
+        <MappingFragment StoreEntitySet="USUARIOS_PERFILES">
+          <ScalarProperty Name="USPCODIGOI" ColumnName="USPCODIGOI" />
+          <ScalarProperty Name="USRCODIGOI" ColumnName="USRCODIGOI" />
+          <ScalarProperty Name="PERCODIGOI" ColumnName="PERCODIGOI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ORDEN_ESPECIALISTA">
+      <EntityTypeMapping TypeName="BDClinicaModel.ORDEN_ESPECIALISTA">
+        <MappingFragment StoreEntitySet="ORDEN_ESPECIALISTA">
+          <ScalarProperty Name="ORCCODIGOI" ColumnName="ORCCODIGOI" />
+          <ScalarProperty Name="ESPCODIGOI" ColumnName="ESPCODIGOI" />
+          <ScalarProperty Name="TPECODIGOI" ColumnName="TPECODIGOI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SRIRetencionCompraDetalle">
+      <EntityTypeMapping TypeName="BDClinicaModel.SRIRetencionCompraDetalle">
+        <MappingFragment StoreEntitySet="SRIRetencionCompraDetalle">
+          <ScalarProperty Name="idDetalleRetencion" ColumnName="idDetalleRetencion" />
+          <ScalarProperty Name="idRetencion" ColumnName="idRetencion" />
+          <ScalarProperty Name="codigoretiva" ColumnName="codigoretiva" />
+          <ScalarProperty Name="baseretiva" ColumnName="baseretiva" />
+          <ScalarProperty Name="porcretiva" ColumnName="porcretiva" />
+          <ScalarProperty Name="valorretiva" ColumnName="valorretiva" />
+          <ScalarProperty Name="codigoretrenta" ColumnName="codigoretrenta" />
+          <ScalarProperty Name="baseretrenta" ColumnName="baseretrenta" />
+          <ScalarProperty Name="porcretrenta" ColumnName="porcretrenta" />
+          <ScalarProperty Name="valorretrenta" ColumnName="valorretrenta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SRIRetencionCompraEncab">
+      <EntityTypeMapping TypeName="BDClinicaModel.SRIRetencionCompraEncab">
+        <MappingFragment StoreEntitySet="SRIRetencionCompraEncab">
+          <ScalarProperty Name="idRetencion" ColumnName="idRetencion" />
+          <ScalarProperty Name="secuencial" ColumnName="secuencial" />
+          <ScalarProperty Name="fechaemision" ColumnName="fechaemision" />
+          <ScalarProperty Name="idsujetoretencion" ColumnName="idsujetoretencion" />
+          <ScalarProperty Name="coddocsustentoret" ColumnName="coddocsustentoret" />
+          <ScalarProperty Name="numdocsustento" ColumnName="numdocsustento" />
+          <ScalarProperty Name="fechaemidocsustento" ColumnName="fechaemidocsustento" />
+          <ScalarProperty Name="escompra" ColumnName="escompra" />
+          <ScalarProperty Name="idfactura" ColumnName="idfactura" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TEMP_ORDENES">
+      <EntityTypeMapping TypeName="BDClinicaModel.TEMP_ORDENES">
+        <MappingFragment StoreEntitySet="TEMP_ORDENES">
+          <ScalarProperty Name="ORCCODIGOI" ColumnName="ORCCODIGOI" />
+          <ScalarProperty Name="ORCFECHA" ColumnName="ORCFECHA" />
+          <ScalarProperty Name="PCTCEDULAC" ColumnName="PCTCEDULAC" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="TPCDESCRIPC" ColumnName="TPCDESCRIPC" />
+          <ScalarProperty Name="DTOVALOR" ColumnName="DTOVALOR" />
+          <ScalarProperty Name="DTOIDOJO" ColumnName="DTOIDOJO" />
+          <ScalarProperty Name="nomesp" ColumnName="nomesp" />
+          <ScalarProperty Name="TPEDESCRIPC" ColumnName="TPEDESCRIPC" />
+          <ScalarProperty Name="EMCNOMbrec" ColumnName="EMCNOMbrec" />
+          <ScalarProperty Name="ORCESTADOPAGO" ColumnName="ORCESTADOPAGO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="PROGOPER" TypeName="BDClinicaModel.PROGOPER" StoreEntitySet="PROGOPER">
+      <EndProperty Name="OPERADOR">
+        <ScalarProperty Name="CODOPER" ColumnName="CODOPER" />
+      </EndProperty>
+      <EndProperty Name="PROGRAMA">
+        <ScalarProperty Name="CODPROG" ColumnName="CODPROG" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="HISTORIA_CLINICA">
+      <EntityTypeMapping TypeName="BDClinicaModel.HISTORIA_CLINICA">
+        <MappingFragment StoreEntitySet="HISTORIA_CLINICA">
+          <ScalarProperty Name="OBSERVACIONES" ColumnName="OBSERVACIONES" />
+          <ScalarProperty Name="HSCHORA_APERTURA" ColumnName="HSCHORA_APERTURA" />
+          <ScalarProperty Name="HSCFECHAAPERTURA" ColumnName="HSCFECHAAPERTURA" />
+          <ScalarProperty Name="HSCNUMERO" ColumnName="HSCNUMERO" />
+          <ScalarProperty Name="PCTCODIGOI" ColumnName="PCTCODIGOI" />
+          <ScalarProperty Name="HSCCODIGOI" ColumnName="HSCCODIGOI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="spInsert_HistoriaClinica" FunctionName="BDClinicaModel.Store.spInsert_HistoriaClinica">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BDClinicaModel.spInsert_HistoriaClinica_Result">
+          <ScalarProperty Name="HSCCODIGOI" ColumnName="HSCCODIGOI" />
+          <ScalarProperty Name="PCTCODIGOI" ColumnName="PCTCODIGOI" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spInsert_HistoriaClinica_Actualizado" FunctionName="BDClinicaModel.Store.spInsert_HistoriaClinica_Actualizado" />
+    <FunctionImportMapping FunctionImportName="spUpdate_HistoriaClinica" FunctionName="BDClinicaModel.Store.spUpdate_HistoriaClinica" />
+    <EntitySetMapping Name="CONSULTAS">
+      <EntityTypeMapping TypeName="BDClinicaModel.CONSULTAS">
+        <MappingFragment StoreEntitySet="CONSULTAS">
+          <ScalarProperty Name="CNSENFERMEDAD" ColumnName="CNSENFERMEDAD" />
+          <ScalarProperty Name="CNSMOTIVO" ColumnName="CNSMOTIVO" />
+          <ScalarProperty Name="CNSFECHA" ColumnName="CNSFECHA" />
+          <ScalarProperty Name="HSCCODIGOI" ColumnName="HSCCODIGOI" />
+          <ScalarProperty Name="CNSCODIGOI" ColumnName="CNSCODIGOI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LISTA_ANTECEDENTES">
+      <EntityTypeMapping TypeName="BDClinicaModel.LISTA_ANTECEDENTES">
+        <MappingFragment StoreEntitySet="LISTA_ANTECEDENTES">
+          <ScalarProperty Name="LSAESTADO" ColumnName="LSAESTADO" />
+          <ScalarProperty Name="LSADESCRIPCION" ColumnName="LSADESCRIPCION" />
+          <ScalarProperty Name="LSACODCLINICO" ColumnName="LSACODCLINICO" />
+          <ScalarProperty Name="TPACODIGOI" ColumnName="TPACODIGOI" />
+          <ScalarProperty Name="LSACODIGOI" ColumnName="LSACODIGOI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TIPOS_ANTECEDENTES">
+      <EntityTypeMapping TypeName="BDClinicaModel.TIPOS_ANTECEDENTES">
+        <MappingFragment StoreEntitySet="TIPOS_ANTECEDENTES">
+          <ScalarProperty Name="TPAESTADO" ColumnName="TPAESTADO" />
+          <ScalarProperty Name="TPASIGLAS" ColumnName="TPASIGLAS" />
+          <ScalarProperty Name="TPADESCRIPCION" ColumnName="TPADESCRIPCION" />
+          <ScalarProperty Name="TPACODIGOI" ColumnName="TPACODIGOI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HISTORIA_ANTECEDENTES">
+      <EntityTypeMapping TypeName="BDClinicaModel.HISTORIA_ANTECEDENTES">
+        <MappingFragment StoreEntitySet="HISTORIA_ANTECEDENTES">
+          <ScalarProperty Name="HANOBSERVACION" ColumnName="HANOBSERVACION" />
+          <ScalarProperty Name="HANRESPUESTA" ColumnName="HANRESPUESTA" />
+          <ScalarProperty Name="LSACODIGOI" ColumnName="LSACODIGOI" />
+          <ScalarProperty Name="HSCCODIGOI" ColumnName="HSCCODIGOI" />
+          <ScalarProperty Name="HANCODIGOI" ColumnName="HANCODIGOI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="spInsert_HistoriaAntecedentes" FunctionName="BDClinicaModel.Store.spInsert_HistoriaAntecedentes" />
+    <FunctionImportMapping FunctionImportName="spSelect_Historia_antecedentes" FunctionName="BDClinicaModel.Store.spSelect_Historia_antecedentes">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BDClinicaModel.spSelect_Historia_antecedentes_Result">
+          <ScalarProperty Name="HANCODIGOI" ColumnName="HANCODIGOI" />
+          <ScalarProperty Name="HSCCODIGOI" ColumnName="HSCCODIGOI" />
+          <ScalarProperty Name="LSACODIGOI" ColumnName="LSACODIGOI" />
+          <ScalarProperty Name="HANRESPUESTA" ColumnName="HANRESPUESTA" />
+          <ScalarProperty Name="HANOBSERVACION" ColumnName="HANOBSERVACION" />
+          <ScalarProperty Name="TPACODIGOI" ColumnName="TPACODIGOI" />
+          <ScalarProperty Name="LSACODCLINICO" ColumnName="LSACODCLINICO" />
+          <ScalarProperty Name="LSADESCRIPCION" ColumnName="LSADESCRIPCION" />
+          <ScalarProperty Name="LSAESTADO" ColumnName="LSAESTADO" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="HISTORIA_CLINICA_SIGNOS_VITALES">
+      <EntityTypeMapping TypeName="BDClinicaModel.HISTORIA_CLINICA_SIGNOS_VITALES">
+        <MappingFragment StoreEntitySet="HISTORIA_CLINICA_SIGNOS_VITALES">
+          <ScalarProperty Name="HSVVALORES" ColumnName="HSVVALORES" />
+          <ScalarProperty Name="HSVFECHA" ColumnName="HSVFECHA" />
+          <ScalarProperty Name="HSCCODIGOI" ColumnName="HSCCODIGOI" />
+          <ScalarProperty Name="SGVCODIGOI" ColumnName="SGVCODIGOI" />
+          <ScalarProperty Name="HSVCODIGOI" ColumnName="HSVCODIGOI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SIGNOS_VITALES">
+      <EntityTypeMapping TypeName="BDClinicaModel.SIGNOS_VITALES">
+        <MappingFragment StoreEntitySet="SIGNOS_VITALES">
+          <ScalarProperty Name="SGVESTADO" ColumnName="SGVESTADO" />
+          <ScalarProperty Name="SGVDESCRIPCION" ColumnName="SGVDESCRIPCION" />
+          <ScalarProperty Name="SGVCODIGOI" ColumnName="SGVCODIGOI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="spSelect_HistoriaSignosVitales" FunctionName="BDClinicaModel.Store.spSelect_HistoriaSignosVitales">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BDClinicaModel.spSelect_HistoriaSignosVitales_Result">
+          <ScalarProperty Name="HSVCODIGOI" ColumnName="HSVCODIGOI" />
+          <ScalarProperty Name="HSCCODIGOI" ColumnName="HSCCODIGOI" />
+          <ScalarProperty Name="HSVFECHA" ColumnName="HSVFECHA" />
+          <ScalarProperty Name="HSVVALORES" ColumnName="HSVVALORES" />
+          <ScalarProperty Name="SGVCODIGOI" ColumnName="SGVCODIGOI" />
+          <ScalarProperty Name="SGVDESCRIPCION" ColumnName="SGVDESCRIPCION" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spInsert_SignosVitales" FunctionName="BDClinicaModel.Store.spInsert_SignosVitales" />
+    <EntitySetMapping Name="FACTURA">
+      <EntityTypeMapping TypeName="BDClinicaModel.FACTURA">
+        <MappingFragment StoreEntitySet="FACTURA">
+          <ScalarProperty Name="FCTLIQUIDADO" ColumnName="FCTLIQUIDADO" />
+          <ScalarProperty Name="FCTAPLICADORET" ColumnName="FCTAPLICADORET" />
+          <ScalarProperty Name="FCTNOMPACIENTE" ColumnName="FCTNOMPACIENTE" />
+          <ScalarProperty Name="FCTNUMSEC" ColumnName="FCTNUMSEC" />
+          <ScalarProperty Name="FCTMAILC" ColumnName="FCTMAILC" />
+          <ScalarProperty Name="FCTOBSERVC" ColumnName="FCTOBSERVC" />
+          <ScalarProperty Name="FCTIDCLIENTE" ColumnName="FCTIDCLIENTE" />
+          <ScalarProperty Name="FCTNUMFACT" ColumnName="FCTNUMFACT" />
+          <ScalarProperty Name="FCTESTADOC" ColumnName="FCTESTADOC" />
+          <ScalarProperty Name="FCTTELEFOC" ColumnName="FCTTELEFOC" />
+          <ScalarProperty Name="FCTDIRECCC" ColumnName="FCTDIRECCC" />
+          <ScalarProperty Name="FCTNOMBREC" ColumnName="FCTNOMBREC" />
+          <ScalarProperty Name="FCTIDENTC" ColumnName="FCTIDENTC" />
+          <ScalarProperty Name="FCTFECHA" ColumnName="FCTFECHA" />
+          <ScalarProperty Name="CODOPER" ColumnName="CODOPER" />
+          <ScalarProperty Name="CLECODIGOI" ColumnName="CLECODIGOI" />
+          <ScalarProperty Name="ORCCODIGOI" ColumnName="ORCCODIGOI" />
+          <ScalarProperty Name="FCTCODIGOI" ColumnName="FCTCODIGOI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FACTURA_RETENCION">
+      <EntityTypeMapping TypeName="BDClinicaModel.FACTURA_RETENCION">
+        <MappingFragment StoreEntitySet="FACTURA_RETENCION">
+          <ScalarProperty Name="FRTFECHA" ColumnName="FRTFECHA" />
+          <ScalarProperty Name="FRTVALOR_RETENIDO" ColumnName="FRTVALOR_RETENIDO" />
+          <ScalarProperty Name="FRTBASE_IMPONIBLE" ColumnName="FRTBASE_IMPONIBLE" />
+          <ScalarProperty Name="FRTNUMERO" ColumnName="FRTNUMERO" />
+          <ScalarProperty Name="IMPCODIGOI" ColumnName="IMPCODIGOI" />
+          <ScalarProperty Name="FCTCODIGOI" ColumnName="FCTCODIGOI" />
+          <ScalarProperty Name="FRTCODIGOI" ColumnName="FRTCODIGOI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="BDClinicaModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="PA_Inicio_Usuarios_Web" FunctionName="BDClinicaModel.Store.PA_Inicio_Usuarios_Web">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BDClinicaModel.PA_Inicio_Usuarios_Web_Result">
+          <ScalarProperty Name="USRCEDULAC" ColumnName="USRCEDULAC" />
+          <ScalarProperty Name="NOMBRES" ColumnName="NOMBRES" />
+          <ScalarProperty Name="USRESTADOCAMBIO" ColumnName="USRESTADOCAMBIO" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="BDClinicaModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="BDClinicaModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="BDClinicaModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="BDClinicaModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BDClinicaModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="BDClinicaModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BDClinicaModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="BDClinicaModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="BDClinicaModel.Store.sp_upgraddiagrams" />
+    <EntitySetMapping Name="EXAMENES_FISICOS">
+      <EntityTypeMapping TypeName="BDClinicaModel.EXAMENES_FISICOS">
+        <MappingFragment StoreEntitySet="EXAMENES_FISICOS">
+          <ScalarProperty Name="EXFDESCRIPCION" ColumnName="EXFDESCRIPCION" />
+          <ScalarProperty Name="EXFFECHA" ColumnName="EXFFECHA" />
+          <ScalarProperty Name="HSCCODIGOI" ColumnName="HSCCODIGOI" />
+          <ScalarProperty Name="TPFCODIGOI" ColumnName="TPFCODIGOI" />
+          <ScalarProperty Name="EXFCODIGOI" ColumnName="EXFCODIGOI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="spInsert_ExamenFisico" FunctionName="BDClinicaModel.Store.spInsert_ExamenFisico" />
+  </EntityContainerMapping>
+</Mapping>
