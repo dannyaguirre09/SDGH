@@ -112,11 +112,11 @@
     <Key>
       <PropertyRef Name="DGNCODIGOI" />
     </Key>
-    <Property Name="DGNCODIGOI" Type="int" Nullable="false" />
+    <Property Name="DGNCODIGOI" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="HSCCODIGOI" Type="int" />
     <Property Name="INSCODIGOI" Type="int" />
     <Property Name="DGNFECHA" Type="datetime" />
-    <Property Name="DGNOBSERVACION" Type="varchar" MaxLength="50" />
+    <Property Name="DGNOBSERVACION" Type="varchar" MaxLength="500" />
     <Property Name="DGNTIPO" Type="varchar" MaxLength="20" />
   </EntityType>
   <EntityType Name="DOCUMENTOS">
@@ -261,7 +261,7 @@
     <Key>
       <PropertyRef Name="ICPCODIGOI" />
     </Key>
-    <Property Name="ICPCODIGOI" Type="int" Nullable="false" />
+    <Property Name="ICPCODIGOI" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ICPDESCRIPCION" Type="varchar" MaxLength="60" />
     <Property Name="ICPIDCIE" Type="char" MaxLength="5" />
     <Property Name="ICPESTADO" Type="bit" />
@@ -270,10 +270,10 @@
     <Key>
       <PropertyRef Name="INSCODIGOI" />
     </Key>
-    <Property Name="INSCODIGOI" Type="int" Nullable="false" />
+    <Property Name="INSCODIGOI" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ICPCODIGOI" Type="int" />
     <Property Name="INSDESCRIPCION" Type="varchar" MaxLength="60" />
-    <Property Name="INSIDCIE" Type="char" MaxLength="5" />
+    <Property Name="INSIDCIE" Type="char" MaxLength="10" />
     <Property Name="INSESTADO" Type="bit" />
   </EntityType>
   <EntityType Name="INSUMOS_MEDICOS">
@@ -1424,6 +1424,13 @@ advertencia 6002: La tabla o vista 'BDClinica.dbo.TEMP_ORDENES' no tiene definid
     <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
   </Function>
   <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="spInsert_Diagnostico" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DGNCODIGOI" Type="int" Mode="In" />
+    <Parameter Name="HSCCODIGOI" Type="int" Mode="In" />
+    <Parameter Name="INSCODIGOI" Type="int" Mode="In" />
+    <Parameter Name="DGNOBSERVACION" Type="varchar" Mode="In" />
+    <Parameter Name="DGNTIPO" Type="varchar" Mode="In" />
+  </Function>
   <Function Name="spInsert_ExamenFisico" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="EXFCODIGOI" Type="int" Mode="In" />
     <Parameter Name="TPFCODIGOI" Type="int" Mode="In" />

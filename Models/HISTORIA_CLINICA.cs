@@ -17,7 +17,6 @@ namespace SysFloricola.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public HISTORIA_CLINICA()
         {
-            this.DIAGNOSTICOS = new HashSet<DIAGNOSTICOS>();
             this.DOCUMENTOS = new HashSet<DOCUMENTOS>();
             this.ENFERMEDADES_ACTUALES = new HashSet<ENFERMEDADES_ACTUALES>();
             this.NOTAS_POSTQUIRURGICAS = new HashSet<NOTAS_POSTQUIRURGICAS>();
@@ -26,6 +25,7 @@ namespace SysFloricola.Models
             this.HISTORIA_ANTECEDENTES = new HashSet<HISTORIA_ANTECEDENTES>();
             this.HISTORIA_CLINICA_SIGNOS_VITALES = new HashSet<HISTORIA_CLINICA_SIGNOS_VITALES>();
             this.EXAMENES_FISICOS = new HashSet<EXAMENES_FISICOS>();
+            this.DIAGNOSTICOS = new HashSet<DIAGNOSTICOS>();
         }
     
         public int HSCCODIGOI { get; set; }
@@ -35,8 +35,6 @@ namespace SysFloricola.Models
         public Nullable<System.DateTime> HSCHORA_APERTURA { get; set; }
         public string OBSERVACIONES { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DIAGNOSTICOS> DIAGNOSTICOS { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DOCUMENTOS> DOCUMENTOS { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -54,5 +52,7 @@ namespace SysFloricola.Models
         public virtual ICollection<HISTORIA_CLINICA_SIGNOS_VITALES> HISTORIA_CLINICA_SIGNOS_VITALES { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EXAMENES_FISICOS> EXAMENES_FISICOS { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DIAGNOSTICOS> DIAGNOSTICOS { get; set; }
     }
 }

@@ -21,7 +21,7 @@ namespace SysFloricola.Models
         public string DGNOBSERVACION { get; set; }
         public string DGNTIPO { get; set; }
     
-        public virtual INDICES_CIE_SECUNDARIOS INDICES_CIE_SECUNDARIOS { get; set; }
         public virtual HISTORIA_CLINICA HISTORIA_CLINICA { get; set; }
+        public virtual INDICES_CIE_SECUNDARIOS INDICES_CIE_SECUNDARIOS { get; set; }
     }
 }

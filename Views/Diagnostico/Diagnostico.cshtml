@@ -1,0 +1,102 @@
+﻿
+
+@{
+	ViewBag.Title = "Diagnóstico";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2 class="text-center">Diagnóstico</h2>
+
+<div class="row pt-2 pb-4">
+	<div class="pl-5 pr-5 col-md-5 text-center">
+		<div class="alert alert-danger" hidden id="mensajeError">Error</div>
+	</div>
+	<div class=" pl-5  col-md-6 text-center" style="text-align:right" >@Html.Partial("~/Views/Shared/_Flash.cshtml")</div> <br />
+	<div class="container  pt-0">
+		<ul class="nav nav-tabs bar_tabs" role="tablist">
+			<li class="nav-item">
+				<a href="/Paciente">Lista Pacientes</a>
+			</li>
+			<li class="nav-item">
+				<a>Filiación</a>
+			</li>
+			<li class="nav-item"><a>Consulta</a></li>
+			<li class="nav-item"><a>Antecedentes</a></li>
+			<li class="nav-item"><a>Signos Vitales</a></li>
+			<li class="nav-item"><a>Exámenes Físicos</a></li>
+			<li class="nav-item" style="background-color:#2A3F54; color:white">
+				<a class="nav-item" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="antecedentes" aria-selected="true">Diagnóstico</a>
+			</li>
+		</ul>
+
+	</div>
+
+	@*Tabla Motivos ----------------------------------------------------------------------------------------------------------*@
+
+	<div class="col-md-12 pl-5 pr-5 pt-3 " style="text-align:left">
+
+
+		@using (Html.BeginForm("Diagnostico", "Diagnostico", FormMethod.Post))
+		{
+			<input type="text" hidden name="codHist" id="codHist" value="@ViewBag.codHist" />
+			<input type="text" hidden name="numEmp" value="@ViewBag.numEmp" />
+			<input type="text" hidden  name="DGNCODIGOI" id="DGNCODIGOI" value="" />
+			<div class="row pb-3">
+				<div class="clearfix"></div>
+				<div class="col-md-5">
+					<label style="color:black">Indice Principal</label>
+					@Html.DropDownList("ICPCODIGOI", null, htmlAttributes: new { @class = "form-control", @id = "cboIndicesPrincipales", @required = "required" })
+				</div>
+				<div class="col-md-5">
+					<label style="color:black">Indice Secundario</label>
+					<select required name="INSCODIGOI" class="form-control" id="cboIndiceSecundario">
+						<option>Seleccione una opción</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="row pt-3 pb-3">
+				<div class="col-md-12">
+					<div class="radio col-md-2 pr-0 mr-0">
+						<label>
+							<input type="radio" class="flat" required value="PRE" id="idPre" name="opciones"><label style="color:black" class="pl-2">Presuntivo</label> 
+						</label>
+					</div>
+					<div class="radio col-md-2 pl-0 ml-0">
+						<label>
+							<input type="radio" value="DEF" required id="idDef" name="opciones"> <label style="color:black" class="pl-2"> Definitivo</label>
+						</label>
+					</div>
+					
+				</div>
+				<div class="col-md-12 pt-4">
+					<textarea class="form-control" name="comentario" id="textAreaComentario" maxlength="350" placeholder="Ingese un comentario..." rows="6"></textarea>
+				</div>
+			</div>
+			<div class="row pt-2">
+				<div class="col-md-12" style="text-align:right">
+					<button type="submit" class="btn btn-success text-white">
+						<i class="fa fa-save"></i> Guardar
+					</button>
+					<a class="btn btn-primary text-white" href="/SignosVitales/SignosVitales?numEmp=@ViewBag.numEmp&codHist=@ViewBag.codHist">
+						Siguiente <i class="fa fa-arrow-circle-right"></i>
+					</a>
+				</div>
+			</div>
+		}
+	</div>
+
+
+
+</div>
+
+
+
+
+@*Scripts----------------------------------------------------------------------------------------------------------*@
+
+@section Scripts {
+	<script src="~/Scripts/jquery.dataTables.js"></script>
+	<script src="~/Scripts/Scripts/ScriptDiagnostico.js"></script>
+}

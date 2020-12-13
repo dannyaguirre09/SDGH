@@ -14,15 +14,12 @@
         <EntityTypeShape EntityType="BDClinicaModel.DETALLE_FACTURA" Width="1.5" PointX="17.75" PointY="2.625" IsExpanded="true" />
         <EntityTypeShape EntityType="BDClinicaModel.DETALLE_LIQUIDACION" Width="1.5" PointX="10.5" PointY="36.625" IsExpanded="true" />
         <EntityTypeShape EntityType="BDClinicaModel.DETALLE_ORDEN_CIRUGIA" Width="1.5" PointX="11.25" PointY="17.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="BDClinicaModel.DIAGNOSTICOS" Width="1.5" PointX="8.25" PointY="22.875" IsExpanded="true" />
         <EntityTypeShape EntityType="BDClinicaModel.DOCUMENTOS" Width="1.5" PointX="5.25" PointY="23.875" IsExpanded="true" />
         <EntityTypeShape EntityType="BDClinicaModel.EMPRESA_CONVENIO" Width="1.5" PointX="0.75" PointY="15.625" IsExpanded="true" />
         <EntityTypeShape EntityType="BDClinicaModel.ENFERMEDADES_ACTUALES" Width="1.5" PointX="5.25" PointY="26.625" IsExpanded="true" />
         <EntityTypeShape EntityType="BDClinicaModel.ESPECIALISTA" Width="1.5" PointX="6" PointY="9.375" IsExpanded="true" />
         <EntityTypeShape EntityType="BDClinicaModel.FORMA_PAGO" Width="1.5" PointX="13" PointY="11.5" IsExpanded="true" />
         <EntityTypeShape EntityType="BDClinicaModel.IMPUESTOS" Width="1.5" PointX="17.75" PointY="6.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="BDClinicaModel.INDICES_CIE_PRINCIPALES" Width="1.5" PointX="3.75" PointY="30.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="BDClinicaModel.INDICES_CIE_SECUNDARIOS" Width="1.5" PointX="6" PointY="30" IsExpanded="true" />
         <EntityTypeShape EntityType="BDClinicaModel.INSUMOS_MEDICOS" Width="1.5" PointX="5.25" PointY="1.5" IsExpanded="true" />
         <EntityTypeShape EntityType="BDClinicaModel.LENTES" Width="1.5" PointX="15.75" PointY="12.625" IsExpanded="true" />
         <EntityTypeShape EntityType="BDClinicaModel.LIQUIDACION_FACTURAS" Width="1.5" PointX="8.25" PointY="36.875" IsExpanded="true" />
@@ -66,13 +63,11 @@
         <AssociationConnector Association="BDClinicaModel.FK_DETALLE_ORDEN_CIRUGIA_ORDEN_CIRUGIA" ManuallyRouted="false" />
         <AssociationConnector Association="BDClinicaModel.FK_DETALLE_ORDEN_CIRUGIA_SERVICIOS" ManuallyRouted="false" />
         <AssociationConnector Association="BDClinicaModel.FK_DETALLE_ORDEN_CIRUGIA_TIPO_CIRUGIA" ManuallyRouted="false" />
-        <AssociationConnector Association="BDClinicaModel.FK_DIAGNOST_RELATIONS_INDICES_" ManuallyRouted="false" />
         <AssociationConnector Association="BDClinicaModel.FK_ORDEN_CIRUGIA_EMPRESA_CONVENIO" ManuallyRouted="false" />
         <AssociationConnector Association="BDClinicaModel.FK_SERVICIO_EMPRESA_E_EMPRESA_" ManuallyRouted="false" />
         <AssociationConnector Association="BDClinicaModel.FK_LIQUIDACION_FACTURAS_ESPECIALISTA" ManuallyRouted="false" />
         <AssociationConnector Association="BDClinicaModel.FK_ORDEN_ESPECIALISTA_ESPECIALISTA" ManuallyRouted="false" />
         <AssociationConnector Association="BDClinicaModel.FK_PIE_FACT_FORMAPAGO_FORMA_PA" ManuallyRouted="false" />
-        <AssociationConnector Association="BDClinicaModel.FK_INDICES__RELATIONS_INDICES_" ManuallyRouted="false" />
         <AssociationConnector Association="BDClinicaModel.FK_INSUMOS__RELATIONS_PROVEEDO" ManuallyRouted="false" />
         <AssociationConnector Association="BDClinicaModel.FK_INSUMOS__RELATIONS_UNIDADES" ManuallyRouted="false" />
         <AssociationConnector Association="BDClinicaModel.FK_PROGRAMA_MENUS_PRO_MENUS" ManuallyRouted="false" />
@@ -91,7 +86,6 @@
         <AssociationConnector Association="BDClinicaModel.FK_USUARIOS_PERFILES_USUARIOS" ManuallyRouted="false" />
         <AssociationConnector Association="BDClinicaModel.PROGOPER" ManuallyRouted="false" />
         <EntityTypeShape EntityType="BDClinicaModel.HISTORIA_CLINICA" Width="1.25" PointX="3" PointY="22.125" />
-        <AssociationConnector Association="BDClinicaModel.FK_DIAGNOST_RELATIONS_HISTORIA" />
         <AssociationConnector Association="BDClinicaModel.FK_DOCUMENT_RELATIONS_HISTORIA" />
         <AssociationConnector Association="BDClinicaModel.FK_ENFERMED_RELATIONS_HISTORIA" />
         <AssociationConnector Association="BDClinicaModel.FK_HISTORIA_RELATIONS_PACIENTE" />
@@ -123,6 +117,12 @@
         <EntityTypeShape EntityType="BDClinicaModel.EXAMENES_FISICOS" Width="1.5" PointX="8.25" PointY="19.5" />
         <AssociationConnector Association="BDClinicaModel.FK_EXAMENES_FISICOS_TIPOS_EXAMENES_FISICOS" />
         <AssociationConnector Association="BDClinicaModel.FK_EXAMENES_RELATIONS_HISTORIA" />
+        <EntityTypeShape EntityType="BDClinicaModel.DIAGNOSTICOS" Width="1.5" PointX="20.875" PointY="22.875" />
+        <EntityTypeShape EntityType="BDClinicaModel.INDICES_CIE_PRINCIPALES" Width="1.5" PointX="16.375" PointY="22.25" />
+        <EntityTypeShape EntityType="BDClinicaModel.INDICES_CIE_SECUNDARIOS" Width="1.5" PointX="18.625" PointY="22" />
+        <AssociationConnector Association="BDClinicaModel.FK_DIAGNOST_RELATIONS_HISTORIA" />
+        <AssociationConnector Association="BDClinicaModel.FK_DIAGNOST_RELATIONS_INDICES_" />
+        <AssociationConnector Association="BDClinicaModel.FK_INDICES__RELATIONS_INDICES_" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -36,15 +36,12 @@ namespace SysFloricola.Models
         public virtual DbSet<DETALLE_FACTURA> DETALLE_FACTURA { get; set; }
         public virtual DbSet<DETALLE_LIQUIDACION> DETALLE_LIQUIDACION { get; set; }
         public virtual DbSet<DETALLE_ORDEN_CIRUGIA> DETALLE_ORDEN_CIRUGIA { get; set; }
-        public virtual DbSet<DIAGNOSTICOS> DIAGNOSTICOS { get; set; }
         public virtual DbSet<DOCUMENTOS> DOCUMENTOS { get; set; }
         public virtual DbSet<EMPRESA_CONVENIO> EMPRESA_CONVENIO { get; set; }
         public virtual DbSet<ENFERMEDADES_ACTUALES> ENFERMEDADES_ACTUALES { get; set; }
         public virtual DbSet<ESPECIALISTA> ESPECIALISTA { get; set; }
         public virtual DbSet<FORMA_PAGO> FORMA_PAGO { get; set; }
         public virtual DbSet<IMPUESTOS> IMPUESTOS { get; set; }
-        public virtual DbSet<INDICES_CIE_PRINCIPALES> INDICES_CIE_PRINCIPALES { get; set; }
-        public virtual DbSet<INDICES_CIE_SECUNDARIOS> INDICES_CIE_SECUNDARIOS { get; set; }
         public virtual DbSet<INSUMOS_MEDICOS> INSUMOS_MEDICOS { get; set; }
         public virtual DbSet<LENTES> LENTES { get; set; }
         public virtual DbSet<LIQUIDACION_FACTURAS> LIQUIDACION_FACTURAS { get; set; }
@@ -87,6 +84,9 @@ namespace SysFloricola.Models
         public virtual DbSet<FACTURA_RETENCION> FACTURA_RETENCION { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<EXAMENES_FISICOS> EXAMENES_FISICOS { get; set; }
+        public virtual DbSet<DIAGNOSTICOS> DIAGNOSTICOS { get; set; }
+        public virtual DbSet<INDICES_CIE_PRINCIPALES> INDICES_CIE_PRINCIPALES { get; set; }
+        public virtual DbSet<INDICES_CIE_SECUNDARIOS> INDICES_CIE_SECUNDARIOS { get; set; }
     
         public virtual ObjectResult<spInsert_HistoriaClinica_Result> spInsert_HistoriaClinica(Nullable<int> pCTCODIGOI, Nullable<int> hSCNUMERO, Nullable<System.DateTime> hSCFECHAAPERTURA, Nullable<System.DateTime> hSCHORA_APERTURA, string oBSERVACIONES)
         {
@@ -350,6 +350,31 @@ namespace SysFloricola.Models
                 new ObjectParameter("descripcion", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spInsert_ExamenFisico", eXFCODIGOIParameter, tPFCODIGOIParameter, hSCCODIGOIParameter, descripcionParameter);
+        }
+    
+        public virtual int spInsert_Diagnostico(Nullable<int> dGNCODIGOI, Nullable<int> hSCCODIGOI, Nullable<int> iNSCODIGOI, string dGNOBSERVACION, string dGNTIPO)
+        {
+            var dGNCODIGOIParameter = dGNCODIGOI.HasValue ?
+                new ObjectParameter("DGNCODIGOI", dGNCODIGOI) :
+                new ObjectParameter("DGNCODIGOI", typeof(int));
+    
+            var hSCCODIGOIParameter = hSCCODIGOI.HasValue ?
+                new ObjectParameter("HSCCODIGOI", hSCCODIGOI) :
+                new ObjectParameter("HSCCODIGOI", typeof(int));
+    
+            var iNSCODIGOIParameter = iNSCODIGOI.HasValue ?
+                new ObjectParameter("INSCODIGOI", iNSCODIGOI) :
+                new ObjectParameter("INSCODIGOI", typeof(int));
+    
+            var dGNOBSERVACIONParameter = dGNOBSERVACION != null ?
+                new ObjectParameter("DGNOBSERVACION", dGNOBSERVACION) :
+                new ObjectParameter("DGNOBSERVACION", typeof(string));
+    
+            var dGNTIPOParameter = dGNTIPO != null ?
+                new ObjectParameter("DGNTIPO", dGNTIPO) :
+                new ObjectParameter("DGNTIPO", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spInsert_Diagnostico", dGNCODIGOIParameter, hSCCODIGOIParameter, iNSCODIGOIParameter, dGNOBSERVACIONParameter, dGNTIPOParameter);
         }
     }
 }

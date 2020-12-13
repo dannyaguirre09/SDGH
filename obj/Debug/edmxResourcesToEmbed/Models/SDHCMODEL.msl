@@ -108,18 +108,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="DIAGNOSTICOS">
-      <EntityTypeMapping TypeName="BDClinicaModel.DIAGNOSTICOS">
-        <MappingFragment StoreEntitySet="DIAGNOSTICOS">
-          <ScalarProperty Name="DGNCODIGOI" ColumnName="DGNCODIGOI" />
-          <ScalarProperty Name="HSCCODIGOI" ColumnName="HSCCODIGOI" />
-          <ScalarProperty Name="INSCODIGOI" ColumnName="INSCODIGOI" />
-          <ScalarProperty Name="DGNFECHA" ColumnName="DGNFECHA" />
-          <ScalarProperty Name="DGNOBSERVACION" ColumnName="DGNOBSERVACION" />
-          <ScalarProperty Name="DGNTIPO" ColumnName="DGNTIPO" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="DOCUMENTOS">
       <EntityTypeMapping TypeName="BDClinicaModel.DOCUMENTOS">
         <MappingFragment StoreEntitySet="DOCUMENTOS">
@@ -185,27 +173,6 @@
           <ScalarProperty Name="IMPIDENTIFICACION" ColumnName="IMPIDENTIFICACION" />
           <ScalarProperty Name="IMPPORCENTAJE" ColumnName="IMPPORCENTAJE" />
           <ScalarProperty Name="IMPESTADO" ColumnName="IMPESTADO" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="INDICES_CIE_PRINCIPALES">
-      <EntityTypeMapping TypeName="BDClinicaModel.INDICES_CIE_PRINCIPALES">
-        <MappingFragment StoreEntitySet="INDICES_CIE_PRINCIPALES">
-          <ScalarProperty Name="ICPCODIGOI" ColumnName="ICPCODIGOI" />
-          <ScalarProperty Name="ICPDESCRIPCION" ColumnName="ICPDESCRIPCION" />
-          <ScalarProperty Name="ICPIDCIE" ColumnName="ICPIDCIE" />
-          <ScalarProperty Name="ICPESTADO" ColumnName="ICPESTADO" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="INDICES_CIE_SECUNDARIOS">
-      <EntityTypeMapping TypeName="BDClinicaModel.INDICES_CIE_SECUNDARIOS">
-        <MappingFragment StoreEntitySet="INDICES_CIE_SECUNDARIOS">
-          <ScalarProperty Name="INSCODIGOI" ColumnName="INSCODIGOI" />
-          <ScalarProperty Name="ICPCODIGOI" ColumnName="ICPCODIGOI" />
-          <ScalarProperty Name="INSDESCRIPCION" ColumnName="INSDESCRIPCION" />
-          <ScalarProperty Name="INSIDCIE" ColumnName="INSIDCIE" />
-          <ScalarProperty Name="INSESTADO" ColumnName="INSESTADO" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -798,5 +765,39 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <FunctionImportMapping FunctionImportName="spInsert_ExamenFisico" FunctionName="BDClinicaModel.Store.spInsert_ExamenFisico" />
+    <EntitySetMapping Name="DIAGNOSTICOS">
+      <EntityTypeMapping TypeName="BDClinicaModel.DIAGNOSTICOS">
+        <MappingFragment StoreEntitySet="DIAGNOSTICOS">
+          <ScalarProperty Name="DGNTIPO" ColumnName="DGNTIPO" />
+          <ScalarProperty Name="DGNOBSERVACION" ColumnName="DGNOBSERVACION" />
+          <ScalarProperty Name="DGNFECHA" ColumnName="DGNFECHA" />
+          <ScalarProperty Name="INSCODIGOI" ColumnName="INSCODIGOI" />
+          <ScalarProperty Name="HSCCODIGOI" ColumnName="HSCCODIGOI" />
+          <ScalarProperty Name="DGNCODIGOI" ColumnName="DGNCODIGOI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="INDICES_CIE_PRINCIPALES">
+      <EntityTypeMapping TypeName="BDClinicaModel.INDICES_CIE_PRINCIPALES">
+        <MappingFragment StoreEntitySet="INDICES_CIE_PRINCIPALES">
+          <ScalarProperty Name="ICPESTADO" ColumnName="ICPESTADO" />
+          <ScalarProperty Name="ICPIDCIE" ColumnName="ICPIDCIE" />
+          <ScalarProperty Name="ICPDESCRIPCION" ColumnName="ICPDESCRIPCION" />
+          <ScalarProperty Name="ICPCODIGOI" ColumnName="ICPCODIGOI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="INDICES_CIE_SECUNDARIOS">
+      <EntityTypeMapping TypeName="BDClinicaModel.INDICES_CIE_SECUNDARIOS">
+        <MappingFragment StoreEntitySet="INDICES_CIE_SECUNDARIOS">
+          <ScalarProperty Name="INSESTADO" ColumnName="INSESTADO" />
+          <ScalarProperty Name="INSIDCIE" ColumnName="INSIDCIE" />
+          <ScalarProperty Name="INSDESCRIPCION" ColumnName="INSDESCRIPCION" />
+          <ScalarProperty Name="ICPCODIGOI" ColumnName="ICPCODIGOI" />
+          <ScalarProperty Name="INSCODIGOI" ColumnName="INSCODIGOI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="spInsert_Diagnostico" FunctionName="BDClinicaModel.Store.spInsert_Diagnostico" />
   </EntityContainerMapping>
 </Mapping>

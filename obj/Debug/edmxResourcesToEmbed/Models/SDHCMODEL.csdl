@@ -114,19 +114,6 @@
     <NavigationProperty Name="SERVICIOS" Relationship="Self.FK_DETALLE_ORDEN_CIRUGIA_SERVICIOS" FromRole="DETALLE_ORDEN_CIRUGIA" ToRole="SERVICIOS" />
     <NavigationProperty Name="TIPO_CIRUGIA" Relationship="Self.FK_DETALLE_ORDEN_CIRUGIA_TIPO_CIRUGIA" FromRole="DETALLE_ORDEN_CIRUGIA" ToRole="TIPO_CIRUGIA" />
   </EntityType>
-  <EntityType Name="DIAGNOSTICOS">
-    <Key>
-      <PropertyRef Name="DGNCODIGOI" />
-    </Key>
-    <Property Name="DGNCODIGOI" Type="Int32" Nullable="false" />
-    <Property Name="HSCCODIGOI" Type="Int32" />
-    <Property Name="INSCODIGOI" Type="Int32" />
-    <Property Name="DGNFECHA" Type="DateTime" Precision="3" />
-    <Property Name="DGNOBSERVACION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="DGNTIPO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="INDICES_CIE_SECUNDARIOS" Relationship="Self.FK_DIAGNOST_RELATIONS_INDICES_" FromRole="DIAGNOSTICOS" ToRole="INDICES_CIE_SECUNDARIOS" />
-    <NavigationProperty Name="HISTORIA_CLINICA" Relationship="BDClinicaModel.FK_DIAGNOST_RELATIONS_HISTORIA" FromRole="DIAGNOSTICOS" ToRole="HISTORIA_CLINICA" />
-  </EntityType>
   <EntityType Name="DOCUMENTOS">
     <Key>
       <PropertyRef Name="DCMCODIGOI" />
@@ -196,28 +183,6 @@
     <Property Name="IMPPORCENTAJE" Type="Int32" Nullable="false" />
     <Property Name="IMPESTADO" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="FACTURA_RETENCION" Relationship="BDClinicaModel.FK_FACTURA_RETENCION_IMPUESTOS" FromRole="IMPUESTOS" ToRole="FACTURA_RETENCION" />
-  </EntityType>
-  <EntityType Name="INDICES_CIE_PRINCIPALES">
-    <Key>
-      <PropertyRef Name="ICPCODIGOI" />
-    </Key>
-    <Property Name="ICPCODIGOI" Type="Int32" Nullable="false" />
-    <Property Name="ICPDESCRIPCION" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
-    <Property Name="ICPIDCIE" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
-    <Property Name="ICPESTADO" Type="Boolean" />
-    <NavigationProperty Name="INDICES_CIE_SECUNDARIOS" Relationship="Self.FK_INDICES__RELATIONS_INDICES_" FromRole="INDICES_CIE_PRINCIPALES" ToRole="INDICES_CIE_SECUNDARIOS" />
-  </EntityType>
-  <EntityType Name="INDICES_CIE_SECUNDARIOS">
-    <Key>
-      <PropertyRef Name="INSCODIGOI" />
-    </Key>
-    <Property Name="INSCODIGOI" Type="Int32" Nullable="false" />
-    <Property Name="ICPCODIGOI" Type="Int32" />
-    <Property Name="INSDESCRIPCION" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
-    <Property Name="INSIDCIE" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
-    <Property Name="INSESTADO" Type="Boolean" />
-    <NavigationProperty Name="DIAGNOSTICOS" Relationship="Self.FK_DIAGNOST_RELATIONS_INDICES_" FromRole="INDICES_CIE_SECUNDARIOS" ToRole="DIAGNOSTICOS" />
-    <NavigationProperty Name="INDICES_CIE_PRINCIPALES" Relationship="Self.FK_INDICES__RELATIONS_INDICES_" FromRole="INDICES_CIE_SECUNDARIOS" ToRole="INDICES_CIE_PRINCIPALES" />
   </EntityType>
   <EntityType Name="INSUMOS_MEDICOS">
     <Key>
@@ -770,18 +735,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_DIAGNOST_RELATIONS_INDICES_">
-    <End Role="INDICES_CIE_SECUNDARIOS" Type="Self.INDICES_CIE_SECUNDARIOS" Multiplicity="0..1" />
-    <End Role="DIAGNOSTICOS" Type="Self.DIAGNOSTICOS" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="INDICES_CIE_SECUNDARIOS">
-        <PropertyRef Name="INSCODIGOI" />
-      </Principal>
-      <Dependent Role="DIAGNOSTICOS">
-        <PropertyRef Name="INSCODIGOI" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_ORDEN_CIRUGIA_EMPRESA_CONVENIO">
     <End Role="EMPRESA_CONVENIO" Type="Self.EMPRESA_CONVENIO" Multiplicity="1" />
     <End Role="ORDEN_CIRUGIA" Type="Self.ORDEN_CIRUGIA" Multiplicity="*" />
@@ -839,18 +792,6 @@
       </Principal>
       <Dependent Role="PIE_FACTURA">
         <PropertyRef Name="FMPCODIGOI" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_INDICES__RELATIONS_INDICES_">
-    <End Role="INDICES_CIE_PRINCIPALES" Type="Self.INDICES_CIE_PRINCIPALES" Multiplicity="0..1" />
-    <End Role="INDICES_CIE_SECUNDARIOS" Type="Self.INDICES_CIE_SECUNDARIOS" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="INDICES_CIE_PRINCIPALES">
-        <PropertyRef Name="ICPCODIGOI" />
-      </Principal>
-      <Dependent Role="INDICES_CIE_SECUNDARIOS">
-        <PropertyRef Name="ICPCODIGOI" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1060,15 +1001,12 @@
     <EntitySet Name="DETALLE_FACTURA" EntityType="Self.DETALLE_FACTURA" />
     <EntitySet Name="DETALLE_LIQUIDACION" EntityType="Self.DETALLE_LIQUIDACION" />
     <EntitySet Name="DETALLE_ORDEN_CIRUGIA" EntityType="Self.DETALLE_ORDEN_CIRUGIA" />
-    <EntitySet Name="DIAGNOSTICOS" EntityType="Self.DIAGNOSTICOS" />
     <EntitySet Name="DOCUMENTOS" EntityType="Self.DOCUMENTOS" />
     <EntitySet Name="EMPRESA_CONVENIO" EntityType="Self.EMPRESA_CONVENIO" />
     <EntitySet Name="ENFERMEDADES_ACTUALES" EntityType="Self.ENFERMEDADES_ACTUALES" />
     <EntitySet Name="ESPECIALISTA" EntityType="Self.ESPECIALISTA" />
     <EntitySet Name="FORMA_PAGO" EntityType="Self.FORMA_PAGO" />
     <EntitySet Name="IMPUESTOS" EntityType="Self.IMPUESTOS" />
-    <EntitySet Name="INDICES_CIE_PRINCIPALES" EntityType="Self.INDICES_CIE_PRINCIPALES" />
-    <EntitySet Name="INDICES_CIE_SECUNDARIOS" EntityType="Self.INDICES_CIE_SECUNDARIOS" />
     <EntitySet Name="INSUMOS_MEDICOS" EntityType="Self.INSUMOS_MEDICOS" />
     <EntitySet Name="LENTES" EntityType="Self.LENTES" />
     <EntitySet Name="LIQUIDACION_FACTURAS" EntityType="Self.LIQUIDACION_FACTURAS" />
@@ -1148,10 +1086,6 @@
       <End Role="TIPO_CIRUGIA" EntitySet="TIPO_CIRUGIA" />
       <End Role="DETALLE_ORDEN_CIRUGIA" EntitySet="DETALLE_ORDEN_CIRUGIA" />
     </AssociationSet>
-    <AssociationSet Name="FK_DIAGNOST_RELATIONS_INDICES_" Association="Self.FK_DIAGNOST_RELATIONS_INDICES_">
-      <End Role="INDICES_CIE_SECUNDARIOS" EntitySet="INDICES_CIE_SECUNDARIOS" />
-      <End Role="DIAGNOSTICOS" EntitySet="DIAGNOSTICOS" />
-    </AssociationSet>
     <AssociationSet Name="FK_ORDEN_CIRUGIA_EMPRESA_CONVENIO" Association="Self.FK_ORDEN_CIRUGIA_EMPRESA_CONVENIO">
       <End Role="EMPRESA_CONVENIO" EntitySet="EMPRESA_CONVENIO" />
       <End Role="ORDEN_CIRUGIA" EntitySet="ORDEN_CIRUGIA" />
@@ -1171,10 +1105,6 @@
     <AssociationSet Name="FK_PIE_FACT_FORMAPAGO_FORMA_PA" Association="Self.FK_PIE_FACT_FORMAPAGO_FORMA_PA">
       <End Role="FORMA_PAGO" EntitySet="FORMA_PAGO" />
       <End Role="PIE_FACTURA" EntitySet="PIE_FACTURA" />
-    </AssociationSet>
-    <AssociationSet Name="FK_INDICES__RELATIONS_INDICES_" Association="Self.FK_INDICES__RELATIONS_INDICES_">
-      <End Role="INDICES_CIE_PRINCIPALES" EntitySet="INDICES_CIE_PRINCIPALES" />
-      <End Role="INDICES_CIE_SECUNDARIOS" EntitySet="INDICES_CIE_SECUNDARIOS" />
     </AssociationSet>
     <AssociationSet Name="FK_INSUMOS__RELATIONS_PROVEEDO" Association="Self.FK_INSUMOS__RELATIONS_PROVEEDO">
       <End Role="PROVEEDORES" EntitySet="PROVEEDORES" />
@@ -1245,10 +1175,6 @@
       <End Role="PROGRAMA" EntitySet="PROGRAMA" />
     </AssociationSet>
     <EntitySet Name="HISTORIA_CLINICA" EntityType="BDClinicaModel.HISTORIA_CLINICA" />
-    <AssociationSet Name="FK_DIAGNOST_RELATIONS_HISTORIA" Association="BDClinicaModel.FK_DIAGNOST_RELATIONS_HISTORIA">
-      <End Role="HISTORIA_CLINICA" EntitySet="HISTORIA_CLINICA" />
-      <End Role="DIAGNOSTICOS" EntitySet="DIAGNOSTICOS" />
-    </AssociationSet>
     <AssociationSet Name="FK_DOCUMENT_RELATIONS_HISTORIA" Association="BDClinicaModel.FK_DOCUMENT_RELATIONS_HISTORIA">
       <End Role="HISTORIA_CLINICA" EntitySet="HISTORIA_CLINICA" />
       <End Role="DOCUMENTOS" EntitySet="DOCUMENTOS" />
@@ -1420,6 +1346,28 @@
       <Parameter Name="HSCCODIGOI" Mode="In" Type="Int32" />
       <Parameter Name="descripcion" Mode="In" Type="String" />
     </FunctionImport>
+    <EntitySet Name="DIAGNOSTICOS" EntityType="BDClinicaModel.DIAGNOSTICOS" />
+    <EntitySet Name="INDICES_CIE_PRINCIPALES" EntityType="BDClinicaModel.INDICES_CIE_PRINCIPALES" />
+    <EntitySet Name="INDICES_CIE_SECUNDARIOS" EntityType="BDClinicaModel.INDICES_CIE_SECUNDARIOS" />
+    <AssociationSet Name="FK_DIAGNOST_RELATIONS_HISTORIA" Association="BDClinicaModel.FK_DIAGNOST_RELATIONS_HISTORIA">
+      <End Role="HISTORIA_CLINICA" EntitySet="HISTORIA_CLINICA" />
+      <End Role="DIAGNOSTICOS" EntitySet="DIAGNOSTICOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DIAGNOST_RELATIONS_INDICES_" Association="BDClinicaModel.FK_DIAGNOST_RELATIONS_INDICES_">
+      <End Role="INDICES_CIE_SECUNDARIOS" EntitySet="INDICES_CIE_SECUNDARIOS" />
+      <End Role="DIAGNOSTICOS" EntitySet="DIAGNOSTICOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_INDICES__RELATIONS_INDICES_" Association="BDClinicaModel.FK_INDICES__RELATIONS_INDICES_">
+      <End Role="INDICES_CIE_PRINCIPALES" EntitySet="INDICES_CIE_PRINCIPALES" />
+      <End Role="INDICES_CIE_SECUNDARIOS" EntitySet="INDICES_CIE_SECUNDARIOS" />
+    </AssociationSet>
+    <FunctionImport Name="spInsert_Diagnostico">
+      <Parameter Name="DGNCODIGOI" Mode="In" Type="Int32" />
+      <Parameter Name="HSCCODIGOI" Mode="In" Type="Int32" />
+      <Parameter Name="INSCODIGOI" Mode="In" Type="Int32" />
+      <Parameter Name="DGNOBSERVACION" Mode="In" Type="String" />
+      <Parameter Name="DGNTIPO" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="HISTORIA_CLINICA">
     <Key>
@@ -1431,7 +1379,6 @@
     <Property Name="HSCFECHAAPERTURA" Type="DateTime" Precision="3" />
     <Property Name="HSCHORA_APERTURA" Type="DateTime" Precision="3" />
     <Property Name="OBSERVACIONES" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="DIAGNOSTICOS" Relationship="BDClinicaModel.FK_DIAGNOST_RELATIONS_HISTORIA" FromRole="HISTORIA_CLINICA" ToRole="DIAGNOSTICOS" />
     <NavigationProperty Name="DOCUMENTOS" Relationship="BDClinicaModel.FK_DOCUMENT_RELATIONS_HISTORIA" FromRole="HISTORIA_CLINICA" ToRole="DOCUMENTOS" />
     <NavigationProperty Name="ENFERMEDADES_ACTUALES" Relationship="BDClinicaModel.FK_ENFERMED_RELATIONS_HISTORIA" FromRole="HISTORIA_CLINICA" ToRole="ENFERMEDADES_ACTUALES" />
     <NavigationProperty Name="PACIENTE" Relationship="BDClinicaModel.FK_HISTORIA_RELATIONS_PACIENTE" FromRole="HISTORIA_CLINICA" ToRole="PACIENTE" />
@@ -1441,19 +1388,8 @@
     <NavigationProperty Name="HISTORIA_ANTECEDENTES" Relationship="BDClinicaModel.FK_HISTORIA_RELATIONS_HISTORIA" FromRole="HISTORIA_CLINICA" ToRole="HISTORIA_ANTECEDENTES" />
     <NavigationProperty Name="HISTORIA_CLINICA_SIGNOS_VITALES" Relationship="BDClinicaModel.FK_HISTORIA_RELATIONS_HISTORIA2" FromRole="HISTORIA_CLINICA" ToRole="HISTORIA_CLINICA_SIGNOS_VITALES" />
     <NavigationProperty Name="EXAMENES_FISICOS" Relationship="BDClinicaModel.FK_EXAMENES_RELATIONS_HISTORIA" FromRole="HISTORIA_CLINICA" ToRole="EXAMENES_FISICOS" />
+    <NavigationProperty Name="DIAGNOSTICOS" Relationship="BDClinicaModel.FK_DIAGNOST_RELATIONS_HISTORIA" FromRole="HISTORIA_CLINICA" ToRole="DIAGNOSTICOS" />
   </EntityType>
-  <Association Name="FK_DIAGNOST_RELATIONS_HISTORIA">
-    <End Type="BDClinicaModel.HISTORIA_CLINICA" Role="HISTORIA_CLINICA" Multiplicity="0..1" />
-    <End Type="BDClinicaModel.DIAGNOSTICOS" Role="DIAGNOSTICOS" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="HISTORIA_CLINICA">
-        <PropertyRef Name="HSCCODIGOI" />
-      </Principal>
-      <Dependent Role="DIAGNOSTICOS">
-        <PropertyRef Name="HSCCODIGOI" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_DOCUMENT_RELATIONS_HISTORIA">
     <End Type="BDClinicaModel.HISTORIA_CLINICA" Role="HISTORIA_CLINICA" Multiplicity="0..1" />
     <End Type="BDClinicaModel.DOCUMENTOS" Role="DOCUMENTOS" Multiplicity="*" />
@@ -1874,6 +1810,77 @@
       </Principal>
       <Dependent Role="EXAMENES_FISICOS">
         <PropertyRef Name="HSCCODIGOI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="DIAGNOSTICOS">
+    <Key>
+      <PropertyRef Name="DGNCODIGOI" />
+    </Key>
+    <Property Name="DGNCODIGOI" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HSCCODIGOI" Type="Int32" />
+    <Property Name="INSCODIGOI" Type="Int32" />
+    <Property Name="DGNFECHA" Type="DateTime" Precision="3" />
+    <Property Name="DGNOBSERVACION" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="DGNTIPO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="HISTORIA_CLINICA" Relationship="BDClinicaModel.FK_DIAGNOST_RELATIONS_HISTORIA" FromRole="DIAGNOSTICOS" ToRole="HISTORIA_CLINICA" />
+    <NavigationProperty Name="INDICES_CIE_SECUNDARIOS" Relationship="BDClinicaModel.FK_DIAGNOST_RELATIONS_INDICES_" FromRole="DIAGNOSTICOS" ToRole="INDICES_CIE_SECUNDARIOS" />
+  </EntityType>
+  <EntityType Name="INDICES_CIE_PRINCIPALES">
+    <Key>
+      <PropertyRef Name="ICPCODIGOI" />
+    </Key>
+    <Property Name="ICPCODIGOI" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ICPDESCRIPCION" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="ICPIDCIE" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="ICPESTADO" Type="Boolean" />
+    <NavigationProperty Name="INDICES_CIE_SECUNDARIOS" Relationship="BDClinicaModel.FK_INDICES__RELATIONS_INDICES_" FromRole="INDICES_CIE_PRINCIPALES" ToRole="INDICES_CIE_SECUNDARIOS" />
+  </EntityType>
+  <EntityType Name="INDICES_CIE_SECUNDARIOS">
+    <Key>
+      <PropertyRef Name="INSCODIGOI" />
+    </Key>
+    <Property Name="INSCODIGOI" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ICPCODIGOI" Type="Int32" />
+    <Property Name="INSDESCRIPCION" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="INSIDCIE" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="INSESTADO" Type="Boolean" />
+    <NavigationProperty Name="DIAGNOSTICOS" Relationship="BDClinicaModel.FK_DIAGNOST_RELATIONS_INDICES_" FromRole="INDICES_CIE_SECUNDARIOS" ToRole="DIAGNOSTICOS" />
+    <NavigationProperty Name="INDICES_CIE_PRINCIPALES" Relationship="BDClinicaModel.FK_INDICES__RELATIONS_INDICES_" FromRole="INDICES_CIE_SECUNDARIOS" ToRole="INDICES_CIE_PRINCIPALES" />
+  </EntityType>
+  <Association Name="FK_DIAGNOST_RELATIONS_HISTORIA">
+    <End Type="BDClinicaModel.HISTORIA_CLINICA" Role="HISTORIA_CLINICA" Multiplicity="0..1" />
+    <End Type="BDClinicaModel.DIAGNOSTICOS" Role="DIAGNOSTICOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HISTORIA_CLINICA">
+        <PropertyRef Name="HSCCODIGOI" />
+      </Principal>
+      <Dependent Role="DIAGNOSTICOS">
+        <PropertyRef Name="HSCCODIGOI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DIAGNOST_RELATIONS_INDICES_">
+    <End Type="BDClinicaModel.INDICES_CIE_SECUNDARIOS" Role="INDICES_CIE_SECUNDARIOS" Multiplicity="0..1" />
+    <End Type="BDClinicaModel.DIAGNOSTICOS" Role="DIAGNOSTICOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="INDICES_CIE_SECUNDARIOS">
+        <PropertyRef Name="INSCODIGOI" />
+      </Principal>
+      <Dependent Role="DIAGNOSTICOS">
+        <PropertyRef Name="INSCODIGOI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_INDICES__RELATIONS_INDICES_">
+    <End Type="BDClinicaModel.INDICES_CIE_PRINCIPALES" Role="INDICES_CIE_PRINCIPALES" Multiplicity="0..1" />
+    <End Type="BDClinicaModel.INDICES_CIE_SECUNDARIOS" Role="INDICES_CIE_SECUNDARIOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="INDICES_CIE_PRINCIPALES">
+        <PropertyRef Name="ICPCODIGOI" />
+      </Principal>
+      <Dependent Role="INDICES_CIE_SECUNDARIOS">
+        <PropertyRef Name="ICPCODIGOI" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
