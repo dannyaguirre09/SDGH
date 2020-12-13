@@ -1,4 +1,5 @@
-﻿@{
+﻿
+@{
 	Layout = null;
 }
 
@@ -9,8 +10,8 @@
 			<span class="cerrarModal" onclick="cerrarModalConfirmacion()" id="cerrarModalConfirmacion">&times;</span>
 		</div>
 		<div class="modal-Cuerpo">
-			<form action="~/TipoExamenFisico/EliminarTipoExamenFisico?id=@ViewBag.id" method="post">
-				<h4 class="text-center">¿Está seguro que desea eliminar el tipo de examen físico?</h4>
+			<form action="~/Planes/EliminarPrescripcion?id=@ViewBag.id&codHist=@ViewBag.codHist&numEmp=@ViewBag.numEmp" method="post">
+				<h4 class="text-center">¿Está seguro que desea eliminar el registro?</h4>
 				<br />
 				<div class="row" style="text-align:center">
 					<div class="col-md-12" style="text-align:right">

@@ -356,16 +356,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="PRESCRIPCIONES">
-      <EntityTypeMapping TypeName="BDClinicaModel.PRESCRIPCIONES">
-        <MappingFragment StoreEntitySet="PRESCRIPCIONES">
-          <ScalarProperty Name="PRSCODIGOI" ColumnName="PRSCODIGOI" />
-          <ScalarProperty Name="HSCCODIGOI" ColumnName="HSCCODIGOI" />
-          <ScalarProperty Name="PRSFECHA" ColumnName="PRSFECHA" />
-          <ScalarProperty Name="PRSDESCRIPCION" ColumnName="PRSDESCRIPCION" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="PROGRAMA">
       <EntityTypeMapping TypeName="BDClinicaModel.PROGRAMA">
         <MappingFragment StoreEntitySet="PROGRAMA">
@@ -799,5 +789,15 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <FunctionImportMapping FunctionImportName="spInsert_Diagnostico" FunctionName="BDClinicaModel.Store.spInsert_Diagnostico" />
+    <EntitySetMapping Name="PRESCRIPCIONES">
+      <EntityTypeMapping TypeName="BDClinicaModel.PRESCRIPCIONES">
+        <MappingFragment StoreEntitySet="PRESCRIPCIONES">
+          <ScalarProperty Name="PRSDESCRIPCION" ColumnName="PRSDESCRIPCION" />
+          <ScalarProperty Name="PRSFECHA" ColumnName="PRSFECHA" />
+          <ScalarProperty Name="HSCCODIGOI" ColumnName="HSCCODIGOI" />
+          <ScalarProperty Name="PRSCODIGOI" ColumnName="PRSCODIGOI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

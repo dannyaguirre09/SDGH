@@ -1,0 +1,126 @@
+﻿@model IEnumerable<SysFloricola.Models.PRESCRIPCIONES>
+
+@{
+	ViewBag.Title = "Planes";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Content/css/EstilosModal.css" rel="stylesheet" />
+<link href="~/Content/jquery.dataTables.css" rel="stylesheet" />
+
+<h2 class="text-center">Planes</h2>
+
+<div class="row pt-2 pb-4">
+	<div class=" pl-5 pr-5 col-md-5 text-center">@Html.Partial("~/Views/Shared/_Flash.cshtml")</div> <br />
+	<div class="container  pt-0">
+		<ul class="nav nav-tabs bar_tabs" role="tablist">
+			<li class="nav-item"><a href="/Paciente">Lista Pacientes</a></li>
+			<li class="nav-item"><a>Filiación</a></li>
+			<li class="nav-item"><a>Consulta</a></li>
+			<li class="nav-item"><a>Antecedentes</a></li>
+			<li class="nav-item"><a>Signos Vitales</a></li>
+			<li class="nav-item"><a>Exámenes Físicos</a></li>
+			<li class="nav-item"><a>Diagnóstico</a></li>
+			<li class="nav-item" style="background-color:#2A3F54; color:white">
+				<a class="nav-item" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="antecedentes" aria-selected="true">Planes</a>
+			</li>
+		</ul>
+
+	</div>
+
+	@*Tabla Motivos ----------------------------------------------------------------------------------------------------------*@
+
+	<div class="col-md-12 pl-5 pr-5 pt-3 " style="text-align:center">
+		<div class="x_panel pt-0 mt-0">
+			<input type="text" value="@ViewBag.numEmp" id="numEmp" hidden />
+			<input type="text" value="@ViewBag.codHist" id="codHist" hidden />
+			<div class="x_title pt-0">
+				<h2>Prescripciones</h2>
+				<ul class="nav navbar-right panel_toolbox">
+					<li>
+						<a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+					</li>
+					<li>
+						<a onclick="abrirModal(0)" style="cursor: pointer;" class="action-item text-black-50 " data-toggle="tooltip" title="Agregar Prescripción">
+							<i class="fa fa-plus text-success" style="font-size: 16px;"></i>
+						</a>
+					</li>
+				</ul>
+				<div class="clearfix"></div>
+			</div>
+			<div class="x_content">
+				<table class="table table-cards table-borderless table-responsive-lg" id="tablaPrescripciones">
+					<thead hidden class="text-white">
+						<tr>
+							<th scope="col">
+								Motivo
+							</th>
+							<th scope="col">
+								Fecha
+							</th>
+							<th scope="col">Acciones</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (var item in Model)
+						{
+							<tr>
+								<td class="left">
+									@{
+										try
+										{
+											@item.PRSDESCRIPCION.Substring(0, 80); <label style="color:black">....</label>
+										}
+										catch (Exception)
+										{
+
+											@item.PRSDESCRIPCION;
+										}
+									}
+
+								</td>
+								<td class="text-right">
+									@item.PRSFECHA
+								</td>
+								<td class="text-right">
+									<div class="actions ml-3">
+										<a onclick="abrirModal(@item.PRSCODIGOI)" class="action-item mr-2 text-info" style="cursor: pointer; font-size:14px;" data-toggle="tooltip" title="Editar Prescripción">
+											<i class="fa fa-edit"></i>
+										</a>
+										<a onclick="abrirModalEliminar(@item.PRSCODIGOI)" class="action-item text-danger mr-2" style="cursor: pointer; font-size:14px;" data-toggle="tooltip" title="Eliminar Prescripción">
+											<i class="fa fa-trash"></i>
+										</a>
+									</div>
+								</td>
+							</tr>
+						}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<br /><br />
+
+
+	@*Botones----------------------------------------------------------------------------------------------------------*@
+
+
+</div>
+
+<div class="row pr-5 ">
+	<div class="col-md-12" style="text-align:right">
+		<a href="/Antecedentes/Antecedentes?numEmp=@ViewBag.numEmp&codHist=@ViewBag.codHist" class="btn btn-success text-white">
+			Siguiente <i class="fa fa-arrow-circle-right"></i>
+		</a>
+	</div>
+</div>
+
+<div class="myModal" id="modalCrear" name="modalCrear"></div>
+<div class="myModal" id="modalEliminar" name="modalEliminar"></div>
+
+@*Scripts----------------------------------------------------------------------------------------------------------*@
+
+@section Scripts {
+	<script src="~/Scripts/jquery.dataTables.js"></script>
+	<script src="~/Scripts/Scripts/ScriptPlanes.js"></script>
+}

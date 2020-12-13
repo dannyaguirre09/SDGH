@@ -34,7 +34,6 @@
         <EntityTypeShape EntityType="BDClinicaModel.PERFILES" Width="1.5" PointX="13.75" PointY="18.875" IsExpanded="true" />
         <EntityTypeShape EntityType="BDClinicaModel.PIE_DESGLOSE" Width="1.5" PointX="10.5" PointY="13.875" IsExpanded="true" />
         <EntityTypeShape EntityType="BDClinicaModel.PIE_FACTURA" Width="1.5" PointX="15.25" PointY="4.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="BDClinicaModel.PRESCRIPCIONES" Width="1.5" PointX="5.25" PointY="41.375" IsExpanded="true" />
         <EntityTypeShape EntityType="BDClinicaModel.PROGRAMA" Width="1.5" PointX="8" PointY="2.5" IsExpanded="true" />
         <EntityTypeShape EntityType="BDClinicaModel.PROVEEDORES" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
         <EntityTypeShape EntityType="BDClinicaModel.SERVICIO_EMPRESA_CONVENIO" Width="1.5" PointX="10.5" PointY="10.125" IsExpanded="true" />
@@ -90,7 +89,6 @@
         <AssociationConnector Association="BDClinicaModel.FK_ENFERMED_RELATIONS_HISTORIA" />
         <AssociationConnector Association="BDClinicaModel.FK_HISTORIA_RELATIONS_PACIENTE" />
         <AssociationConnector Association="BDClinicaModel.FK_NOTAS_PO_RELATIONS_HISTORIA" />
-        <AssociationConnector Association="BDClinicaModel.FK_PRESCRIPCIONES_HISTORIA_CLINICA" />
         <EntityTypeShape EntityType="BDClinicaModel.CONSULTAS" Width="1.5" PointX="5.25" PointY="18.125" />
         <AssociationConnector Association="BDClinicaModel.FK_CONSULTA_RELATIONS_HISTORIA" />
         <EntityTypeShape EntityType="BDClinicaModel.LISTA_ANTECEDENTES" Width="1.5" PointX="22.625" PointY="7" />
@@ -123,6 +121,8 @@
         <AssociationConnector Association="BDClinicaModel.FK_DIAGNOST_RELATIONS_HISTORIA" />
         <AssociationConnector Association="BDClinicaModel.FK_DIAGNOST_RELATIONS_INDICES_" />
         <AssociationConnector Association="BDClinicaModel.FK_INDICES__RELATIONS_INDICES_" />
+        <EntityTypeShape EntityType="BDClinicaModel.PRESCRIPCIONES" Width="1.5" PointX="5" PointY="30.125" />
+        <AssociationConnector Association="BDClinicaModel.FK_PRESCRIPCIONES_HISTORIA_CLINICA" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -385,16 +385,6 @@
     <NavigationProperty Name="TARJETA_CREDITO" Relationship="Self.FK_PIE_FACT_TARJETAC__TARJETA_" FromRole="PIE_FACTURA" ToRole="TARJETA_CREDITO" />
     <NavigationProperty Name="FACTURA" Relationship="BDClinicaModel.FK_PIE_FACTURA_FACTURA" FromRole="PIE_FACTURA" ToRole="FACTURA" />
   </EntityType>
-  <EntityType Name="PRESCRIPCIONES">
-    <Key>
-      <PropertyRef Name="PRSCODIGOI" />
-    </Key>
-    <Property Name="PRSCODIGOI" Type="Int32" Nullable="false" />
-    <Property Name="HSCCODIGOI" Type="Int32" />
-    <Property Name="PRSFECHA" Type="DateTime" Precision="3" />
-    <Property Name="PRSDESCRIPCION" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="HISTORIA_CLINICA" Relationship="BDClinicaModel.FK_PRESCRIPCIONES_HISTORIA_CLINICA" FromRole="PRESCRIPCIONES" ToRole="HISTORIA_CLINICA" />
-  </EntityType>
   <EntityType Name="PROGRAMA">
     <Key>
       <PropertyRef Name="CODPROG" />
@@ -1021,7 +1011,6 @@
     <EntitySet Name="PERFILES" EntityType="Self.PERFILES" />
     <EntitySet Name="PIE_DESGLOSE" EntityType="Self.PIE_DESGLOSE" />
     <EntitySet Name="PIE_FACTURA" EntityType="Self.PIE_FACTURA" />
-    <EntitySet Name="PRESCRIPCIONES" EntityType="Self.PRESCRIPCIONES" />
     <EntitySet Name="PROGRAMA" EntityType="Self.PROGRAMA" />
     <EntitySet Name="PROVEEDORES" EntityType="Self.PROVEEDORES" />
     <EntitySet Name="SERVICIO_EMPRESA_CONVENIO" EntityType="Self.SERVICIO_EMPRESA_CONVENIO" />
@@ -1190,10 +1179,6 @@
     <AssociationSet Name="FK_NOTAS_PO_RELATIONS_HISTORIA" Association="BDClinicaModel.FK_NOTAS_PO_RELATIONS_HISTORIA">
       <End Role="HISTORIA_CLINICA" EntitySet="HISTORIA_CLINICA" />
       <End Role="NOTAS_POSTQUIRURGICAS" EntitySet="NOTAS_POSTQUIRURGICAS" />
-    </AssociationSet>
-    <AssociationSet Name="FK_PRESCRIPCIONES_HISTORIA_CLINICA" Association="BDClinicaModel.FK_PRESCRIPCIONES_HISTORIA_CLINICA">
-      <End Role="HISTORIA_CLINICA" EntitySet="HISTORIA_CLINICA" />
-      <End Role="PRESCRIPCIONES" EntitySet="PRESCRIPCIONES" />
     </AssociationSet>
     <FunctionImport Name="spInsert_HistoriaClinica" ReturnType="Collection(BDClinicaModel.spInsert_HistoriaClinica_Result)">
       <Parameter Name="PCTCODIGOI" Mode="In" Type="Int32" />
@@ -1368,6 +1353,11 @@
       <Parameter Name="DGNOBSERVACION" Mode="In" Type="String" />
       <Parameter Name="DGNTIPO" Mode="In" Type="String" />
     </FunctionImport>
+    <EntitySet Name="PRESCRIPCIONES" EntityType="BDClinicaModel.PRESCRIPCIONES" />
+    <AssociationSet Name="FK_PRESCRIPCIONES_HISTORIA_CLINICA" Association="BDClinicaModel.FK_PRESCRIPCIONES_HISTORIA_CLINICA">
+      <End Role="HISTORIA_CLINICA" EntitySet="HISTORIA_CLINICA" />
+      <End Role="PRESCRIPCIONES" EntitySet="PRESCRIPCIONES" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="HISTORIA_CLINICA">
     <Key>
@@ -1383,12 +1373,12 @@
     <NavigationProperty Name="ENFERMEDADES_ACTUALES" Relationship="BDClinicaModel.FK_ENFERMED_RELATIONS_HISTORIA" FromRole="HISTORIA_CLINICA" ToRole="ENFERMEDADES_ACTUALES" />
     <NavigationProperty Name="PACIENTE" Relationship="BDClinicaModel.FK_HISTORIA_RELATIONS_PACIENTE" FromRole="HISTORIA_CLINICA" ToRole="PACIENTE" />
     <NavigationProperty Name="NOTAS_POSTQUIRURGICAS" Relationship="BDClinicaModel.FK_NOTAS_PO_RELATIONS_HISTORIA" FromRole="HISTORIA_CLINICA" ToRole="NOTAS_POSTQUIRURGICAS" />
-    <NavigationProperty Name="PRESCRIPCIONES" Relationship="BDClinicaModel.FK_PRESCRIPCIONES_HISTORIA_CLINICA" FromRole="HISTORIA_CLINICA" ToRole="PRESCRIPCIONES" />
     <NavigationProperty Name="CONSULTAS" Relationship="BDClinicaModel.FK_CONSULTA_RELATIONS_HISTORIA" FromRole="HISTORIA_CLINICA" ToRole="CONSULTAS" />
     <NavigationProperty Name="HISTORIA_ANTECEDENTES" Relationship="BDClinicaModel.FK_HISTORIA_RELATIONS_HISTORIA" FromRole="HISTORIA_CLINICA" ToRole="HISTORIA_ANTECEDENTES" />
     <NavigationProperty Name="HISTORIA_CLINICA_SIGNOS_VITALES" Relationship="BDClinicaModel.FK_HISTORIA_RELATIONS_HISTORIA2" FromRole="HISTORIA_CLINICA" ToRole="HISTORIA_CLINICA_SIGNOS_VITALES" />
     <NavigationProperty Name="EXAMENES_FISICOS" Relationship="BDClinicaModel.FK_EXAMENES_RELATIONS_HISTORIA" FromRole="HISTORIA_CLINICA" ToRole="EXAMENES_FISICOS" />
     <NavigationProperty Name="DIAGNOSTICOS" Relationship="BDClinicaModel.FK_DIAGNOST_RELATIONS_HISTORIA" FromRole="HISTORIA_CLINICA" ToRole="DIAGNOSTICOS" />
+    <NavigationProperty Name="PRESCRIPCIONES" Relationship="BDClinicaModel.FK_PRESCRIPCIONES_HISTORIA_CLINICA" FromRole="HISTORIA_CLINICA" ToRole="PRESCRIPCIONES" />
   </EntityType>
   <Association Name="FK_DOCUMENT_RELATIONS_HISTORIA">
     <End Type="BDClinicaModel.HISTORIA_CLINICA" Role="HISTORIA_CLINICA" Multiplicity="0..1" />
@@ -1434,18 +1424,6 @@
         <PropertyRef Name="HSCCODIGOI" />
       </Principal>
       <Dependent Role="NOTAS_POSTQUIRURGICAS">
-        <PropertyRef Name="HSCCODIGOI" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_PRESCRIPCIONES_HISTORIA_CLINICA">
-    <End Type="BDClinicaModel.HISTORIA_CLINICA" Role="HISTORIA_CLINICA" Multiplicity="0..1" />
-    <End Type="BDClinicaModel.PRESCRIPCIONES" Role="PRESCRIPCIONES" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="HISTORIA_CLINICA">
-        <PropertyRef Name="HSCCODIGOI" />
-      </Principal>
-      <Dependent Role="PRESCRIPCIONES">
         <PropertyRef Name="HSCCODIGOI" />
       </Dependent>
     </ReferentialConstraint>
@@ -1881,6 +1859,28 @@
       </Principal>
       <Dependent Role="INDICES_CIE_SECUNDARIOS">
         <PropertyRef Name="ICPCODIGOI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="PRESCRIPCIONES">
+    <Key>
+      <PropertyRef Name="PRSCODIGOI" />
+    </Key>
+    <Property Name="PRSCODIGOI" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HSCCODIGOI" Type="Int32" />
+    <Property Name="PRSFECHA" Type="DateTime" Precision="3" />
+    <Property Name="PRSDESCRIPCION" Type="String" MaxLength="1500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="HISTORIA_CLINICA" Relationship="BDClinicaModel.FK_PRESCRIPCIONES_HISTORIA_CLINICA" FromRole="PRESCRIPCIONES" ToRole="HISTORIA_CLINICA" />
+  </EntityType>
+  <Association Name="FK_PRESCRIPCIONES_HISTORIA_CLINICA">
+    <End Type="BDClinicaModel.HISTORIA_CLINICA" Role="HISTORIA_CLINICA" Multiplicity="0..1" />
+    <End Type="BDClinicaModel.PRESCRIPCIONES" Role="PRESCRIPCIONES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HISTORIA_CLINICA">
+        <PropertyRef Name="HSCCODIGOI" />
+      </Principal>
+      <Dependent Role="PRESCRIPCIONES">
+        <PropertyRef Name="HSCCODIGOI" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

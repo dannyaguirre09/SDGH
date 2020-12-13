@@ -172,6 +172,7 @@
     <Compile Include="Controllers\HistoriaClinicaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PacienteController.cs" />
+    <Compile Include="Controllers\PlanesController.cs" />
     <Compile Include="Controllers\SignosVitalesController.cs" />
     <Compile Include="Controllers\TipoExamenFisicoController.cs" />
     <Compile Include="Models\BANCO.cs">
@@ -195,6 +196,7 @@
     <Compile Include="Models\DAO\ExamenFisicoDAO.cs" />
     <Compile Include="Models\DAO\HistoriaClinicaDAO.cs" />
     <Compile Include="Models\DAO\PacienteDAO.cs" />
+    <Compile Include="Models\DAO\PlanesDAO.cs" />
     <Compile Include="Models\DAO\SignosVitalesDAO.cs" />
     <Compile Include="Models\DAO\TipoExamenesFisicosDAO.cs" />
     <Compile Include="Models\DESGLOSE_MEDICAMENTOS.cs">
@@ -459,6 +461,7 @@
     <Content Include="Scripts\Scripts\ScriptExamenFisico.js" />
     <Content Include="Scripts\Scripts\ScriptHistoriaClinica.js" />
     <Content Include="Scripts\Scripts\ScriptPaciente.js" />
+    <Content Include="Scripts\Scripts\ScriptPlanes.js" />
     <Content Include="Scripts\Scripts\ScriptSignosVitales.js" />
     <Content Include="Scripts\Scripts\ScriptTipoExamenFisico.js" />
     <Content Include="Vendors\bootstrap-daterangepicker\daterangepicker.css" />
@@ -2125,6 +2128,9 @@
     <Content Include="Views\SignosVitales\SignosVitales.cshtml" />
     <Content Include="Views\ExamenFisico\ExamenFisico.cshtml" />
     <Content Include="Views\Diagnostico\Diagnostico.cshtml" />
+    <Content Include="Views\Planes\Index.cshtml" />
+    <Content Include="Views\Planes\CrearPrescripcion.cshtml" />
+    <Content Include="Views\Planes\Confirmacion.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -56,7 +56,6 @@ namespace SysFloricola.Models
         public virtual DbSet<PERFILES> PERFILES { get; set; }
         public virtual DbSet<PIE_DESGLOSE> PIE_DESGLOSE { get; set; }
         public virtual DbSet<PIE_FACTURA> PIE_FACTURA { get; set; }
-        public virtual DbSet<PRESCRIPCIONES> PRESCRIPCIONES { get; set; }
         public virtual DbSet<PROGRAMA> PROGRAMA { get; set; }
         public virtual DbSet<PROVEEDORES> PROVEEDORES { get; set; }
         public virtual DbSet<SERVICIO_EMPRESA_CONVENIO> SERVICIO_EMPRESA_CONVENIO { get; set; }
@@ -87,6 +86,7 @@ namespace SysFloricola.Models
         public virtual DbSet<DIAGNOSTICOS> DIAGNOSTICOS { get; set; }
         public virtual DbSet<INDICES_CIE_PRINCIPALES> INDICES_CIE_PRINCIPALES { get; set; }
         public virtual DbSet<INDICES_CIE_SECUNDARIOS> INDICES_CIE_SECUNDARIOS { get; set; }
+        public virtual DbSet<PRESCRIPCIONES> PRESCRIPCIONES { get; set; }
     
         public virtual ObjectResult<spInsert_HistoriaClinica_Result> spInsert_HistoriaClinica(Nullable<int> pCTCODIGOI, Nullable<int> hSCNUMERO, Nullable<System.DateTime> hSCFECHAAPERTURA, Nullable<System.DateTime> hSCHORA_APERTURA, string oBSERVACIONES)
         {

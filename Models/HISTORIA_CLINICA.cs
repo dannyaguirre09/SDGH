@@ -20,12 +20,12 @@ namespace SysFloricola.Models
             this.DOCUMENTOS = new HashSet<DOCUMENTOS>();
             this.ENFERMEDADES_ACTUALES = new HashSet<ENFERMEDADES_ACTUALES>();
             this.NOTAS_POSTQUIRURGICAS = new HashSet<NOTAS_POSTQUIRURGICAS>();
-            this.PRESCRIPCIONES = new HashSet<PRESCRIPCIONES>();
             this.CONSULTAS = new HashSet<CONSULTAS>();
             this.HISTORIA_ANTECEDENTES = new HashSet<HISTORIA_ANTECEDENTES>();
             this.HISTORIA_CLINICA_SIGNOS_VITALES = new HashSet<HISTORIA_CLINICA_SIGNOS_VITALES>();
             this.EXAMENES_FISICOS = new HashSet<EXAMENES_FISICOS>();
             this.DIAGNOSTICOS = new HashSet<DIAGNOSTICOS>();
+            this.PRESCRIPCIONES = new HashSet<PRESCRIPCIONES>();
         }
     
         public int HSCCODIGOI { get; set; }
@@ -43,8 +43,6 @@ namespace SysFloricola.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<NOTAS_POSTQUIRURGICAS> NOTAS_POSTQUIRURGICAS { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PRESCRIPCIONES> PRESCRIPCIONES { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CONSULTAS> CONSULTAS { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HISTORIA_ANTECEDENTES> HISTORIA_ANTECEDENTES { get; set; }
@@ -54,5 +52,7 @@ namespace SysFloricola.Models
         public virtual ICollection<EXAMENES_FISICOS> EXAMENES_FISICOS { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DIAGNOSTICOS> DIAGNOSTICOS { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PRESCRIPCIONES> PRESCRIPCIONES { get; set; }
     }
 }

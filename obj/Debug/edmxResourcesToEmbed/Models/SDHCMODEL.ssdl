@@ -468,10 +468,10 @@ advertencia 6002: La tabla o vista 'BDClinica.dbo.ORDEN_ESPECIALISTA' no tiene d
     <Key>
       <PropertyRef Name="PRSCODIGOI" />
     </Key>
-    <Property Name="PRSCODIGOI" Type="int" Nullable="false" />
+    <Property Name="PRSCODIGOI" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="HSCCODIGOI" Type="int" />
     <Property Name="PRSFECHA" Type="datetime" />
-    <Property Name="PRSDESCRIPCION" Type="varchar" MaxLength="150" />
+    <Property Name="PRSDESCRIPCION" Type="varchar" MaxLength="1500" />
   </EntityType>
   <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'BDClinica.dbo.PROGOPER' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
