@@ -26,9 +26,11 @@ namespace SysFloricola.Controllers
 		public ActionResult CrearPrescripcion(int codHist, int numEmp, int id = 0)
 		{
 			PRESCRIPCIONES obj = new PRESCRIPCIONES();
+			ViewBag.ESPCODIGOI = objDAO.Lista_Especialista(0);
 			if (id != 0)
 			{
 				obj = objDAO.Buscar_Prescripcion(id);
+				ViewBag.ESPCODIGOI = objDAO.Lista_Especialista(Convert.ToInt32(obj.ESPCODIGOI));
 			}
 			ViewBag.codHist = codHist;
 			ViewBag.numEmp = numEmp;

@@ -18,7 +18,9 @@ namespace SysFloricola.Models
         public Nullable<int> HSCCODIGOI { get; set; }
         public Nullable<System.DateTime> PRSFECHA { get; set; }
         public string PRSDESCRIPCION { get; set; }
+        public Nullable<int> ESPCODIGOI { get; set; }
     
+        public virtual ESPECIALISTA ESPECIALISTA { get; set; }
         public virtual HISTORIA_CLINICA HISTORIA_CLINICA { get; set; }
     }
 }

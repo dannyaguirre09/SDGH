@@ -15,12 +15,12 @@
 	<div class="container  pt-0">
 		<ul class="nav nav-tabs bar_tabs" role="tablist">
 			<li class="nav-item"><a href="/Paciente">Lista Pacientes</a></li>
-			<li class="nav-item"><a>Filiación</a></li>
-			<li class="nav-item"><a>Consulta</a></li>
-			<li class="nav-item"><a>Antecedentes</a></li>
-			<li class="nav-item"><a>Signos Vitales</a></li>
-			<li class="nav-item"><a>Exámenes Físicos</a></li>
-			<li class="nav-item"><a>Diagnóstico</a></li>
+			<li class="nav-item"><a href="/HistoriaClinica/Filiacion?numEmp=@ViewBag.numEmp&codHist=@ViewBag.codHist">Filiación</a></li>
+			<li class="nav-item"><a href="/Consulta/Consulta?numEmp=@ViewBag.numEmp&codHist=@ViewBag.codHist">Consulta</a></li>
+			<li class="nav-item"><a href="/Antecedentes/Antecedentes?numEmp=@ViewBag.numEmp&codHist=@ViewBag.codHist" >Antecedentes</a></li>
+			<li class="nav-item"><a  href="/SignosVitales/SignosVitales?numEmp=@ViewBag.numEmp&codHist=@ViewBag.codHist">Signos Vitales</a></li>
+			<li class="nav-item"><a href="/ExamenFisico/ExamenFisico?numEmp=@ViewBag.numEmp&codHist=@ViewBag.codHist">Exámenes Físicos</a></li>
+			<li class="nav-item"><a href="/Diagnostico/Diagnostico?numEmp=@ViewBag.numEmp&codHist=@ViewBag.codHist" >Diagnóstico</a></li>
 			<li class="nav-item" style="background-color:#2A3F54; color:white">
 				<a class="nav-item" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="antecedentes" aria-selected="true">Planes</a>
 			</li>
@@ -56,6 +56,9 @@
 								Motivo
 							</th>
 							<th scope="col">
+								Especialista
+							</th>
+							<th scope="col">
 								Fecha
 							</th>
 							<th scope="col">Acciones</th>
@@ -69,7 +72,7 @@
 									@{
 										try
 										{
-											@item.PRSDESCRIPCION.Substring(0, 80); <label style="color:black">....</label>
+											@item.PRSDESCRIPCION.Substring(0, 60); <label style="color:black">....</label>
 										}
 										catch (Exception)
 										{
@@ -78,6 +81,9 @@
 										}
 									}
 
+								</td>
+								<td class="text-left">
+									@item.ESPECIALISTA.ESPAPELLIDOP @item.ESPECIALISTA.ESPNOMBREC
 								</td>
 								<td class="text-right">
 									@item.PRSFECHA
@@ -108,9 +114,9 @@
 </div>
 
 <div class="row pr-5 ">
-	<div class="col-md-12" style="text-align:right">
+	<div hidden class="col-md-12" style="text-align:right">
 		<a href="/Antecedentes/Antecedentes?numEmp=@ViewBag.numEmp&codHist=@ViewBag.codHist" class="btn btn-success text-white">
-			Siguiente <i class="fa fa-arrow-circle-right"></i>
+			Buscar Paciente
 		</a>
 	</div>
 </div>

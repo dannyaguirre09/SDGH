@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="1483f7b06bdc4c55aea1a51e95ae7889" Name="Diagram1">
+      <Diagram DiagramId="1483f7b06bdc4c55aea1a51e95ae7889" Name="Diagram1" ZoomLevel="93">
         <EntityTypeShape EntityType="BDClinicaModel.BANCO" Width="1.5" PointX="10.75" PointY="5.5" IsExpanded="true" />
         <EntityTypeShape EntityType="BDClinicaModel.CLIENTEEXTERNO" Width="1.5" PointX="15.75" PointY="9.625" IsExpanded="true" />
         <EntityTypeShape EntityType="BDClinicaModel.CONTROL" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
@@ -17,7 +17,6 @@
         <EntityTypeShape EntityType="BDClinicaModel.DOCUMENTOS" Width="1.5" PointX="5.25" PointY="23.875" IsExpanded="true" />
         <EntityTypeShape EntityType="BDClinicaModel.EMPRESA_CONVENIO" Width="1.5" PointX="0.75" PointY="15.625" IsExpanded="true" />
         <EntityTypeShape EntityType="BDClinicaModel.ENFERMEDADES_ACTUALES" Width="1.5" PointX="5.25" PointY="26.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="BDClinicaModel.ESPECIALISTA" Width="1.5" PointX="6" PointY="9.375" IsExpanded="true" />
         <EntityTypeShape EntityType="BDClinicaModel.FORMA_PAGO" Width="1.5" PointX="13" PointY="11.5" IsExpanded="true" />
         <EntityTypeShape EntityType="BDClinicaModel.IMPUESTOS" Width="1.5" PointX="17.75" PointY="6.625" IsExpanded="true" />
         <EntityTypeShape EntityType="BDClinicaModel.INSUMOS_MEDICOS" Width="1.5" PointX="5.25" PointY="1.5" IsExpanded="true" />
@@ -64,8 +63,6 @@
         <AssociationConnector Association="BDClinicaModel.FK_DETALLE_ORDEN_CIRUGIA_TIPO_CIRUGIA" ManuallyRouted="false" />
         <AssociationConnector Association="BDClinicaModel.FK_ORDEN_CIRUGIA_EMPRESA_CONVENIO" ManuallyRouted="false" />
         <AssociationConnector Association="BDClinicaModel.FK_SERVICIO_EMPRESA_E_EMPRESA_" ManuallyRouted="false" />
-        <AssociationConnector Association="BDClinicaModel.FK_LIQUIDACION_FACTURAS_ESPECIALISTA" ManuallyRouted="false" />
-        <AssociationConnector Association="BDClinicaModel.FK_ORDEN_ESPECIALISTA_ESPECIALISTA" ManuallyRouted="false" />
         <AssociationConnector Association="BDClinicaModel.FK_PIE_FACT_FORMAPAGO_FORMA_PA" ManuallyRouted="false" />
         <AssociationConnector Association="BDClinicaModel.FK_INSUMOS__RELATIONS_PROVEEDO" ManuallyRouted="false" />
         <AssociationConnector Association="BDClinicaModel.FK_INSUMOS__RELATIONS_UNIDADES" ManuallyRouted="false" />
@@ -121,7 +118,11 @@
         <AssociationConnector Association="BDClinicaModel.FK_DIAGNOST_RELATIONS_HISTORIA" />
         <AssociationConnector Association="BDClinicaModel.FK_DIAGNOST_RELATIONS_INDICES_" />
         <AssociationConnector Association="BDClinicaModel.FK_INDICES__RELATIONS_INDICES_" />
-        <EntityTypeShape EntityType="BDClinicaModel.PRESCRIPCIONES" Width="1.5" PointX="5" PointY="30.125" />
+        <EntityTypeShape EntityType="BDClinicaModel.ESPECIALISTA" Width="1.5" PointX="3" PointY="27.375" />
+        <EntityTypeShape EntityType="BDClinicaModel.PRESCRIPCIONES" Width="1.5" PointX="8.25" PointY="23.25" />
+        <AssociationConnector Association="BDClinicaModel.FK_LIQUIDACION_FACTURAS_ESPECIALISTA" />
+        <AssociationConnector Association="BDClinicaModel.FK_ORDEN_ESPECIALISTA_ESPECIALISTA" />
+        <AssociationConnector Association="BDClinicaModel.FK_PRESCRIPCIONES_ESPECIALISTA" />
         <AssociationConnector Association="BDClinicaModel.FK_PRESCRIPCIONES_HISTORIA_CLINICA" />
         </Diagram>
     </edmx:Diagrams>

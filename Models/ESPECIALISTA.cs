@@ -19,6 +19,7 @@ namespace SysFloricola.Models
         {
             this.LIQUIDACION_FACTURAS = new HashSet<LIQUIDACION_FACTURAS>();
             this.ORDEN_ESPECIALISTA = new HashSet<ORDEN_ESPECIALISTA>();
+            this.PRESCRIPCIONES = new HashSet<PRESCRIPCIONES>();
         }
     
         public int ESPCODIGOI { get; set; }
@@ -36,5 +37,7 @@ namespace SysFloricola.Models
         public virtual ICollection<LIQUIDACION_FACTURAS> LIQUIDACION_FACTURAS { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ORDEN_ESPECIALISTA> ORDEN_ESPECIALISTA { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PRESCRIPCIONES> PRESCRIPCIONES { get; set; }
     }
 }

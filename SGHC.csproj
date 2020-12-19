@@ -346,10 +346,16 @@
     <Compile Include="Models\spInsert_HistoriaClinica_Result.cs">
       <DependentUpon>SDHCMODEL.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\spSelect_especialista_Result.cs">
+      <DependentUpon>SDHCMODEL.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\spSelect_HistoriaSignosVitales_Result.cs">
       <DependentUpon>SDHCMODEL.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\spSelect_Historia_antecedentes_Result.cs">
+      <DependentUpon>SDHCMODEL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spSelect_Paciente_Result.cs">
       <DependentUpon>SDHCMODEL.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
@@ -2118,7 +2124,7 @@
     <Content Include="Views\TipoExamenFisico\Index.cshtml" />
     <Content Include="Views\TipoExamenFisico\CrearTipoExamenFisico.cshtml" />
     <Content Include="Views\TipoExamenFisico\Confirmacion.cshtml" />
-    <Content Include="Views\Paciente\Index.cshtml" />
+    <Content Include="Views\Paciente\ListaPacientes.cshtml" />
     <Content Include="Views\Home\TimeLine.cshtml" />
     <Content Include="Views\HistoriaClinica\Filiacion.cshtml" />
     <Content Include="Views\Consulta\Consulta.cshtml" />
@@ -2131,6 +2137,7 @@
     <Content Include="Views\Planes\Index.cshtml" />
     <Content Include="Views\Planes\CrearPrescripcion.cshtml" />
     <Content Include="Views\Planes\Confirmacion.cshtml" />
+    <Content Include="Views\Paciente\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

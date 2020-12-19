@@ -10,16 +10,10 @@
 namespace SysFloricola.Models
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class ORDEN_ESPECIALISTA
+    public partial class spSelect_especialista_Result
     {
-        public int ORCCODIGOI { get; set; }
-        public int ESPCODIGOI { get; set; }
-        public int TPECODIGOI { get; set; }
-    
-        public virtual ORDEN_CIRUGIA ORDEN_CIRUGIA { get; set; }
-        public virtual TIPOESPECIALISTA TIPOESPECIALISTA { get; set; }
-        public virtual ESPECIALISTA ESPECIALISTA { get; set; }
+        public int espcodigoI { get; set; }
+        public string Nombres { get; set; }
     }
 }

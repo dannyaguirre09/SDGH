@@ -140,22 +140,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="ESPECIALISTA">
-      <EntityTypeMapping TypeName="BDClinicaModel.ESPECIALISTA">
-        <MappingFragment StoreEntitySet="ESPECIALISTA">
-          <ScalarProperty Name="ESPCODIGOI" ColumnName="ESPCODIGOI" />
-          <ScalarProperty Name="ESPCEDULAC" ColumnName="ESPCEDULAC" />
-          <ScalarProperty Name="ESPAPELLIDOP" ColumnName="ESPAPELLIDOP" />
-          <ScalarProperty Name="ESPAPELLIDOM" ColumnName="ESPAPELLIDOM" />
-          <ScalarProperty Name="ESPNOMBREC" ColumnName="ESPNOMBREC" />
-          <ScalarProperty Name="ESPFECHAN" ColumnName="ESPFECHAN" />
-          <ScalarProperty Name="ESPGENERO" ColumnName="ESPGENERO" />
-          <ScalarProperty Name="ESPDIRECCC" ColumnName="ESPDIRECCC" />
-          <ScalarProperty Name="ESPTELEFONOC" ColumnName="ESPTELEFONOC" />
-          <ScalarProperty Name="ESPTELEFONCEL" ColumnName="ESPTELEFONCEL" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="FORMA_PAGO">
       <EntityTypeMapping TypeName="BDClinicaModel.FORMA_PAGO">
         <MappingFragment StoreEntitySet="FORMA_PAGO">
@@ -789,9 +773,26 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <FunctionImportMapping FunctionImportName="spInsert_Diagnostico" FunctionName="BDClinicaModel.Store.spInsert_Diagnostico" />
+    <EntitySetMapping Name="ESPECIALISTA">
+      <EntityTypeMapping TypeName="BDClinicaModel.ESPECIALISTA">
+        <MappingFragment StoreEntitySet="ESPECIALISTA">
+          <ScalarProperty Name="ESPTELEFONCEL" ColumnName="ESPTELEFONCEL" />
+          <ScalarProperty Name="ESPTELEFONOC" ColumnName="ESPTELEFONOC" />
+          <ScalarProperty Name="ESPDIRECCC" ColumnName="ESPDIRECCC" />
+          <ScalarProperty Name="ESPGENERO" ColumnName="ESPGENERO" />
+          <ScalarProperty Name="ESPFECHAN" ColumnName="ESPFECHAN" />
+          <ScalarProperty Name="ESPNOMBREC" ColumnName="ESPNOMBREC" />
+          <ScalarProperty Name="ESPAPELLIDOM" ColumnName="ESPAPELLIDOM" />
+          <ScalarProperty Name="ESPAPELLIDOP" ColumnName="ESPAPELLIDOP" />
+          <ScalarProperty Name="ESPCEDULAC" ColumnName="ESPCEDULAC" />
+          <ScalarProperty Name="ESPCODIGOI" ColumnName="ESPCODIGOI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="PRESCRIPCIONES">
       <EntityTypeMapping TypeName="BDClinicaModel.PRESCRIPCIONES">
         <MappingFragment StoreEntitySet="PRESCRIPCIONES">
+          <ScalarProperty Name="ESPCODIGOI" ColumnName="ESPCODIGOI" />
           <ScalarProperty Name="PRSDESCRIPCION" ColumnName="PRSDESCRIPCION" />
           <ScalarProperty Name="PRSFECHA" ColumnName="PRSFECHA" />
           <ScalarProperty Name="HSCCODIGOI" ColumnName="HSCCODIGOI" />
@@ -799,5 +800,33 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="spSelect_especialista" FunctionName="BDClinicaModel.Store.spSelect_especialista">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BDClinicaModel.spSelect_especialista_Result">
+          <ScalarProperty Name="espcodigoI" ColumnName="espcodigoI" />
+          <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spSelect_Paciente" FunctionName="BDClinicaModel.Store.spSelect_Paciente">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BDClinicaModel.spSelect_Paciente_Result">
+          <ScalarProperty Name="PCTCODIGOI" ColumnName="PCTCODIGOI" />
+          <ScalarProperty Name="PCTCEDULAC" ColumnName="PCTCEDULAC" />
+          <ScalarProperty Name="PCTAPELLIDOP" ColumnName="PCTAPELLIDOP" />
+          <ScalarProperty Name="PCTAPELLIDOM" ColumnName="PCTAPELLIDOM" />
+          <ScalarProperty Name="PCTNOMBREC" ColumnName="PCTNOMBREC" />
+          <ScalarProperty Name="PCTFECHAN" ColumnName="PCTFECHAN" />
+          <ScalarProperty Name="PCTGENERO" ColumnName="PCTGENERO" />
+          <ScalarProperty Name="PCTTIPOS" ColumnName="PCTTIPOS" />
+          <ScalarProperty Name="PCTDIRECCC" ColumnName="PCTDIRECCC" />
+          <ScalarProperty Name="PCTTELEFONOC" ColumnName="PCTTELEFONOC" />
+          <ScalarProperty Name="PCTTELEFONCEL" ColumnName="PCTTELEFONCEL" />
+          <ScalarProperty Name="PCTCONTACTO" ColumnName="PCTCONTACTO" />
+          <ScalarProperty Name="PCTTELCONTACTO" ColumnName="PCTTELCONTACTO" />
+          <ScalarProperty Name="PCTMAILC" ColumnName="PCTMAILC" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

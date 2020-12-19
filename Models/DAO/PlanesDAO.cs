@@ -3,16 +3,27 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace SysFloricola.Models.DAO
 {
 	public class PlanesDAO
 	{
+
+		public SelectList Lista_Especialista(int id)
+		{
+			SDHCEntities db = new SDHCEntities();
+			if (id == 0)
+				return new SelectList(db.spSelect_especialista(), "espcodigoI", "Nombres");
+			else
+				return new SelectList(db.spSelect_especialista(), "espcodigoI", "Nombres", id);
+		}
+
 		public List<PRESCRIPCIONES> Lista_Prescripciones(int codHis)
 		{
 			using (SDHCEntities db = new SDHCEntities())
 			{
-				return db.PRESCRIPCIONES.Where(x => x.HSCCODIGOI == codHis).ToList();
+				return db.PRESCRIPCIONES.Include(x=> x.ESPECIALISTA).Where(x => x.HSCCODIGOI == codHis).ToList();
 			}
 		}
 

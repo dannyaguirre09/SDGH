@@ -15,8 +15,21 @@ namespace SysFloricola.Controllers
         // GET: Paciente
         public ActionResult Index()
         {
-			List<PACIENTE> lista = objDAO.Obtener_Pacientes();
+			List<PACIENTE> lista = new List<PACIENTE>();
             return View(lista);
         }
-    }
+
+		[HttpPost]
+		public ActionResult Index(int identificador, string descripcion)
+		{
+			List<PACIENTE> lista = objDAO.Buscar_Paciente(identificador, descripcion);
+			return View(lista);
+		}
+
+		public ActionResult ListaPacientes()
+		{
+			List<PACIENTE> lista = objDAO.Obtener_Pacientes();
+			return View(lista);
+		}
+	}
 }

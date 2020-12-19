@@ -39,7 +39,6 @@ namespace SysFloricola.Models
         public virtual DbSet<DOCUMENTOS> DOCUMENTOS { get; set; }
         public virtual DbSet<EMPRESA_CONVENIO> EMPRESA_CONVENIO { get; set; }
         public virtual DbSet<ENFERMEDADES_ACTUALES> ENFERMEDADES_ACTUALES { get; set; }
-        public virtual DbSet<ESPECIALISTA> ESPECIALISTA { get; set; }
         public virtual DbSet<FORMA_PAGO> FORMA_PAGO { get; set; }
         public virtual DbSet<IMPUESTOS> IMPUESTOS { get; set; }
         public virtual DbSet<INSUMOS_MEDICOS> INSUMOS_MEDICOS { get; set; }
@@ -86,6 +85,7 @@ namespace SysFloricola.Models
         public virtual DbSet<DIAGNOSTICOS> DIAGNOSTICOS { get; set; }
         public virtual DbSet<INDICES_CIE_PRINCIPALES> INDICES_CIE_PRINCIPALES { get; set; }
         public virtual DbSet<INDICES_CIE_SECUNDARIOS> INDICES_CIE_SECUNDARIOS { get; set; }
+        public virtual DbSet<ESPECIALISTA> ESPECIALISTA { get; set; }
         public virtual DbSet<PRESCRIPCIONES> PRESCRIPCIONES { get; set; }
     
         public virtual ObjectResult<spInsert_HistoriaClinica_Result> spInsert_HistoriaClinica(Nullable<int> pCTCODIGOI, Nullable<int> hSCNUMERO, Nullable<System.DateTime> hSCFECHAAPERTURA, Nullable<System.DateTime> hSCHORA_APERTURA, string oBSERVACIONES)
@@ -375,6 +375,24 @@ namespace SysFloricola.Models
                 new ObjectParameter("DGNTIPO", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spInsert_Diagnostico", dGNCODIGOIParameter, hSCCODIGOIParameter, iNSCODIGOIParameter, dGNOBSERVACIONParameter, dGNTIPOParameter);
+        }
+    
+        public virtual ObjectResult<spSelect_especialista_Result> spSelect_especialista()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spSelect_especialista_Result>("spSelect_especialista");
+        }
+    
+        public virtual ObjectResult<spSelect_Paciente_Result> spSelect_Paciente(string texto, Nullable<int> identificador)
+        {
+            var textoParameter = texto != null ?
+                new ObjectParameter("texto", texto) :
+                new ObjectParameter("texto", typeof(string));
+    
+            var identificadorParameter = identificador.HasValue ?
+                new ObjectParameter("identificador", identificador) :
+                new ObjectParameter("identificador", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spSelect_Paciente_Result>("spSelect_Paciente", textoParameter, identificadorParameter);
         }
     }
 }

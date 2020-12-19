@@ -147,23 +147,6 @@
     <Property Name="ENADESCRIPCION" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="HISTORIA_CLINICA" Relationship="BDClinicaModel.FK_ENFERMED_RELATIONS_HISTORIA" FromRole="ENFERMEDADES_ACTUALES" ToRole="HISTORIA_CLINICA" />
   </EntityType>
-  <EntityType Name="ESPECIALISTA">
-    <Key>
-      <PropertyRef Name="ESPCODIGOI" />
-    </Key>
-    <Property Name="ESPCODIGOI" Type="Int32" Nullable="false" />
-    <Property Name="ESPCEDULAC" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
-    <Property Name="ESPAPELLIDOP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="ESPAPELLIDOM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="ESPNOMBREC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="ESPFECHAN" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="ESPGENERO" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
-    <Property Name="ESPDIRECCC" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="ESPTELEFONOC" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
-    <Property Name="ESPTELEFONCEL" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="LIQUIDACION_FACTURAS" Relationship="Self.FK_LIQUIDACION_FACTURAS_ESPECIALISTA" FromRole="ESPECIALISTA" ToRole="LIQUIDACION_FACTURAS" />
-    <NavigationProperty Name="ORDEN_ESPECIALISTA" Relationship="Self.FK_ORDEN_ESPECIALISTA_ESPECIALISTA" FromRole="ESPECIALISTA" ToRole="ORDEN_ESPECIALISTA" />
-  </EntityType>
   <EntityType Name="FORMA_PAGO">
     <Key>
       <PropertyRef Name="FMPCODIGOI" />
@@ -218,7 +201,7 @@
     <Property Name="LQFFECHA" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="LQFESTADO" Type="Boolean" />
     <NavigationProperty Name="DETALLE_LIQUIDACION" Relationship="Self.FK_DETALLE_LIQUIDACION_LIQUIDACION_FACTURAS" FromRole="LIQUIDACION_FACTURAS" ToRole="DETALLE_LIQUIDACION" />
-    <NavigationProperty Name="ESPECIALISTA" Relationship="Self.FK_LIQUIDACION_FACTURAS_ESPECIALISTA" FromRole="LIQUIDACION_FACTURAS" ToRole="ESPECIALISTA" />
+    <NavigationProperty Name="ESPECIALISTA" Relationship="BDClinicaModel.FK_LIQUIDACION_FACTURAS_ESPECIALISTA" FromRole="LIQUIDACION_FACTURAS" ToRole="ESPECIALISTA" />
   </EntityType>
   <EntityType Name="MENUS">
     <Key>
@@ -527,9 +510,9 @@
     <Property Name="ORCCODIGOI" Type="Int32" Nullable="false" />
     <Property Name="ESPCODIGOI" Type="Int32" Nullable="false" />
     <Property Name="TPECODIGOI" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="ESPECIALISTA" Relationship="Self.FK_ORDEN_ESPECIALISTA_ESPECIALISTA" FromRole="ORDEN_ESPECIALISTA" ToRole="ESPECIALISTA" />
     <NavigationProperty Name="ORDEN_CIRUGIA" Relationship="Self.FK_ORDEN_ESPECIALISTA_ORDEN_CIRUGIA" FromRole="ORDEN_ESPECIALISTA" ToRole="ORDEN_CIRUGIA" />
     <NavigationProperty Name="TIPOESPECIALISTA" Relationship="Self.FK_ORDEN_ESPECIALISTA_TIPOESPECIALISTA" FromRole="ORDEN_ESPECIALISTA" ToRole="TIPOESPECIALISTA" />
+    <NavigationProperty Name="ESPECIALISTA" Relationship="BDClinicaModel.FK_ORDEN_ESPECIALISTA_ESPECIALISTA" FromRole="ORDEN_ESPECIALISTA" ToRole="ESPECIALISTA" />
   </EntityType>
   <EntityType Name="SRIRetencionCompraDetalle">
     <Key>
@@ -746,30 +729,6 @@
       </Principal>
       <Dependent Role="SERVICIO_EMPRESA_CONVENIO">
         <PropertyRef Name="EMCCODIGOI" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_LIQUIDACION_FACTURAS_ESPECIALISTA">
-    <End Role="ESPECIALISTA" Type="Self.ESPECIALISTA" Multiplicity="1" />
-    <End Role="LIQUIDACION_FACTURAS" Type="Self.LIQUIDACION_FACTURAS" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="ESPECIALISTA">
-        <PropertyRef Name="ESPCODIGOI" />
-      </Principal>
-      <Dependent Role="LIQUIDACION_FACTURAS">
-        <PropertyRef Name="ESPCODIGOI" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_ORDEN_ESPECIALISTA_ESPECIALISTA">
-    <End Role="ESPECIALISTA" Type="Self.ESPECIALISTA" Multiplicity="1" />
-    <End Role="ORDEN_ESPECIALISTA" Type="Self.ORDEN_ESPECIALISTA" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="ESPECIALISTA">
-        <PropertyRef Name="ESPCODIGOI" />
-      </Principal>
-      <Dependent Role="ORDEN_ESPECIALISTA">
-        <PropertyRef Name="ESPCODIGOI" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -994,7 +953,6 @@
     <EntitySet Name="DOCUMENTOS" EntityType="Self.DOCUMENTOS" />
     <EntitySet Name="EMPRESA_CONVENIO" EntityType="Self.EMPRESA_CONVENIO" />
     <EntitySet Name="ENFERMEDADES_ACTUALES" EntityType="Self.ENFERMEDADES_ACTUALES" />
-    <EntitySet Name="ESPECIALISTA" EntityType="Self.ESPECIALISTA" />
     <EntitySet Name="FORMA_PAGO" EntityType="Self.FORMA_PAGO" />
     <EntitySet Name="IMPUESTOS" EntityType="Self.IMPUESTOS" />
     <EntitySet Name="INSUMOS_MEDICOS" EntityType="Self.INSUMOS_MEDICOS" />
@@ -1082,14 +1040,6 @@
     <AssociationSet Name="FK_SERVICIO_EMPRESA_E_EMPRESA_" Association="Self.FK_SERVICIO_EMPRESA_E_EMPRESA_">
       <End Role="EMPRESA_CONVENIO" EntitySet="EMPRESA_CONVENIO" />
       <End Role="SERVICIO_EMPRESA_CONVENIO" EntitySet="SERVICIO_EMPRESA_CONVENIO" />
-    </AssociationSet>
-    <AssociationSet Name="FK_LIQUIDACION_FACTURAS_ESPECIALISTA" Association="Self.FK_LIQUIDACION_FACTURAS_ESPECIALISTA">
-      <End Role="ESPECIALISTA" EntitySet="ESPECIALISTA" />
-      <End Role="LIQUIDACION_FACTURAS" EntitySet="LIQUIDACION_FACTURAS" />
-    </AssociationSet>
-    <AssociationSet Name="FK_ORDEN_ESPECIALISTA_ESPECIALISTA" Association="Self.FK_ORDEN_ESPECIALISTA_ESPECIALISTA">
-      <End Role="ESPECIALISTA" EntitySet="ESPECIALISTA" />
-      <End Role="ORDEN_ESPECIALISTA" EntitySet="ORDEN_ESPECIALISTA" />
     </AssociationSet>
     <AssociationSet Name="FK_PIE_FACT_FORMAPAGO_FORMA_PA" Association="Self.FK_PIE_FACT_FORMAPAGO_FORMA_PA">
       <End Role="FORMA_PAGO" EntitySet="FORMA_PAGO" />
@@ -1353,11 +1303,29 @@
       <Parameter Name="DGNOBSERVACION" Mode="In" Type="String" />
       <Parameter Name="DGNTIPO" Mode="In" Type="String" />
     </FunctionImport>
+    <EntitySet Name="ESPECIALISTA" EntityType="BDClinicaModel.ESPECIALISTA" />
     <EntitySet Name="PRESCRIPCIONES" EntityType="BDClinicaModel.PRESCRIPCIONES" />
+    <AssociationSet Name="FK_LIQUIDACION_FACTURAS_ESPECIALISTA" Association="BDClinicaModel.FK_LIQUIDACION_FACTURAS_ESPECIALISTA">
+      <End Role="ESPECIALISTA" EntitySet="ESPECIALISTA" />
+      <End Role="LIQUIDACION_FACTURAS" EntitySet="LIQUIDACION_FACTURAS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ORDEN_ESPECIALISTA_ESPECIALISTA" Association="BDClinicaModel.FK_ORDEN_ESPECIALISTA_ESPECIALISTA">
+      <End Role="ESPECIALISTA" EntitySet="ESPECIALISTA" />
+      <End Role="ORDEN_ESPECIALISTA" EntitySet="ORDEN_ESPECIALISTA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PRESCRIPCIONES_ESPECIALISTA" Association="BDClinicaModel.FK_PRESCRIPCIONES_ESPECIALISTA">
+      <End Role="ESPECIALISTA" EntitySet="ESPECIALISTA" />
+      <End Role="PRESCRIPCIONES" EntitySet="PRESCRIPCIONES" />
+    </AssociationSet>
     <AssociationSet Name="FK_PRESCRIPCIONES_HISTORIA_CLINICA" Association="BDClinicaModel.FK_PRESCRIPCIONES_HISTORIA_CLINICA">
       <End Role="HISTORIA_CLINICA" EntitySet="HISTORIA_CLINICA" />
       <End Role="PRESCRIPCIONES" EntitySet="PRESCRIPCIONES" />
     </AssociationSet>
+    <FunctionImport Name="spSelect_especialista" ReturnType="Collection(BDClinicaModel.spSelect_especialista_Result)" />
+    <FunctionImport Name="spSelect_Paciente" ReturnType="Collection(BDClinicaModel.spSelect_Paciente_Result)">
+      <Parameter Name="texto" Mode="In" Type="String" />
+      <Parameter Name="identificador" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="HISTORIA_CLINICA">
     <Key>
@@ -1862,6 +1830,24 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="ESPECIALISTA">
+    <Key>
+      <PropertyRef Name="ESPCODIGOI" />
+    </Key>
+    <Property Name="ESPCODIGOI" Type="Int32" Nullable="false" />
+    <Property Name="ESPCEDULAC" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="ESPAPELLIDOP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ESPAPELLIDOM" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ESPNOMBREC" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ESPFECHAN" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ESPGENERO" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="ESPDIRECCC" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="ESPTELEFONOC" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="ESPTELEFONCEL" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="LIQUIDACION_FACTURAS" Relationship="BDClinicaModel.FK_LIQUIDACION_FACTURAS_ESPECIALISTA" FromRole="ESPECIALISTA" ToRole="LIQUIDACION_FACTURAS" />
+    <NavigationProperty Name="ORDEN_ESPECIALISTA" Relationship="BDClinicaModel.FK_ORDEN_ESPECIALISTA_ESPECIALISTA" FromRole="ESPECIALISTA" ToRole="ORDEN_ESPECIALISTA" />
+    <NavigationProperty Name="PRESCRIPCIONES" Relationship="BDClinicaModel.FK_PRESCRIPCIONES_ESPECIALISTA" FromRole="ESPECIALISTA" ToRole="PRESCRIPCIONES" />
+  </EntityType>
   <EntityType Name="PRESCRIPCIONES">
     <Key>
       <PropertyRef Name="PRSCODIGOI" />
@@ -1870,8 +1856,46 @@
     <Property Name="HSCCODIGOI" Type="Int32" />
     <Property Name="PRSFECHA" Type="DateTime" Precision="3" />
     <Property Name="PRSDESCRIPCION" Type="String" MaxLength="1500" FixedLength="false" Unicode="false" />
+    <Property Name="ESPCODIGOI" Type="Int32" />
+    <NavigationProperty Name="ESPECIALISTA" Relationship="BDClinicaModel.FK_PRESCRIPCIONES_ESPECIALISTA" FromRole="PRESCRIPCIONES" ToRole="ESPECIALISTA" />
     <NavigationProperty Name="HISTORIA_CLINICA" Relationship="BDClinicaModel.FK_PRESCRIPCIONES_HISTORIA_CLINICA" FromRole="PRESCRIPCIONES" ToRole="HISTORIA_CLINICA" />
   </EntityType>
+  <Association Name="FK_LIQUIDACION_FACTURAS_ESPECIALISTA">
+    <End Type="BDClinicaModel.ESPECIALISTA" Role="ESPECIALISTA" Multiplicity="1" />
+    <End Type="BDClinicaModel.LIQUIDACION_FACTURAS" Role="LIQUIDACION_FACTURAS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESPECIALISTA">
+        <PropertyRef Name="ESPCODIGOI" />
+      </Principal>
+      <Dependent Role="LIQUIDACION_FACTURAS">
+        <PropertyRef Name="ESPCODIGOI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ORDEN_ESPECIALISTA_ESPECIALISTA">
+    <End Type="BDClinicaModel.ESPECIALISTA" Role="ESPECIALISTA" Multiplicity="1" />
+    <End Type="BDClinicaModel.ORDEN_ESPECIALISTA" Role="ORDEN_ESPECIALISTA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESPECIALISTA">
+        <PropertyRef Name="ESPCODIGOI" />
+      </Principal>
+      <Dependent Role="ORDEN_ESPECIALISTA">
+        <PropertyRef Name="ESPCODIGOI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PRESCRIPCIONES_ESPECIALISTA">
+    <End Type="BDClinicaModel.ESPECIALISTA" Role="ESPECIALISTA" Multiplicity="0..1" />
+    <End Type="BDClinicaModel.PRESCRIPCIONES" Role="PRESCRIPCIONES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESPECIALISTA">
+        <PropertyRef Name="ESPCODIGOI" />
+      </Principal>
+      <Dependent Role="PRESCRIPCIONES">
+        <PropertyRef Name="ESPCODIGOI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_PRESCRIPCIONES_HISTORIA_CLINICA">
     <End Type="BDClinicaModel.HISTORIA_CLINICA" Role="HISTORIA_CLINICA" Multiplicity="0..1" />
     <End Type="BDClinicaModel.PRESCRIPCIONES" Role="PRESCRIPCIONES" Multiplicity="*" />
@@ -1884,4 +1908,24 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <ComplexType Name="spSelect_especialista_Result">
+    <Property Type="Int32" Name="espcodigoI" Nullable="false" />
+    <Property Type="String" Name="Nombres" Nullable="false" MaxLength="152" />
+  </ComplexType>
+  <ComplexType Name="spSelect_Paciente_Result">
+    <Property Type="Int32" Name="PCTCODIGOI" Nullable="false" />
+    <Property Type="String" Name="PCTCEDULAC" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="PCTAPELLIDOP" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="PCTAPELLIDOM" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="PCTNOMBREC" Nullable="false" MaxLength="50" />
+    <Property Type="DateTime" Name="PCTFECHAN" Nullable="false" Precision="23" />
+    <Property Type="String" Name="PCTGENERO" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="PCTTIPOS" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="PCTDIRECCC" Nullable="false" MaxLength="60" />
+    <Property Type="String" Name="PCTTELEFONOC" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="PCTTELEFONCEL" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="PCTCONTACTO" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PCTTELCONTACTO" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="PCTMAILC" Nullable="true" MaxLength="50" />
+  </ComplexType>
 </Schema>

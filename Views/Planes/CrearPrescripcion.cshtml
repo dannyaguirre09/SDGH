@@ -15,21 +15,27 @@
 			{
 				@Html.AntiForgeryToken()
 
-				<div class="form-horizontal pl-3 pr-3">
-					@Html.ValidationSummary(true, "", new { @class = "text-danger" })
-					@Html.HiddenFor(model => model.PRSCODIGOI)
-					@Html.HiddenFor(model => model.PRSFECHA)
-					@Html.HiddenFor(model => model.HSCCODIGOI)
-					<input type="text" value="@ViewBag.codHist" id="codHist" name="codHist" hidden />
-					<input type="text" value="@ViewBag.numEmp" id="numEmp" name="numEmp" hidden />
-					<div class="row">
-						<div class="col-md-12">
-							<label class="control-label">Ingrese la descripción</label>
-							@Html.TextAreaFor(model => model.PRSDESCRIPCION,new { @class = "form-control", @id = "txtDescripcion",@rows="12", @style="resize: none;", @maxlength="1250" } )
-							<label id="descripcion" hidden class="text-danger control-label">Ingrese una Descripción</label>
-						</div>
+			<div class="form-horizontal pl-3 pr-3">
+				@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+				@Html.HiddenFor(model => model.PRSCODIGOI)
+				@Html.HiddenFor(model => model.PRSFECHA)
+				@Html.HiddenFor(model => model.HSCCODIGOI)
+				<input type="text" value="@ViewBag.codHist" id="codHist" name="codHist" hidden />
+				<input type="text" value="@ViewBag.numEmp" id="numEmp" name="numEmp" hidden />
+				<div class="row">
+					<div class="col-md-6 form-group">
+						<label class="control-label">Especialista</label>
+						@Html.DropDownList("ESPCODIGOI", null, htmlAttributes: new { @class = "form-control" })
 					</div>
 				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<label class="control-label">Ingrese la descripción</label>
+						@Html.TextAreaFor(model => model.PRSDESCRIPCION, new { @class = "form-control", @id = "txtDescripcion", @rows = "9", @style = "resize: none;", @maxlength = "1250" })
+						<label id="descripcion" hidden class="text-danger control-label">Ingrese una Descripción</label>
+					</div>
+				</div>
+			</div>
 				<br />
 				<div class="row">
 					<div class="col-md-12" style="text-align:right">

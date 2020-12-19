@@ -20,9 +20,14 @@ namespace SysFloricola.Controllers
 				return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 			ViewBag.TPACODIGOI = objDAO.Lista_TipoAntecedentes();
 			ViewBag.numEmp = numEmp;
-			ViewBag.codHist = codHist;
+			ViewBag.codHist = codHist;			
 			return View();
         }
+
+		public int suma()
+		{
+			return 0;
+		}
 
 		public JsonResult ListaAntecedentes(int idTipoAntecedente, int idHistoria)
 		{

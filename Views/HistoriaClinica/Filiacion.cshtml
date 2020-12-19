@@ -10,17 +10,37 @@
 <div class="row pt-2 pb-4">
 	<div class=" pl-5 pr-5 col-md-5 text-center">@Html.Partial("~/Views/Shared/_Flash.cshtml")</div> <br />
 	<div class="container  pt-0">
-		<ul class="nav nav-tabs bar_tabs" role="tablist">
-			<li class="nav-item">
-				<a href="/Paciente">Lista Pacientes</a>
-			</li>
-			<li class="nav-item" style="background-color:#2A3F54; color:white">
-				<a class="nav-item" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="filiacion" aria-selected="true">Filiación</a>
-			</li>
-			<li class="nav-item"><a>Consulta</a></li>
-			<li class="nav-item"><a>Antecedentes</a></li>
-			<li class="nav-item"><a>Signos Vitales</a></li>
-		</ul>
+		@if (Model.HSCCODIGOI > 0)
+		{
+			<ul class="nav nav-tabs bar_tabs" role="tablist">
+				<li class="nav-item"><a href="/Paciente">Lista Pacientes</a></li>
+				<li class="nav-item" style="background-color:#2A3F54; color:white">
+					<a class="nav-item" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="antecedentes" aria-selected="true">Filiación</a>
+				</li>			
+				<li class="nav-item"><a href="/Consulta/Consulta?numEmp=@Model.PCTCODIGOI&codHist=@Model.HSCCODIGOI">Consulta</a></li>
+				<li class="nav-item"><a href="/Antecedentes/Antecedentes?numEmp=@Model.PCTCODIGOI&codHist=@Model.HSCCODIGOI">Antecedentes</a></li>
+				<li class="nav-item"><a href="/SignosVitales/SignosVitales?numEmp=@Model.PCTCODIGOI&codHist=@Model.HSCCODIGOI">Signos Vitales</a></li>
+				<li class="nav-item"><a href="/ExamenFisico/ExamenFisico?numEmp=@Model.PCTCODIGOI&codHist=@Model.HSCCODIGOI">Exámenes Físicos</a></li>
+				<li class="nav-item"><a href="/Diagnostico/Diagnostico?numEmp=@Model.PCTCODIGOI&codHist=@Model.HSCCODIGOI">Diagnóstico</a></li>
+				<li class="nav-item"><a href="/Planes?numEmp=@Model.PCTCODIGOI&codHist=@Model.HSCCODIGOI">Planes</a></li>
+			</ul>
+		}
+		else
+		{
+			<ul class="nav nav-tabs bar_tabs" role="tablist">
+				<li class="nav-item"><a href="/Paciente">Lista Pacientes</a></li>
+				<li class="nav-item" style="background-color:#2A3F54; color:white">
+					<a class="nav-item" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="antecedentes" aria-selected="true">Filiación</a>
+				</li>			
+				<li class="nav-item"><a >Consulta</a></li>
+				<li class="nav-item"><a >Antecedentes</a></li>
+				<li class="nav-item"><a >Signos Vitales</a></li>
+				<li class="nav-item"><a >Exámenes Físicos</a></li>
+				<li class="nav-item"><a >Diagnóstico</a></li>
+				<li class="nav-item"><a >Planes</a></li>
+			</ul>
+		}
+		
 		<br />
 	</div>
 
@@ -33,10 +53,10 @@
 
 			string fechaApertura = Convert.ToDateTime(Model.HSCFECHAAPERTURA).ToString("yyyy-MM-dd");
 			string horaApertura =  Convert.ToDateTime(Model.HSCHORA_APERTURA).ToString("HH:mm");
-			string nombreBoton = "Guardar";
+			string nombreBoton = "Crear Historia Clínica";
 			if (Model.HSCCODIGOI != 0)
 			{
-				nombreBoton = "Editar";
+				nombreBoton = "Siguiente";
 			}
 			
 
@@ -98,7 +118,7 @@
 						<i class="fa fa-arrow-circle-left"></i> Regresar
 					</a>
 					<button type="submit" class="btn btn-success text-white">
-						@nombreBoton <i class="fa fa-save"></i>
+						@nombreBoton <i class="fa fa-arrow-circle-right"></i>
 					</button>
 				</div>
 			</div>

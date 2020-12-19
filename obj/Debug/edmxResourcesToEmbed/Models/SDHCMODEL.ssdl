@@ -472,6 +472,7 @@ advertencia 6002: La tabla o vista 'BDClinica.dbo.ORDEN_ESPECIALISTA' no tiene d
     <Property Name="HSCCODIGOI" Type="int" />
     <Property Name="PRSFECHA" Type="datetime" />
     <Property Name="PRSDESCRIPCION" Type="varchar" MaxLength="1500" />
+    <Property Name="ESPCODIGOI" Type="int" />
   </EntityType>
   <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'BDClinica.dbo.PROGOPER' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
@@ -1281,6 +1282,18 @@ advertencia 6002: La tabla o vista 'BDClinica.dbo.TEMP_ORDENES' no tiene definid
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_PRESCRIPCIONES_ESPECIALISTA">
+    <End Role="ESPECIALISTA" Type="Self.ESPECIALISTA" Multiplicity="0..1" />
+    <End Role="PRESCRIPCIONES" Type="Self.PRESCRIPCIONES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESPECIALISTA">
+        <PropertyRef Name="ESPCODIGOI" />
+      </Principal>
+      <Dependent Role="PRESCRIPCIONES">
+        <PropertyRef Name="ESPCODIGOI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_PRESCRIPCIONES_HISTORIA_CLINICA">
     <End Role="HISTORIA_CLINICA" Type="Self.HISTORIA_CLINICA" Multiplicity="0..1" />
     <End Role="PRESCRIPCIONES" Type="Self.PRESCRIPCIONES" Multiplicity="*" />
@@ -1463,12 +1476,17 @@ advertencia 6002: La tabla o vista 'BDClinica.dbo.TEMP_ORDENES' no tiene definid
     <Parameter Name="hsccodigoi" Type="int" Mode="In" />
     <Parameter Name="hsvvalores" Type="varchar" Mode="In" />
   </Function>
+  <Function Name="spSelect_especialista" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="spSelect_Historia_antecedentes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="LSACODIGOI" Type="int" Mode="In" />
     <Parameter Name="HSCCODIGOI" Type="int" Mode="In" />
   </Function>
   <Function Name="spSelect_HistoriaSignosVitales" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="HSCCODIGOI" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spSelect_Paciente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="texto" Type="varchar" Mode="In" />
+    <Parameter Name="identificador" Type="int" Mode="In" />
   </Function>
   <Function Name="spUpdate_HistoriaClinica" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="HSCCODIGOI" Type="int" Mode="In" />
@@ -1785,6 +1803,10 @@ advertencia 6002: La tabla o vista 'BDClinica.dbo.TEMP_ORDENES' no tiene definid
     <AssociationSet Name="FK_PIE_FACTURA_FACTURA" Association="Self.FK_PIE_FACTURA_FACTURA">
       <End Role="FACTURA" EntitySet="FACTURA" />
       <End Role="PIE_FACTURA" EntitySet="PIE_FACTURA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PRESCRIPCIONES_ESPECIALISTA" Association="Self.FK_PRESCRIPCIONES_ESPECIALISTA">
+      <End Role="ESPECIALISTA" EntitySet="ESPECIALISTA" />
+      <End Role="PRESCRIPCIONES" EntitySet="PRESCRIPCIONES" />
     </AssociationSet>
     <AssociationSet Name="FK_PRESCRIPCIONES_HISTORIA_CLINICA" Association="Self.FK_PRESCRIPCIONES_HISTORIA_CLINICA">
       <End Role="HISTORIA_CLINICA" EntitySet="HISTORIA_CLINICA" />

@@ -73,9 +73,7 @@ namespace SysFloricola.Models.DAO
 			}
 			return respuesta;
 		}
-			
-
-
+				
 	}
 
 	public class Antecedentes
