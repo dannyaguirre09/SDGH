@@ -223,6 +223,8 @@
     <NavigationProperty Name="MODULOS1" Relationship="Self.FK_MODULOS_MODULOS" FromRole="MODULOS" ToRole="MODULOS1" />
     <NavigationProperty Name="MODULOS2" Relationship="Self.FK_MODULOS_MODULOS" FromRole="MODULOS1" ToRole="MODULOS" />
     <NavigationProperty Name="MODULOS_PERFILES" Relationship="Self.FK_MODULOS_PERFILES_MODULOS" FromRole="MODULOS" ToRole="MODULOS_PERFILES" />
+    <Property Name="MODCONTROLADOR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ORDEN" Type="Int32" />
   </EntityType>
   <EntityType Name="MODULOS_PERFILES">
     <Key>
@@ -1326,6 +1328,27 @@
       <Parameter Name="texto" Mode="In" Type="String" />
       <Parameter Name="identificador" Mode="In" Type="Int32" />
     </FunctionImport>
+    <FunctionImport Name="spActualizar_Password">
+      <Parameter Name="USRCODIGOI" Mode="In" Type="Int32" />
+      <Parameter Name="USRPASSWORD" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spSelect_Menu_Acceso" ReturnType="Collection(BDClinicaModel.spSelect_Menu_Acceso_Result)">
+      <Parameter Name="USRCODIGOI" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spSelect_permisos_controlador" ReturnType="Collection(String)">
+      <Parameter Name="CodigoUsuario" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spSelect_SubMenu" ReturnType="Collection(BDClinicaModel.spSelect_SubMenu_Result)">
+      <Parameter Name="MODCODIGOI" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spSelect_usuario">
+      <Parameter Name="USRLOGIN" Mode="In" Type="String" />
+      <Parameter Name="USRPASSWORD" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spSelect_usuario1" ReturnType="Collection(BDClinicaModel.spSelect_usuario1_Result)">
+      <Parameter Name="USRLOGIN" Mode="In" Type="String" />
+      <Parameter Name="USRPASSWORD" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="HISTORIA_CLINICA">
     <Key>
@@ -1927,5 +1950,28 @@
     <Property Type="String" Name="PCTCONTACTO" Nullable="true" MaxLength="50" />
     <Property Type="String" Name="PCTTELCONTACTO" Nullable="true" MaxLength="10" />
     <Property Type="String" Name="PCTMAILC" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="spSelect_Menu_Acceso_Result">
+    <Property Type="Int32" Name="MODCODIGOI" Nullable="false" />
+    <Property Type="String" Name="MODDESCRIPCION" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="MODURL" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="MODNIVEL" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spSelect_SubMenu_Result">
+    <Property Type="Int32" Name="MODCODIGOI" Nullable="false" />
+    <Property Type="String" Name="MODDESCRIPCION" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="MODURL" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="MODNIVEL" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spSelect_usuario1_Result">
+    <Property Type="Int32" Name="USRCODIGOI" Nullable="false" />
+    <Property Type="String" Name="USRCEDULAC" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="USRAPELLIDOP" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="USRAPELLIDOM" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="USRNOMBREC" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="USRLOGIN" Nullable="false" MaxLength="150" />
+    <Property Type="String" Name="USRPASSWORD" Nullable="false" MaxLength="150" />
+    <Property Type="Boolean" Name="USRESTADO" Nullable="false" />
+    <Property Type="Boolean" Name="USRESTADOCAMBIO" Nullable="true" />
   </ComplexType>
 </Schema>

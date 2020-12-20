@@ -6,10 +6,12 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using SysFloricola.Filter;
 
 namespace SysFloricola.Controllers
 {
-    public class ExamenFisicoController : Controller
+	[SecurityFilter]
+	public class ExamenFisicoController : Controller
     {
 		private ExamenFisicoDAO objDao = new ExamenFisicoDAO();
 

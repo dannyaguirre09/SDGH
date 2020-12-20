@@ -1,4 +1,5 @@
-﻿using SysFloricola.Models;
+﻿using SysFloricola.Filter;
+using SysFloricola.Models;
 using SysFloricola.Models.DAO;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ using System.Web.Mvc;
 
 namespace SysFloricola.Controllers
 {
+	[SecurityFilter]
     public class AntecedentesController : Controller
     {
 		private AntecedentesDAO objDAO = new AntecedentesDAO();

@@ -394,5 +394,71 @@ namespace SysFloricola.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spSelect_Paciente_Result>("spSelect_Paciente", textoParameter, identificadorParameter);
         }
+    
+        public virtual int spActualizar_Password(Nullable<int> uSRCODIGOI, string uSRPASSWORD)
+        {
+            var uSRCODIGOIParameter = uSRCODIGOI.HasValue ?
+                new ObjectParameter("USRCODIGOI", uSRCODIGOI) :
+                new ObjectParameter("USRCODIGOI", typeof(int));
+    
+            var uSRPASSWORDParameter = uSRPASSWORD != null ?
+                new ObjectParameter("USRPASSWORD", uSRPASSWORD) :
+                new ObjectParameter("USRPASSWORD", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spActualizar_Password", uSRCODIGOIParameter, uSRPASSWORDParameter);
+        }
+    
+        public virtual ObjectResult<spSelect_Menu_Acceso_Result> spSelect_Menu_Acceso(Nullable<int> uSRCODIGOI)
+        {
+            var uSRCODIGOIParameter = uSRCODIGOI.HasValue ?
+                new ObjectParameter("USRCODIGOI", uSRCODIGOI) :
+                new ObjectParameter("USRCODIGOI", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spSelect_Menu_Acceso_Result>("spSelect_Menu_Acceso", uSRCODIGOIParameter);
+        }
+    
+        public virtual ObjectResult<string> spSelect_permisos_controlador(Nullable<int> codigoUsuario)
+        {
+            var codigoUsuarioParameter = codigoUsuario.HasValue ?
+                new ObjectParameter("CodigoUsuario", codigoUsuario) :
+                new ObjectParameter("CodigoUsuario", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("spSelect_permisos_controlador", codigoUsuarioParameter);
+        }
+    
+        public virtual ObjectResult<spSelect_SubMenu_Result> spSelect_SubMenu(Nullable<int> mODCODIGOI)
+        {
+            var mODCODIGOIParameter = mODCODIGOI.HasValue ?
+                new ObjectParameter("MODCODIGOI", mODCODIGOI) :
+                new ObjectParameter("MODCODIGOI", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spSelect_SubMenu_Result>("spSelect_SubMenu", mODCODIGOIParameter);
+        }
+    
+        public virtual int spSelect_usuario(string uSRLOGIN, string uSRPASSWORD)
+        {
+            var uSRLOGINParameter = uSRLOGIN != null ?
+                new ObjectParameter("USRLOGIN", uSRLOGIN) :
+                new ObjectParameter("USRLOGIN", typeof(string));
+    
+            var uSRPASSWORDParameter = uSRPASSWORD != null ?
+                new ObjectParameter("USRPASSWORD", uSRPASSWORD) :
+                new ObjectParameter("USRPASSWORD", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spSelect_usuario", uSRLOGINParameter, uSRPASSWORDParameter);
+        }
+    
+        public virtual ObjectResult<spSelect_usuario1_Result> spSelect_usuario1(string uSRLOGIN, string uSRPASSWORD)
+        {
+            var uSRLOGINParameter = uSRLOGIN != null ?
+                new ObjectParameter("USRLOGIN", uSRLOGIN) :
+                new ObjectParameter("USRLOGIN", typeof(string));
+    
+            var uSRPASSWORDParameter = uSRPASSWORD != null ?
+                new ObjectParameter("USRPASSWORD", uSRPASSWORD) :
+                new ObjectParameter("USRPASSWORD", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spSelect_usuario1_Result>("spSelect_usuario1", uSRLOGINParameter, uSRPASSWORDParameter);
+        }
     }
 }

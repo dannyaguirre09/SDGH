@@ -60,9 +60,31 @@
                         <div class="menu_section">
                             <h3>General</h3>
 							<ul class="nav side-menu">
-								
-								
-								
+
+								@{
+									List<SysFloricola.Models.spSelect_Menu_Acceso_Result> listaMenu = new List<SysFloricola.Models.spSelect_Menu_Acceso_Result>();
+									List<SysFloricola.Models.spSelect_SubMenu_Result> listaSubMenu = new List<SysFloricola.Models.spSelect_SubMenu_Result>();
+									MenuController obj = new MenuController();
+									listaMenu = obj.ObtenerListaMenu(Convert.ToInt32(Session["CodigoUsuario"]));
+									foreach (var item in listaMenu)
+									{
+										<li>
+											<a><i class="@item.MODURL"></i>@item.MODDESCRIPCION <span class="fa fa-chevron-down"></span></a>
+											<ul class="nav child_menu">
+												@{
+													listaSubMenu = obj.ObtenerSubMenu(item.MODCODIGOI);
+													foreach (var subMenu in listaSubMenu)
+													{
+														string url = subMenu.MODURL;
+														<li><a href="~/@url"> @subMenu.MODDESCRIPCION</a></li>
+													}
+												}
+
+											</ul>
+										</li>
+									}
+								}
+
 							</ul>
                         </div>
 

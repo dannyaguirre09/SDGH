@@ -338,6 +338,8 @@
           <Property Name="MODDESCRIPCION" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="MODURL" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="MODNIVEL" Type="int" />
+          <Property Name="MODCONTROLADOR" Type="varchar" MaxLength="50" />
+          <Property Name="ORDEN" Type="int" />
         </EntityType>
         <EntityType Name="MODULOS_PERFILES">
           <Key>
@@ -1442,6 +1444,10 @@ advertencia 6002: La tabla o vista 'BDClinica.dbo.TEMP_ORDENES' no tiene definid
           <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spActualizar_Password" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="USRCODIGOI" Type="int" Mode="In" />
+          <Parameter Name="USRPASSWORD" Type="varchar(max)" Mode="In" />
+        </Function>
         <Function Name="spInsert_Diagnostico" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="DGNCODIGOI" Type="int" Mode="In" />
           <Parameter Name="HSCCODIGOI" Type="int" Mode="In" />
@@ -1489,9 +1495,26 @@ advertencia 6002: La tabla o vista 'BDClinica.dbo.TEMP_ORDENES' no tiene definid
         <Function Name="spSelect_HistoriaSignosVitales" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="HSCCODIGOI" Type="int" Mode="In" />
         </Function>
+        <Function Name="spSelect_Menu_Acceso" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="USRCODIGOI" Type="int" Mode="In" />
+        </Function>
         <Function Name="spSelect_Paciente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="texto" Type="varchar" Mode="In" />
           <Parameter Name="identificador" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spSelect_permisos_controlador" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CodigoUsuario" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spSelect_SubMenu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MODCODIGOI" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spSelect_usuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="USRLOGIN" Type="varchar" Mode="In" />
+          <Parameter Name="USRPASSWORD" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="spSelect_usuario1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="USRLOGIN" Type="varchar" Mode="In" />
+          <Parameter Name="USRPASSWORD" Type="varchar" Mode="In" />
         </Function>
         <Function Name="spUpdate_HistoriaClinica" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="HSCCODIGOI" Type="int" Mode="In" />
@@ -2077,6 +2100,8 @@ advertencia 6002: La tabla o vista 'BDClinica.dbo.TEMP_ORDENES' no tiene definid
           <NavigationProperty Name="MODULOS1" Relationship="Self.FK_MODULOS_MODULOS" FromRole="MODULOS" ToRole="MODULOS1" />
           <NavigationProperty Name="MODULOS2" Relationship="Self.FK_MODULOS_MODULOS" FromRole="MODULOS1" ToRole="MODULOS" />
           <NavigationProperty Name="MODULOS_PERFILES" Relationship="Self.FK_MODULOS_PERFILES_MODULOS" FromRole="MODULOS" ToRole="MODULOS_PERFILES" />
+          <Property Name="MODCONTROLADOR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ORDEN" Type="Int32" />
         </EntityType>
         <EntityType Name="MODULOS_PERFILES">
           <Key>
@@ -3180,6 +3205,27 @@ advertencia 6002: La tabla o vista 'BDClinica.dbo.TEMP_ORDENES' no tiene definid
             <Parameter Name="texto" Mode="In" Type="String" />
             <Parameter Name="identificador" Mode="In" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="spActualizar_Password">
+            <Parameter Name="USRCODIGOI" Mode="In" Type="Int32" />
+            <Parameter Name="USRPASSWORD" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spSelect_Menu_Acceso" ReturnType="Collection(BDClinicaModel.spSelect_Menu_Acceso_Result)">
+          <Parameter Name="USRCODIGOI" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spSelect_permisos_controlador" ReturnType="Collection(String)">
+          <Parameter Name="CodigoUsuario" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spSelect_SubMenu" ReturnType="Collection(BDClinicaModel.spSelect_SubMenu_Result)">
+          <Parameter Name="MODCODIGOI" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spSelect_usuario">
+            <Parameter Name="USRLOGIN" Mode="In" Type="String" />
+            <Parameter Name="USRPASSWORD" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spSelect_usuario1" ReturnType="Collection(BDClinicaModel.spSelect_usuario1_Result)">
+            <Parameter Name="USRLOGIN" Mode="In" Type="String" />
+            <Parameter Name="USRPASSWORD" Mode="In" Type="String" />
+          </FunctionImport>
           </EntityContainer>
         <EntityType Name="HISTORIA_CLINICA">
           <Key>
@@ -3782,6 +3828,29 @@ advertencia 6002: La tabla o vista 'BDClinica.dbo.TEMP_ORDENES' no tiene definid
           <Property Type="String" Name="PCTTELCONTACTO" Nullable="true" MaxLength="10" />
           <Property Type="String" Name="PCTMAILC" Nullable="true" MaxLength="50" />
         </ComplexType>
+        <ComplexType Name="spSelect_Menu_Acceso_Result">
+          <Property Type="Int32" Name="MODCODIGOI" Nullable="false" />
+          <Property Type="String" Name="MODDESCRIPCION" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="MODURL" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="MODNIVEL" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="spSelect_SubMenu_Result">
+          <Property Type="Int32" Name="MODCODIGOI" Nullable="false" />
+          <Property Type="String" Name="MODDESCRIPCION" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="MODURL" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="MODNIVEL" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="spSelect_usuario1_Result">
+          <Property Type="Int32" Name="USRCODIGOI" Nullable="false" />
+          <Property Type="String" Name="USRCEDULAC" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="USRAPELLIDOP" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="USRAPELLIDOM" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="USRNOMBREC" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="USRLOGIN" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="USRPASSWORD" Nullable="false" MaxLength="150" />
+          <Property Type="Boolean" Name="USRESTADO" Nullable="false" />
+          <Property Type="Boolean" Name="USRESTADOCAMBIO" Nullable="true" />
+        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -3993,6 +4062,8 @@ advertencia 6002: La tabla o vista 'BDClinica.dbo.TEMP_ORDENES' no tiene definid
           <EntitySetMapping Name="MODULOS">
             <EntityTypeMapping TypeName="BDClinicaModel.MODULOS">
               <MappingFragment StoreEntitySet="MODULOS">
+                <ScalarProperty Name="ORDEN" ColumnName="ORDEN" />
+                <ScalarProperty Name="MODCONTROLADOR" ColumnName="MODCONTROLADOR" />
                 <ScalarProperty Name="MODCODIGOI" ColumnName="MODCODIGOI" />
                 <ScalarProperty Name="MODDESCRIPCION" ColumnName="MODDESCRIPCION" />
                 <ScalarProperty Name="MODURL" ColumnName="MODURL" />
@@ -4612,6 +4683,44 @@ advertencia 6002: La tabla o vista 'BDClinica.dbo.TEMP_ORDENES' no tiene definid
                 <ScalarProperty Name="PCTCONTACTO" ColumnName="PCTCONTACTO" />
                 <ScalarProperty Name="PCTTELCONTACTO" ColumnName="PCTTELCONTACTO" />
                 <ScalarProperty Name="PCTMAILC" ColumnName="PCTMAILC" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spActualizar_Password" FunctionName="BDClinicaModel.Store.spActualizar_Password" />
+          <FunctionImportMapping FunctionImportName="spSelect_Menu_Acceso" FunctionName="BDClinicaModel.Store.spSelect_Menu_Acceso">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BDClinicaModel.spSelect_Menu_Acceso_Result">
+                <ScalarProperty Name="MODCODIGOI" ColumnName="MODCODIGOI" />
+                <ScalarProperty Name="MODDESCRIPCION" ColumnName="MODDESCRIPCION" />
+                <ScalarProperty Name="MODURL" ColumnName="MODURL" />
+                <ScalarProperty Name="MODNIVEL" ColumnName="MODNIVEL" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spSelect_permisos_controlador" FunctionName="BDClinicaModel.Store.spSelect_permisos_controlador" />
+          <FunctionImportMapping FunctionImportName="spSelect_SubMenu" FunctionName="BDClinicaModel.Store.spSelect_SubMenu">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BDClinicaModel.spSelect_SubMenu_Result">
+                <ScalarProperty Name="MODCODIGOI" ColumnName="MODCODIGOI" />
+                <ScalarProperty Name="MODDESCRIPCION" ColumnName="MODDESCRIPCION" />
+                <ScalarProperty Name="MODURL" ColumnName="MODURL" />
+                <ScalarProperty Name="MODNIVEL" ColumnName="MODNIVEL" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spSelect_usuario" FunctionName="BDClinicaModel.Store.spSelect_usuario" />
+          <FunctionImportMapping FunctionImportName="spSelect_usuario1" FunctionName="BDClinicaModel.Store.spSelect_usuario1">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BDClinicaModel.spSelect_usuario1_Result">
+                <ScalarProperty Name="USRCODIGOI" ColumnName="USRCODIGOI" />
+                <ScalarProperty Name="USRCEDULAC" ColumnName="USRCEDULAC" />
+                <ScalarProperty Name="USRAPELLIDOP" ColumnName="USRAPELLIDOP" />
+                <ScalarProperty Name="USRAPELLIDOM" ColumnName="USRAPELLIDOM" />
+                <ScalarProperty Name="USRNOMBREC" ColumnName="USRNOMBREC" />
+                <ScalarProperty Name="USRLOGIN" ColumnName="USRLOGIN" />
+                <ScalarProperty Name="USRPASSWORD" ColumnName="USRPASSWORD" />
+                <ScalarProperty Name="USRESTADO" ColumnName="USRESTADO" />
+                <ScalarProperty Name="USRESTADOCAMBIO" ColumnName="USRESTADOCAMBIO" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

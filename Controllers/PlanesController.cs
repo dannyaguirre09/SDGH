@@ -6,10 +6,12 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using SysFloricola.Filter;
 
 namespace SysFloricola.Controllers
 {
-    public class PlanesController : Controller
+	[SecurityFilter] 
+	public class PlanesController : Controller
     {
 		private PlanesDAO objDAO = new PlanesDAO();
 

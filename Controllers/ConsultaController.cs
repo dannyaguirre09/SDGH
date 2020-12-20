@@ -3,10 +3,12 @@ using SysFloricola.Models;
 using System;
 using System.Net;
 using System.Web.Mvc;
+using SysFloricola.Filter;
 
 namespace SysFloricola.Controllers
 {
-    public class ConsultaController : Controller
+	[SecurityFilter]
+	public class ConsultaController : Controller
     {
 		private ConsultaDAO objDao = new ConsultaDAO();
 

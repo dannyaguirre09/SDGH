@@ -1,4 +1,5 @@
-﻿using SysFloricola.Models;
+﻿using SysFloricola.Filter;
+using SysFloricola.Models;
 using SysFloricola.Models.DAO;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,8 @@ using System.Web.Mvc;
 
 namespace SysFloricola.Controllers
 {
-    public class PacienteController : Controller
+	[SecurityFilter]
+	public class PacienteController : Controller
     {
 		private PacienteDAO objDAO = new PacienteDAO();
 

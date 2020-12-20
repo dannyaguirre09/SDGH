@@ -6,9 +6,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Net;
+using SysFloricola.Filter;
 
 namespace SysFloricola.Controllers
 {
+	[SecurityFilter]
 	public class HistoriaClinicaController : Controller
 	{
 		private HistoriaClinicaDAO objDAO = new HistoriaClinicaDAO();

@@ -4,10 +4,12 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Web.Mvc;
+using SysFloricola.Filter;
 
 namespace SysFloricola.Controllers
 {
-    public class SignosVitalesController : Controller
+	[SecurityFilter] 
+	public class SignosVitalesController : Controller
     {
 		private SignosVitalesDAO objDao = new SignosVitalesDAO();
 

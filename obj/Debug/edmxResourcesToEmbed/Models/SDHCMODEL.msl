@@ -206,6 +206,8 @@
     <EntitySetMapping Name="MODULOS">
       <EntityTypeMapping TypeName="BDClinicaModel.MODULOS">
         <MappingFragment StoreEntitySet="MODULOS">
+          <ScalarProperty Name="ORDEN" ColumnName="ORDEN" />
+          <ScalarProperty Name="MODCONTROLADOR" ColumnName="MODCONTROLADOR" />
           <ScalarProperty Name="MODCODIGOI" ColumnName="MODCODIGOI" />
           <ScalarProperty Name="MODDESCRIPCION" ColumnName="MODDESCRIPCION" />
           <ScalarProperty Name="MODURL" ColumnName="MODURL" />
@@ -825,6 +827,44 @@
           <ScalarProperty Name="PCTCONTACTO" ColumnName="PCTCONTACTO" />
           <ScalarProperty Name="PCTTELCONTACTO" ColumnName="PCTTELCONTACTO" />
           <ScalarProperty Name="PCTMAILC" ColumnName="PCTMAILC" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spActualizar_Password" FunctionName="BDClinicaModel.Store.spActualizar_Password" />
+    <FunctionImportMapping FunctionImportName="spSelect_Menu_Acceso" FunctionName="BDClinicaModel.Store.spSelect_Menu_Acceso">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BDClinicaModel.spSelect_Menu_Acceso_Result">
+          <ScalarProperty Name="MODCODIGOI" ColumnName="MODCODIGOI" />
+          <ScalarProperty Name="MODDESCRIPCION" ColumnName="MODDESCRIPCION" />
+          <ScalarProperty Name="MODURL" ColumnName="MODURL" />
+          <ScalarProperty Name="MODNIVEL" ColumnName="MODNIVEL" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spSelect_permisos_controlador" FunctionName="BDClinicaModel.Store.spSelect_permisos_controlador" />
+    <FunctionImportMapping FunctionImportName="spSelect_SubMenu" FunctionName="BDClinicaModel.Store.spSelect_SubMenu">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BDClinicaModel.spSelect_SubMenu_Result">
+          <ScalarProperty Name="MODCODIGOI" ColumnName="MODCODIGOI" />
+          <ScalarProperty Name="MODDESCRIPCION" ColumnName="MODDESCRIPCION" />
+          <ScalarProperty Name="MODURL" ColumnName="MODURL" />
+          <ScalarProperty Name="MODNIVEL" ColumnName="MODNIVEL" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spSelect_usuario" FunctionName="BDClinicaModel.Store.spSelect_usuario" />
+    <FunctionImportMapping FunctionImportName="spSelect_usuario1" FunctionName="BDClinicaModel.Store.spSelect_usuario1">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BDClinicaModel.spSelect_usuario1_Result">
+          <ScalarProperty Name="USRCODIGOI" ColumnName="USRCODIGOI" />
+          <ScalarProperty Name="USRCEDULAC" ColumnName="USRCEDULAC" />
+          <ScalarProperty Name="USRAPELLIDOP" ColumnName="USRAPELLIDOP" />
+          <ScalarProperty Name="USRAPELLIDOM" ColumnName="USRAPELLIDOM" />
+          <ScalarProperty Name="USRNOMBREC" ColumnName="USRNOMBREC" />
+          <ScalarProperty Name="USRLOGIN" ColumnName="USRLOGIN" />
+          <ScalarProperty Name="USRPASSWORD" ColumnName="USRPASSWORD" />
+          <ScalarProperty Name="USRESTADO" ColumnName="USRESTADO" />
+          <ScalarProperty Name="USRESTADOCAMBIO" ColumnName="USRESTADOCAMBIO" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>

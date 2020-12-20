@@ -5,10 +5,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using SysFloricola.Filter;
 
 namespace SysFloricola.Controllers
 {
-    public class TipoExamenFisicoController : Controller
+	[SecurityFilter]
+	public class TipoExamenFisicoController : Controller
     {
 		private TipoExamenesFisicosDAO objDAO = new TipoExamenesFisicosDAO();
 

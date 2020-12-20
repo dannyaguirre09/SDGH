@@ -333,6 +333,8 @@
     <Property Name="MODDESCRIPCION" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="MODURL" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="MODNIVEL" Type="int" />
+    <Property Name="MODCONTROLADOR" Type="varchar" MaxLength="50" />
+    <Property Name="ORDEN" Type="int" />
   </EntityType>
   <EntityType Name="MODULOS_PERFILES">
     <Key>
@@ -1437,6 +1439,10 @@ advertencia 6002: La tabla o vista 'BDClinica.dbo.TEMP_ORDENES' no tiene definid
     <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
   </Function>
   <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="spActualizar_Password" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="USRCODIGOI" Type="int" Mode="In" />
+    <Parameter Name="USRPASSWORD" Type="varchar(max)" Mode="In" />
+  </Function>
   <Function Name="spInsert_Diagnostico" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="DGNCODIGOI" Type="int" Mode="In" />
     <Parameter Name="HSCCODIGOI" Type="int" Mode="In" />
@@ -1484,9 +1490,26 @@ advertencia 6002: La tabla o vista 'BDClinica.dbo.TEMP_ORDENES' no tiene definid
   <Function Name="spSelect_HistoriaSignosVitales" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="HSCCODIGOI" Type="int" Mode="In" />
   </Function>
+  <Function Name="spSelect_Menu_Acceso" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="USRCODIGOI" Type="int" Mode="In" />
+  </Function>
   <Function Name="spSelect_Paciente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="texto" Type="varchar" Mode="In" />
     <Parameter Name="identificador" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spSelect_permisos_controlador" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CodigoUsuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spSelect_SubMenu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MODCODIGOI" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spSelect_usuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="USRLOGIN" Type="varchar" Mode="In" />
+    <Parameter Name="USRPASSWORD" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spSelect_usuario1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="USRLOGIN" Type="varchar" Mode="In" />
+    <Parameter Name="USRPASSWORD" Type="varchar" Mode="In" />
   </Function>
   <Function Name="spUpdate_HistoriaClinica" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="HSCCODIGOI" Type="int" Mode="In" />
